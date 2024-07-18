@@ -42,21 +42,108 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
     isolation: isolate;
 }
+
+ul {
+    list-style: none;
+}
 /* CSS RESET END */
+
+main {
+    min-height: 1vh;
+}
+
+.main_background {
+    min-height: 703px;
+}
 
 .navbar {
     height: 100px;
     width: auto;
-    border: 2px red solid;
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 6fr;
     align-items: center;
-    justify-content: space-around;
-    padding: 10px 50px;
+    justify-content: space-evenly;
+    column-gap: 10px;
+    padding: 10px 100px;
     position: sticky;
     top: 0;
 }
+
+.navbar_list {
+    display: flex;
+    gap: 60px;
+    justify-content: space-around;
+}
+
+.navbar_list-element span {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
 
 .navbar_logo {
     width: 150px;
     height: 112px;
 }
+
+.main_background {
+    background-image: url("../media/the-founder-of-oakley-is-selling-their-brutalist-mansion-v0-o9zs06h2qk8d1.webp.png");
+    background-color: #ccc;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.main_welcome {
+    align-items: center;
+    text-align: center;
+    width: 600px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main_welcome h1 {
+    font-family: Cardo, sans-serif;
+    font-size: 38px;
+    font-weight: 350;
+}
+
+.main_welcome span {
+    font-size: 18px;
+}
+
+.main_welcome-button {
+    background-color: rgb(17, 17, 17);
+    color: rgb(249, 249, 249);
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: Inter, sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.main_footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 100px auto 50px auto;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.socials {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
