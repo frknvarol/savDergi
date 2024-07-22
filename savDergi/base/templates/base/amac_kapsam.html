@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block content%}
+
+<div class="amac-kapsam">
+    <h1>Amaç ve Kapsam</h1>
+
+    <div class="amac-kapsam_first-div">
+        <p>
+            <strong>Sav Hukuk Araştırmaları Dergisi,</strong> yılda bir sayı (Kasım) olmak üzere yalnızca elektronik ortamda yayımlanan hakemli bir dergidir. Bu dergi adı “<em>Sav Dergi</em>” kısaltmasını kullanmaktadır.
+        </p>
+
+        <figure class="amac-kapsam_figure">
+            {% load static %}
+            <img class="amac-kapsam_image" src="{% static 'savDergi/media/museum.webp' %}" alt="">
+        </figure>
+        
+    </div>
+
+    <div class="amac-kapsam_second-div">
+        <p class="amac-kapsam_second-div-p1" ><strong>Sav Hukuk Araştırmaları Dergisi</strong>'nde  hukuk ve/veya hukukla ilişkilendirilebilen disiplinler arası nitelikteki özgün bilimsel çalışmalar, özellikle araştırma makaleleri, karar incelemeleri, mevzuat değerlendirmeleri, kitap incelemeleri ve çeviriler (gerek uluslararası mahkeme kararları gerek makale çevirileri) yayımlanmaktadır. <strong>Sav Hukuk Araştırmaları Dergisi</strong> ile hukuk alanında ulusal ve uluslararası literatüre katkı sağlanması amaçlanmaktadır.</p>
+
+        <p class="amac-kapsam_second-div-p2"><strong>Sav Hukuk Araştırmaları Dergisi</strong>‘nde, Türkçe hazırlanmış hukuk ve/veya hukukla ilişkilendirilebilen disiplinler arası nitelikteki çalışmalara ek olarak, yayın kurulu tarafından uygun görülecek diğer yabancı dillerde (Almanca, İngilizce, Fransızca vb.) hazırlanmış bilimsel çalışmaların da yayımlanması mümkündür.</p>
+    </div>
+</div>
+
+
+{% endblock content%}

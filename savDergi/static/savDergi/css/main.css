@@ -46,14 +46,20 @@ p, h1, h2, h3, h4, h5, h6 {
 ul {
     list-style: none;
 }
+
+a:link, a:visited {
+    color: black;
+    text-decoration: none;
+}
 /* CSS RESET END */
 
 main {
     min-height: 1vh;
 }
 
+
 .main_background {
-    min-height: 703px;
+    margin-bottom: 20px;
 }
 
 .navbar {
@@ -64,7 +70,7 @@ main {
     grid-template-columns: 1fr 6fr;
     align-items: center;
     justify-content: space-evenly;
-    column-gap: 10px;
+    column-gap: 200px;
     padding: 10px 100px;
     position: sticky;
     top: 0;
@@ -72,7 +78,7 @@ main {
 
 .navbar_list {
     display: flex;
-    gap: 60px;
+    gap: 30px;
     justify-content: space-around;
 }
 
@@ -87,13 +93,6 @@ main {
     height: 112px;
 }
 
-.main_background {
-    background-image: url("../media/the-founder-of-oakley-is-selling-their-brutalist-mansion-v0-o9zs06h2qk8d1.webp.png");
-    background-color: #ccc;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
 
 .main_welcome {
     align-items: center;
@@ -127,11 +126,15 @@ main {
 
 }
 
+.main_welcome-button:hover {
+    background-color: #636363;
+}
+
 .main_footer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
+    align-items: start;
     margin: 100px auto 50px auto;
 }
 
@@ -146,4 +149,82 @@ main {
     flex-direction: column;
     gap: 10px;
 }
+
+.home-image {
+    height: 80%;
+    width: 80%;
+    margin: auto;
+    border-radius: 30px;
+}
+
+.amac-kapsam h1 {
+    display: inline-block;
+    font-size: 53px;
+    font-weight: 400;
+    font-family: Cardo;
+}
+
+.amac-kapsam {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.amac-kapsam_first-div {
+    display: flex;
+    flex-direction: row;
+    gap: min(5rem, 6vw);
+}
+
+.amac-kapsam_first-div > * {
+    flex: 1;
+}
+
+.amac-kapsam_image {
+    border-radius: 24px;
+}
+
+.amac-kapsam h1 {
+    margin-top: 150px;
+    text-align: center;
+}
+
+.amac-kapsam_first-div {
+    background-color: rgb(207, 202, 190);
+    padding: 104px 200px;
+}
+
+.amac-kapsam_first-div p {
+    line-height: 1.2;
+    display: block;
+    font-size: clamp(1.85rem, 1.85rem + ((1vw - 0.2rem) * 1.083), 2.5rem);
+    font-family: Cardo;
+    font-weight: 400;
+}
+
+.amac-kapsam_second-div p {
+    display: inline-block;
+}
+
+.amac-kapsam_second-div {
+    display: flex;
+    margin:  0 104px;
+    padding: 0 96px;
+    gap: min(4rem, 5vw);
+}
+
+.amac-kapsam_second-div-p1 {
+    font-size: 17px;
+    font-family: Inter, sans-serif;
+    margin-right: 236px;
+    flex: 1;
+}
+
+.amac-kapsam_second-div-p2 {
+    line-height: 48px;
+    flex: 3;
+    font-size: 40px;
+    font-family: Cardo;
+}
+
 
