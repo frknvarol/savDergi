@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Sav Dergi</title>
-    <link rel="stylesheet" href="../css/main.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'savDergi/css/main.css' %}">
 </head>
 <body>
 
@@ -14,7 +15,7 @@
 
             <div class="navbar">
 
-                <img class="navbar_logo" src="../media/sav-dergi-logo.png" alt="Sav Dergi">
+                <img class="navbar_logo" src="{% static 'savDergi/media/sav-dergi-logo.png' %}" alt="Sav Dergi">
 
                 <ul class="navbar_list">
                     <li class="navbar_list-element">
