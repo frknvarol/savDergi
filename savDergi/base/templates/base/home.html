@@ -1,73 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sav Dergi</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'savDergi/css/main.css' %}">
-</head>
-<body>
+{% extends 'main.html' %}
 
-    <main>
+{% block content %}
 
-        <nav class="main_background">
+<main>
 
 
-            <div class="navbar">
+    <div class="main_welcome">
+        <h1>Hoş Geldiniz!</h1>
+        <span>Bizler, Çukurova Üniversitesi Hukuk Fakültesi öğrencileri tarafından oluşturulan Sav Derginin yönetim kurulu ekibiyiz.
+            Malumunuz üzere hukuk, yalnızca uygulamaya değil aynı zamanda metodolojik yaklaşımlara dayalı bir bilim dalıdır. Dolayısıyla akademik araştırmalar biz müstakbel hukukçuların bir hayli ilgisini çekmekte. Ancak ne yazık ki belli başlı üniversiteler hariç öğrencilerin akademik araştırma safhalarına katılması mümkün değildir. Bu bağlamda, bir grup tutkulu hukuk öğrencileri bizler, geleceğin hukukçularını şekillendirmek amacıyla bir araya gelerek bu projenin temelini atmış bulunuyoruz.</span>
 
-                <img class="navbar_logo" src="{% static 'savDergi/media/sav-dergi-logo.png' %}" alt="Sav Dergi">
-
-                <ul class="navbar_list">
-                    <li class="navbar_list-element">
-                        <span>Ana Sayfa</span>
-                    </li>
-
-                    <li class="navbar_list-element">
-                        <span>Amaç ve Kapsam</span>
-                    </li>
-
-                    <li class="navbar_list-element">
-                        <span>Misyonumuz</span>
-                    </li>
-
-                    <li class="navbar_list-element">
-                        <span>Etik İlkeler ve Yayım Politikası</span>
-                    </li>
-
-                    <li class="navbar_list-element">
-                        <span>Yazım Kuralları</span>
-                    </li>
-                </ul>
+        <a class="main_welcome-button"><span>Misyonumuz</span></a>
+    </div>
 
 
-            </div>
-        </nav>
+</main>
 
-        <div class="main_welcome">
-            <h1>Hoş Geldiniz!</h1>
-            <span>Bizler, Çukurova Üniversitesi Hukuk Fakültesi öğrencileri tarafından oluşturulan Sav Derginin yönetim kurulu ekibiyiz.
-                Malumunuz üzere hukuk, yalnızca uygulamaya değil aynı zamanda metodolojik yaklaşımlara dayalı bir bilim dalıdır. Dolayısıyla akademik araştırmalar biz müstakbel hukukçuların bir hayli ilgisini çekmekte. Ancak ne yazık ki belli başlı üniversiteler hariç öğrencilerin akademik araştırma safhalarına katılması mümkün değildir. Bu bağlamda, bir grup tutkulu hukuk öğrencileri bizler, geleceğin hukukçularını şekillendirmek amacıyla bir araya gelerek bu projenin temelini atmış bulunuyoruz.</span>
-
-            <a class="main_welcome-button"><span>Misyonumuz</span></a>
-        </div>
-
-        <footer class="main_footer">
-            <div class="about">
-                <h3>Hakkımızda</h3>
-
-                <a>Amaç ve Kapsam</a>
-                <a>Etik İlkeler ve Yayım Politikası</a>
-                <a>Etik İlkeler ve Yayım Politikası</a>
-                <a>Yazım Kuralları</a>
-
-            </div>
-
-            <div class="socials">
-                <h3>Sosyal Media</h3>
-                <a>Instagram</a>
-            </div>
-        </footer>
-    </main>
-
-</body>
-</html>
+{% endblock content %}
