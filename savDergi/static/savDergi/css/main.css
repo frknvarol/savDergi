@@ -135,7 +135,7 @@ main {
     justify-content: space-around;
     align-items: start;
     background-color: var(--BACKGROUND-COLOR);
-    padding: 40px 0;
+    padding: 80px 0 40px 0;
 }
 
 .about {
@@ -282,24 +282,22 @@ body:has(.misyonumuz_container) {
 .misyonumuz_amaclarimiz-container {
     background-color: var(--FONT-COLOR);
     min-height: 1000px;
-    height: 500px;
     display: flex;
     flex-direction: row;
-    gap: min(6.5rem, 8vw);
-    padding: 104px 200px;
+    justify-content: space-evenly;
+    gap: min(9.5rem, 10vw);
+    padding: 150px 104px;
 }
 
-.misyonumuz_amaclarimiz-figure {
-    width: 30%;
-    height: 30%;
-}
 
-.misyonumuz_amaclarimiz-figure img {
+.misyonumuz_amaclarimiz-img {
+    width: 474px;
+    height: 843px;
     border-radius: 24px;
 }
 
 .misyonumuz_amaclarimiz-div {
-
+    max-width: 400px;
 }
 
 .misyonumuz_amaclarimiz-p {
