@@ -7,6 +7,8 @@
 
 * {
     margin: 0;
+    --FONT-COLOR: rgb(17,17,17);
+    --BACKGROUND-COLOR: rgb(249, 249, 249);
 }
 /*
   Typographic tweaks!
@@ -16,6 +18,7 @@
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    background-color: var(--BACKGROUND-COLOR);
 }
 /*
   5. Improve media defaults
@@ -58,9 +61,6 @@ main {
 }
 
 
-.main_background {
-    margin-bottom: 20px;
-}
 
 .navbar {
     height: 100px;
@@ -72,8 +72,7 @@ main {
     justify-content: space-evenly;
     column-gap: 200px;
     padding: 10px 100px;
-    position: sticky;
-    top: 0;
+    background-color: var(--BACKGROUND-COLOR);
 }
 
 .navbar_list {
@@ -82,7 +81,7 @@ main {
     justify-content: space-around;
 }
 
-.navbar_list-element span {
+.navbar_list-element a {
     font-size: 1.2rem;
     font-weight: bold;
 }
@@ -135,7 +134,8 @@ main {
     flex-direction: row;
     justify-content: space-around;
     align-items: start;
-    margin: 100px auto 50px auto;
+    background-color: var(--BACKGROUND-COLOR);
+    padding: 40px 0;
 }
 
 .about {
@@ -228,3 +228,86 @@ main {
 }
 
 
+body:has(.misyonumuz_container) {
+    background: var(--BACKGROUND-COLOR) url("../media/art-gallery.webp") no-repeat;
+    background-size: 100%;
+    height: 1000px;
+    background-attachment: fixed;
+
+}
+
+.misyonumuz_header {
+    background-color: var(--BACKGROUND-COLOR);
+    padding: 100px 0 20px 0;
+}
+
+.misyonumuz_header h1 {
+    text-align: center;
+    margin-bottom: 100px;
+    color: var(--FONT-COLOR);
+    font-size: 53px;
+    font-family: Cardo;
+    font-weight: 400;
+}
+
+.misyonumuz_div {
+    background-color: var(--BACKGROUND-COLOR);
+    padding: 10px 500px 100px 500px;
+    margin-bottom: 1000px;
+}
+
+.misyonumuz_div p {
+    text-align: left;
+    color: var(--FONT-COLOR);
+    font-family: Inter, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 26px;
+    max-width: 620px;
+}
+
+
+.misyonumuz_amaclarimiz {
+    background-color: var(--BACKGROUND-COLOR);
+    padding: 150px 10px;
+}
+
+.misyonumuz_amaclarimiz h1 {
+    text-align: center;
+    font-size: 40px;
+    font-family: Cardo;
+    font-weight: 400;
+}
+
+.misyonumuz_amaclarimiz-container {
+    background-color: var(--FONT-COLOR);
+    min-height: 1000px;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    gap: min(6.5rem, 8vw);
+    padding: 104px 200px;
+}
+
+.misyonumuz_amaclarimiz-figure {
+    width: 30%;
+    height: 30%;
+}
+
+.misyonumuz_amaclarimiz-figure img {
+    border-radius: 24px;
+}
+
+.misyonumuz_amaclarimiz-div {
+
+}
+
+.misyonumuz_amaclarimiz-p {
+    color: white;
+    font-family: Inter, sans-serif;
+    font-style: italic;
+    line-height: 26px;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 10px 0;
+}

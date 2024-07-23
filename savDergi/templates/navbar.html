@@ -1,33 +1,31 @@
-<nav class="main_background">
 
 
-    <div class="navbar">
+<nav class="navbar">
 
-        {% load static %}
-        <img class="navbar_logo" src="{% static 'savDergi/media/sav-dergi-logo.png' %}" alt="Sav Dergi">
+    {% load static %}
+    <img class="navbar_logo" src="{% static 'savDergi/media/sav-dergi-logo.png' %}" alt="Sav Dergi">
 
-        <ul class="navbar_list">
-            <li class="navbar_list-element">
-                <a href="{% url 'home' %}">Ana Sayfa</a>
-            </li>
+    <ul class="navbar_list">
+        <li class="navbar_list-element">
+            <a href="{% url 'home' %}">Ana Sayfa</a>
+        </li>
 
-            <li class="navbar_list-element">
-                <a href="{% url 'amac_kapsam' %}">Amaç ve Kapsam</a>
-            </li>
+        <li class="navbar_list-element">
+            <a href="{% url 'amac_kapsam' %}">Amaç ve Kapsam</a>
+        </li>
 
-            <li class="navbar_list-element">
-                <a href="{% url 'misyonumuz' %}">Misyonumuz</a>
-            </li>
+        <li class="navbar_list-element">
+            <a href="{% url 'misyonumuz' %}">Misyonumuz</a>
+        </li>
 
-            <li class="navbar_list-element">
-                <a href="{% url 'etik_ilkeler' %}">Etik İlkeler ve Yayım Politikası</a>
-            </li>
+        <li class="navbar_list-element">
+            <a href="{% url 'etik_ilkeler' %}">Etik İlkeler ve Yayım Politikası</a>
+        </li>
 
-            <li class="navbar_list-element">
-                <a href="{% url 'yazim_kurallari' %}">Yazım Kuralları</a>
-            </li>
-        </ul>
+        <li class="navbar_list-element">
+            <a href="{% url 'yazim_kurallari' %}">Yazım Kuralları</a>
+        </li>
+    </ul>
 
 
-    </div>
 </nav>
