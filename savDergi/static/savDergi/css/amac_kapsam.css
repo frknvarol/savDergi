@@ -1,0 +1,64 @@
+
+.amac-kapsam {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.amac-kapsam_first-div {
+    display: flex;
+    flex-direction: row;
+    gap: min(5rem, 6vw);
+}
+
+.amac-kapsam_first-div > * {
+    flex: 1;
+}
+
+.amac-kapsam_image {
+    border-radius: 24px;
+}
+
+.amac-kapsam h1 {
+    margin-top: 150px;
+    display: inline-block;
+    font-size: 53px;
+}
+
+.amac-kapsam_first-div {
+    background-color: rgb(207, 202, 190);
+    padding: 104px 200px;
+}
+
+.amac-kapsam_first-div p {
+    line-height: 1.2;
+    display: block;
+    font-size: clamp(1.85rem, 1.85rem + ((1vw - 0.2rem) * 1.083), 2.5rem);
+    font-family: Cardo;
+    font-weight: 400;
+}
+
+.amac-kapsam_second-div p {
+    display: inline-block;
+}
+
+.amac-kapsam_second-div {
+    display: flex;
+    margin:  0 104px;
+    padding: 0 96px;
+    gap: min(4rem, 5vw);
+}
+
+.amac-kapsam_second-div-p1 {
+    font-size: 17px;
+    font-family: Inter, sans-serif;
+    margin-right: 236px;
+    flex: 1;
+}
+
+.amac-kapsam_second-div-p2 {
+    line-height: 48px;
+    flex: 3;
+    font-size: 40px;
+    font-family: Cardo;
+}

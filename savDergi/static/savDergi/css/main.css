@@ -92,6 +92,14 @@ main {
     height: 112px;
 }
 
+.default-header {
+    color: var(--FONT-COLOR);
+    text-align: center;
+    font-size: 40px;
+    font-family: Cardo;
+    font-weight: 400;
+}
+
 
 .main_welcome {
     align-items: center;
@@ -109,7 +117,7 @@ main {
     font-weight: 350;
 }
 
-.main_welcome span {
+.main_welcome p {
     font-size: 18px;
 }
 
@@ -155,157 +163,4 @@ main {
     width: 80%;
     margin: auto;
     border-radius: 30px;
-}
-
-.amac-kapsam h1 {
-    display: inline-block;
-    font-size: 53px;
-    font-weight: 400;
-    font-family: Cardo;
-}
-
-.amac-kapsam {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-}
-
-.amac-kapsam_first-div {
-    display: flex;
-    flex-direction: row;
-    gap: min(5rem, 6vw);
-}
-
-.amac-kapsam_first-div > * {
-    flex: 1;
-}
-
-.amac-kapsam_image {
-    border-radius: 24px;
-}
-
-.amac-kapsam h1 {
-    margin-top: 150px;
-    text-align: center;
-}
-
-.amac-kapsam_first-div {
-    background-color: rgb(207, 202, 190);
-    padding: 104px 200px;
-}
-
-.amac-kapsam_first-div p {
-    line-height: 1.2;
-    display: block;
-    font-size: clamp(1.85rem, 1.85rem + ((1vw - 0.2rem) * 1.083), 2.5rem);
-    font-family: Cardo;
-    font-weight: 400;
-}
-
-.amac-kapsam_second-div p {
-    display: inline-block;
-}
-
-.amac-kapsam_second-div {
-    display: flex;
-    margin:  0 104px;
-    padding: 0 96px;
-    gap: min(4rem, 5vw);
-}
-
-.amac-kapsam_second-div-p1 {
-    font-size: 17px;
-    font-family: Inter, sans-serif;
-    margin-right: 236px;
-    flex: 1;
-}
-
-.amac-kapsam_second-div-p2 {
-    line-height: 48px;
-    flex: 3;
-    font-size: 40px;
-    font-family: Cardo;
-}
-
-
-body:has(.misyonumuz_container) {
-    background: var(--BACKGROUND-COLOR) url("../media/art-gallery.webp") no-repeat;
-    background-size: 100%;
-    height: 1000px;
-    background-attachment: fixed;
-
-}
-
-.misyonumuz_header {
-    background-color: var(--BACKGROUND-COLOR);
-    padding: 100px 0 20px 0;
-}
-
-.misyonumuz_header h1 {
-    text-align: center;
-    margin-bottom: 100px;
-    color: var(--FONT-COLOR);
-    font-size: 53px;
-    font-family: Cardo;
-    font-weight: 400;
-}
-
-.misyonumuz_div {
-    background-color: var(--BACKGROUND-COLOR);
-    padding: 10px 500px 100px 500px;
-    margin-bottom: 1000px;
-}
-
-.misyonumuz_div p {
-    text-align: left;
-    color: var(--FONT-COLOR);
-    font-family: Inter, sans-serif;
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 26px;
-    max-width: 620px;
-}
-
-
-.misyonumuz_amaclarimiz {
-    background-color: var(--BACKGROUND-COLOR);
-    padding: 150px 10px;
-}
-
-.misyonumuz_amaclarimiz h1 {
-    text-align: center;
-    font-size: 40px;
-    font-family: Cardo;
-    font-weight: 400;
-}
-
-.misyonumuz_amaclarimiz-container {
-    background-color: var(--FONT-COLOR);
-    min-height: 1000px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    gap: min(9.5rem, 10vw);
-    padding: 150px 104px;
-}
-
-
-.misyonumuz_amaclarimiz-img {
-    width: 474px;
-    height: 843px;
-    border-radius: 24px;
-}
-
-.misyonumuz_amaclarimiz-div {
-    max-width: 400px;
-}
-
-.misyonumuz_amaclarimiz-p {
-    color: white;
-    font-family: Inter, sans-serif;
-    font-style: italic;
-    line-height: 26px;
-    font-weight: 700;
-    font-size: 17px;
-    padding: 10px 0;
 }

@@ -6,16 +6,23 @@
     {% load static %}
     <link rel="icon" type="image/x-icon" href="{% static 'savDergi/media/sav-dergi-logo.png'%}">
     <link rel="stylesheet" href="{% static 'savDergi/css/main.css' %}">
+    {% if page_css %}
+        <link rel="stylesheet" href="{% static page_css %}">
+    {% endif %}
 </head>
 <body>
 
-    {% include 'navbar.html' %}
+    <main>
 
-    {% block content %}
+        {% include 'navbar.html' %}
 
-    {% endblock content %}
+        {% block content %}
 
-    {% include 'footer.html' %}
+        {% endblock content %}
+
+        {% include 'footer.html' %}
+
+    </main>
 
 </body>
 </html>

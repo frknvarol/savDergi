@@ -1,0 +1,14 @@
+* {
+    --ETIK-BACKGROUND-COLOR: rgb(207, 202, 190);
+}
+
+
+.etik_header {
+    font-size: 51px;
+    max-width: 620px;
+    margin: 150px auto 20px auto;
+}
+
+.etik_beyan-div {
+    background-color: var(--ETIK-BACKGROUND-COLOR);
+}
