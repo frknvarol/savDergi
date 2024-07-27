@@ -1,5 +1,6 @@
 * {
-    --ETIK-BACKGROUND-COLOR: rgb(207, 202, 190);
+    --ETIK-BACKGROUND-COLOR1: rgb(207, 202, 190);
+    --ETIK-BACKGROUND-COLOR2: rgb(181, 189, 188);
 }
 
 
@@ -10,7 +11,7 @@
 }
 
 .etik_beyan-div {
-    background-color: var(--ETIK-BACKGROUND-COLOR);
+    background-color: var(--ETIK-BACKGROUND-COLOR1);
     display: flex;
     flex-direction: row;
     gap: 100px;
@@ -26,14 +27,14 @@
     flex: 12;
 }
 
-.etik_beyan-header {
+.etik_beyan-h3 {
     font-size: 40px;
     font-weight: 700;
     font-family: Cardo;
     display: block;
 }
 
-.etik_beyan-p {
+.etik_p {
     font-size: 17px;
     font-family: Inter, sans-serif;
     line-height: 26px;
@@ -60,20 +61,32 @@
     border-radius: 24px;
 }
 
-
-.etik_arastirma-div {
+.etik_default-div {
     padding: 100px 0;
-    width: 35%;
+    width: 40%;
     margin: auto;
 }
 
-.etik_arastirma-h2 {
+
+.etik_h2 {
     color: var(--FONT-COLOR);
     font-size: 40px;
 }
 
 
-.etik_arastirma-p {
-    font-family: Inter, sans-serif;
-    font-size: 17px;
+
+.etik_sorumluluk-div {
+    background-color: var(--ETIK-BACKGROUND-COLOR2);
+}
+
+
+
+.etik_yayin-div {
+    background-color: var(--ETIK-BACKGROUND-COLOR1);
+}
+
+.etik_yayin-p-div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
