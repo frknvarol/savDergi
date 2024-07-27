@@ -11,4 +11,52 @@
 
 .etik_beyan-div {
     background-color: var(--ETIK-BACKGROUND-COLOR);
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+
+    padding: 100px 200px;
 }
+
+
+.etik_beyan-text {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    flex: 12;
+}
+
+.etik_beyan-header {
+    font-size: 40px;
+    font-weight: 700;
+    font-family: Cardo;
+    display: block;
+}
+
+.etik_beyan-p {
+    font-size: 17px;
+    font-family: Inter, sans-serif;
+    line-height: 26px;
+    display: block;
+}
+
+.etik_beyan-p-link:link,  .etik_beyan-p-link:visited {
+    text-decoration: underline;
+}
+
+.etik_beyan-p-link:hover {
+    text-decoration: none;
+}
+
+.etik_beyan-p-link:active {
+    color: white;
+}
+
+.etik_beyan-figure {
+    flex: 13;
+}
+
+.etik_beyan-img {
+    border-radius: 24px;
+}
+
