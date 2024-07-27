@@ -60,3 +60,20 @@
     border-radius: 24px;
 }
 
+
+.etik_arastirma-div {
+    padding: 100px 0;
+    width: 35%;
+    margin: auto;
+}
+
+.etik_arastirma-h2 {
+    color: var(--FONT-COLOR);
+    font-size: 40px;
+}
+
+
+.etik_arastirma-p {
+    font-family: Inter, sans-serif;
+    font-size: 17px;
+}
