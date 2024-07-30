@@ -24,3 +24,22 @@ def yazim_kurallari(request):
     context = {'page_css': 'savDergi/css/yazım_kuralları.css'}
     return render(request, 'base/yazım_kuralları.html', context)
 
+
+def dergi(request):
+    context = {'page_css': 'savDergi/css/dergi.css'}
+    return render(request, 'base/dergi.html', context)
+
+
+def galeri(request):
+    context = {'page_css': 'savDergi/css/galeri.css'}
+    return render(request, 'base/galeri.html', context)
+
+
+def konferanslar(request):
+    context = {'page_css': 'savDergi/css/konferanslar.css'}
+    return render(request, 'base/konferanslar.html', context)
+
+
+def sava(request):
+    context = {'page_css': 'savDergi/css/sava.css'}
+    return render(request, 'base/sava.html', context)
