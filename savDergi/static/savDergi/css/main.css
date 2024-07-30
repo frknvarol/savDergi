@@ -55,6 +55,12 @@ a:link, a:visited {
     text-decoration: none;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
+
+
 
 /* CSS RESET END */
 
@@ -187,7 +193,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #c4dce8;
+    background-color: #efefef;
     padding: 10px 20px 10px 10px;
     border-radius: 5px;
 }
@@ -198,4 +204,29 @@ main {
 
 .hidden {
     display: none;
+}
+
+.navbar_kurumsal::before {
+    content: "";
+    background-color: black;
+    position: relative;
+    left: 100px;
+    display: inline-block;
+    width: 8px;
+    height: 1px;
+    margin-bottom: 5px;
+    transform: rotate(45deg);
+    border-radius: 2px;
+}
+.navbar_kurumsal::after {
+    content: "";
+    background-color: black;
+    position: relative;
+    left: 6px;
+    display: inline-block;
+    width: 8px;
+    height: 1px;
+    margin-bottom: 5px;
+    transform: rotate(-45deg);
+    border-radius: 2px;
 }
