@@ -55,9 +55,6 @@ a:link, a:visited {
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
-}
 
 
 
@@ -94,6 +91,7 @@ main {
     font-weight: bold;
     cursor: pointer;
 }
+
 
 
 
@@ -193,13 +191,16 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #efefef;
+    background-color: var(--BACKGROUND-COLOR);
     padding: 10px 20px 10px 10px;
-    border-radius: 5px;
 }
 
-.navbar_kurumsal-element a {
+.navbar_dropdown-element a {
     font-size: 15px;
+}
+
+.navbar_dropdown-element a:hover {
+    text-decoration: underline;
 }
 
 .hidden {
