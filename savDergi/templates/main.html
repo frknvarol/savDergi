@@ -7,6 +7,7 @@
     {% load static %}
     <link rel="icon" type="image/x-icon" href="{% static 'savDergi/media/sav-dergi-logo.png'%}">
     <link rel="stylesheet" href="{% static 'savDergi/css/main.css' %}">
+
     {% if page_css %}
         <link rel="stylesheet" href="{% static page_css %}">
     {% endif %}
@@ -26,4 +27,6 @@
     </main>
 
 </body>
+
+<script src="{% static 'savDergi/javascript/dropdown.js' %}"></script>
 </html>

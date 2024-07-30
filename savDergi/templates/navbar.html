@@ -10,21 +10,26 @@
             <a href="{% url 'home' %}">Ana Sayfa</a>
         </li>
 
-        <li class="navbar_list-element">
-            <a href="{% url 'amac_kapsam' %}">Amaç ve Kapsam</a>
+        <li class="navbar_list-element navbar_kurumsal">
+            <a>Kurumsal <i class="fa-solid fa-chevron-down"></i></a>
+            <ul class="navbar_kurumsal-dropdown hidden">
+
+                <li class="navbar_list-element navbar_kurumsal-element">
+                    <a href="{% url 'misyonumuz' %}">Misyonumuz</a>
+                </li>
+
+                <li class="navbar_list-element navbar_kurumsal-element">
+                    <a href="{% url 'etik_ilkeler' %}">Etik İlkeler ve Yayım Politikası</a>
+                </li>
+
+                <li class="navbar_list-element navbar_kurumsal-element">
+                    <a href="{% url 'yazim_kurallari' %}">Yazım Kuralları</a>
+                </li>
+
+            </ul>
         </li>
 
-        <li class="navbar_list-element">
-            <a href="{% url 'misyonumuz' %}">Misyonumuz</a>
-        </li>
 
-        <li class="navbar_list-element">
-            <a href="{% url 'etik_ilkeler' %}">Etik İlkeler ve Yayım Politikası</a>
-        </li>
-
-        <li class="navbar_list-element">
-            <a href="{% url 'yazim_kurallari' %}">Yazım Kuralları</a>
-        </li>
     </ul>
 
 
