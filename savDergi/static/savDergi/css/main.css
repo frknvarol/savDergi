@@ -135,6 +135,10 @@ main {
 
 }
 
+.main_welcome-button:link, .main_welcome-button:visited {
+    color: white;
+}
+
 .main_welcome-button:hover {
     background-color: #636363;
 }

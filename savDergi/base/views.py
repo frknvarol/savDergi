@@ -22,5 +22,5 @@ def etik_ilkeler(request):
 
 def yazim_kurallari(request):
     context = {'page_css': 'savDergi/css/yazım_kuralları.css'}
-    return render(request, 'base/yazım_kuralları.html')
+    return render(request, 'base/yazım_kuralları.html', context)
 
