@@ -56,6 +56,9 @@ a:link, a:visited {
 }
 
 
+
+
+
 /* CSS RESET END */
 
 main {
@@ -86,7 +89,10 @@ main {
 .navbar_list-element a {
     font-size: 1.2rem;
     font-weight: bold;
+    cursor: pointer;
 }
+
+
 
 
 .navbar_logo {
@@ -169,4 +175,59 @@ main {
     width: 80%;
     margin: auto;
     border-radius: 30px;
+}
+
+.fa-solid {
+    font-size: 15px;
+}
+
+.fa-solid:hover {
+    cursor: pointer;
+}
+
+
+.navbar_kurumsal-dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--BACKGROUND-COLOR);
+    padding: 10px 20px 10px 10px;
+}
+
+.navbar_dropdown-element a {
+    font-size: 15px;
+}
+
+.navbar_dropdown-element a:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
+
+.navbar_kurumsal::before {
+    content: "";
+    background-color: black;
+    position: relative;
+    left: 100px;
+    display: inline-block;
+    width: 8px;
+    height: 1px;
+    margin-bottom: 5px;
+    transform: rotate(45deg);
+    border-radius: 2px;
+}
+.navbar_kurumsal::after {
+    content: "";
+    background-color: black;
+    position: relative;
+    left: 6px;
+    display: inline-block;
+    width: 8px;
+    height: 1px;
+    margin-bottom: 5px;
+    transform: rotate(-45deg);
+    border-radius: 2px;
 }
