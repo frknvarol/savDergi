@@ -43,3 +43,9 @@ def konferanslar(request):
 def sava(request):
     context = {'page_css': 'savDergi/css/sava.css'}
     return render(request, 'base/sava.html', context)
+
+
+def biz_kimiz(request):
+    context = {'page_css': 'savDergi/css/biz_kimiz.css'}
+    return render(request, 'base/biz_kimiz.html', context)
+
