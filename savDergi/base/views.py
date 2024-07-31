@@ -49,3 +49,13 @@ def biz_kimiz(request):
     context = {'page_css': 'savDergi/css/biz_kimiz.css'}
     return render(request, 'base/biz_kimiz.html', context)
 
+
+def metodoloji(request):
+    context = {'page_css': 'savDergi/css/metodoloji.css'}
+    return render(request, 'base/metodoloji.html', context)
+
+
+def hukukcu_portre(request):
+    context = {'page_css': 'savDergi/css/hukukcu_portre.css'}
+    return render(request, 'base/hukukcu_portre.html', context)
+
