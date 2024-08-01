@@ -59,3 +59,7 @@ def hukukcu_portre(request):
     context = {'page_css': 'savDergi/css/hukukcu_portre.css'}
     return render(request, 'base/hukukcu_portre.html', context)
 
+
+def duyuru(request):
+    context = {'page_css': 'savDergi/css/duyuru.css'}
+    return render(request, 'base/duyuru.html', context)
