@@ -12,4 +12,8 @@ urlpatterns = [
     path('galeri', views.galeri, name='galeri'),
     path('konferanslar', views.konferanslar, name='konferanslar'),
     path('stajyer-avukatlık-atolyesi', views.sava, name='sava'),
+    path('biz-kimiz', views.biz_kimiz, name='biz_kimiz'),
+    path('bir-hukukcunun-portresi', views.hukukcu_portre, name='hukukcu_portre'),
+    path('metodoloji-egitimleri', views.metodoloji, name='metodoloji'),
+    path('duyurular', views.duyuru, name='duyuru'),
 ]
