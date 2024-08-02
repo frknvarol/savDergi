@@ -9,6 +9,7 @@
     margin: 0;
     --FONT-COLOR: rgb(17,17,17);
     --BACKGROUND-COLOR: rgb(249, 249, 249);
+    --BOX-SHADOW: rgba(3, 26, 42, 0.12) 6px 8px 28px 0;
 }
 /*
   Typographic tweaks!
@@ -190,7 +191,7 @@ main {
     gap: 10px;
     background-color: var(--BACKGROUND-COLOR);
     padding: 10px 20px 10px 10px;
-    box-shadow: rgba(3, 26, 42, 0.12) 6px 8px 28px 0;
+    box-shadow: var(--BOX-SHADOW);
 }
 
 .navbar_dropdown-element a {
@@ -237,7 +238,7 @@ main {
     flex-direction: column;
     padding: 50px;
     gap: 30px;
-    box-shadow: rgba(3, 26, 42, 0.12) 6px 8px 28px 0;
+    box-shadow: var(--BOX-SHADOW);
 }
 
 .duyuru_header {

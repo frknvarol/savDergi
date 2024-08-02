@@ -1,3 +1,9 @@
+.duyurular_div {
+    border-radius: 10px;
+    background-color: rgb(243, 245, 249);
+    padding: 10px 20px;
+}
+
 .duyurular_container {
     display: grid;
     grid-auto-flow: row;
@@ -6,6 +12,16 @@
     margin: 70px auto;
     gap: 10px;
     padding: 20px;
-    box-shadow: rgba(3, 26, 42, 0.12) 6px 8px 28px 0;
+    box-shadow: var(--BOX-SHADOW);
 }
 
+.duyurular_topic {
+    display: inline-block;
+    font-size: 20px;
+    font-family: Inter, sans-serif;
+}
+
+.duyurular_topic:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
