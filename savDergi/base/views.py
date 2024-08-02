@@ -68,6 +68,5 @@ def hukukcu_portre(request):
 
 def duyuru(request):
     duyurus = Duyuru.objects.all()
-
     context = {'page_css': 'savDergi/css/duyuru.css', 'duyurus': duyurus}
     return render(request, 'base/duyuru.html', context)

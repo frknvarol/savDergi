@@ -1,0 +1,11 @@
+.duyurular_container {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr;
+    width: 1200px;
+    margin: 70px auto;
+    gap: 10px;
+    padding: 20px;
+    box-shadow: rgba(3, 26, 42, 0.12) 6px 8px 28px 0;
+}
+

@@ -2,11 +2,16 @@
 
 {% block content %}
 
-    {% for duyuru in duyurus %}
-        <div class="duyuru_element">
-            <h5 class="duyuru_element-topic">{{ duyuru.topic }}</h5>
-            <p class="duyuru_element-text">{{ duyuru.text }}</p>
-        </div>
-   {% endfor %}
+    <div class="duyurular_container">
+
+        {% for duyuru in duyurus %}
+            <div class="duyurular_duyuru">
+                <h5 class="duyurular_topic">{{ duyuru.topic }}</h5>
+                <p class="duyurular_text">{{ duyuru.text }}</p>
+            </div>
+        {% endfor %}
+
+
+    </div>
 
 {% endblock content %}
