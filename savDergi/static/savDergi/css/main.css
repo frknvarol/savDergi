@@ -231,3 +231,24 @@ main {
     transform: rotate(-45deg);
     border-radius: 2px;
 }
+
+.duyuru_container {
+    width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    gap: 30px;
+}
+
+.duyuru_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.duyuru_latest-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

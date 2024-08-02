@@ -1,8 +1,14 @@
+from django.db.models import Q
 from django.shortcuts import render
+
+from .models import Duyuru
 
 
 def home(request):
-    return render(request, 'base/home.html')
+    duyurus = Duyuru.objects.all()
+
+    context = {'duyurus': duyurus}
+    return render(request, 'base/home.html', context)
 
 
 def amac_kapsam(request):

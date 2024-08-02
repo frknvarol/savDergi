@@ -17,6 +17,30 @@
     {% load static %}
     <img class="home-image" src="{% static 'savDergi/media/home-image.webp' %}" alt="">
 
+    <div class="duyuru_container">
+        <div class="duyuru_header">
+            <h3 class="duyuru_h3">Duyurular</h3>
+
+            <a class="duyuru_button" href="{% url 'duyuru' %}">Tüm Duyurular</a>
+        </div>
+
+
+        <div class="duyuru_latest-container">
+
+            {% for duyuru in duyurus %}
+                {% if forloop.counter < 3 %}
+
+                    <div class="duyuru_element">
+                        <h5 class="duyuru_element-topic">{{ duyuru.topic }}</h5>
+                        <p class="duyuru_element-text">{{ duyuru.text }}</p>
+                    </div>
+
+                {% endif %}
+            {% endfor %}
+
+        </div>
+    </div>
+
 
 </main>
 
