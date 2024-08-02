@@ -73,7 +73,7 @@ def duyurular(request):
 
 
 def duyuru(request, pk):
-    duyuru = Duyuru.objects.filter(id=pk)
-    context = {'page_css': 'savDergi', 'duyuru': duyuru}
+    duyuru = Duyuru.objects.get(id=pk)
+    context = {'duyuru': duyuru, 'page_css': 'savDergi/css/duyuru.css'}
     return render(request, 'base/duyuru.html', context)
 

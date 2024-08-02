@@ -283,7 +283,11 @@ main {
 }
 
 .duyuru_element-topic {
-    font-size: 18px;
+    font-size: 20px;
+}
+
+.duyuru_element-topic:hover {
+    text-decoration: underline;
 }
 
 .duyuru_element-text {
