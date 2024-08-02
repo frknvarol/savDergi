@@ -66,7 +66,14 @@ def hukukcu_portre(request):
     return render(request, 'base/hukukcu_portre.html', context)
 
 
-def duyuru(request):
-    duyurus = Duyuru.objects.all()
-    context = {'page_css': 'savDergi/css/duyuru.css', 'duyurus': duyurus}
+def duyurular(request):
+    duyuru_group = Duyuru.objects.all()
+    context = {'page_css': 'savDergi/css/duyurular.css', 'duyuru_group': duyuru_group}
+    return render(request, 'base/duyurular.html', context)
+
+
+def duyuru(request, pk):
+    duyuru = Duyuru.objects.filter(id=pk)
+    context = {'page_css': 'savDergi', 'duyuru': duyuru}
     return render(request, 'base/duyuru.html', context)
+

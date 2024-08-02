@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <div class="duyurular_container">
+
+        {% for duyuru in duyuru_group %}
+            <div class="duyurular_div">
+                <a class="duyurular_topic" href="{% url 'duyuru' duyuru.id%}">{{ duyuru.topic }}</a>
+                <p class="duyurular_text">{{ duyuru.text }}</p>
+                <p class="duyurular_date">{{ duyuru.updated }}</p>
+            </div>
+        {% endfor %}
+
+
+    </div>
+
+{% endblock content %}

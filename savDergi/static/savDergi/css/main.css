@@ -192,6 +192,7 @@ main {
     background-color: var(--BACKGROUND-COLOR);
     padding: 10px 20px 10px 10px;
     box-shadow: var(--BOX-SHADOW);
+    border-radius: 3px;
 }
 
 .navbar_dropdown-element a {
