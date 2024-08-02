@@ -28,14 +28,12 @@
         <div class="duyuru_latest-container">
 
             {% for duyuru in duyurus %}
-                {% if forloop.counter < 3 %}
 
                     <div class="duyuru_element">
                         <h5 class="duyuru_element-topic">{{ duyuru.topic }}</h5>
                         <p class="duyuru_element-text">{{ duyuru.text }}</p>
                     </div>
 
-                {% endif %}
             {% endfor %}
 
         </div>

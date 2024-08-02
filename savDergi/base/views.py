@@ -5,7 +5,7 @@ from .models import Duyuru
 
 
 def home(request):
-    duyurus = Duyuru.objects.all()
+    duyurus = Duyuru.objects.all()[:2]
 
     context = {'duyurus': duyurus}
     return render(request, 'base/home.html', context)
@@ -67,5 +67,7 @@ def hukukcu_portre(request):
 
 
 def duyuru(request):
-    context = {'page_css': 'savDergi/css/duyuru.css'}
+    duyurus = Duyuru.objects.all()
+
+    context = {'page_css': 'savDergi/css/duyuru.css', 'duyurus': duyurus}
     return render(request, 'base/duyuru.html', context)

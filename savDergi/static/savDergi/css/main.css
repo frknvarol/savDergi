@@ -92,9 +92,6 @@ main {
     cursor: pointer;
 }
 
-
-
-
 .navbar_logo {
     width: 150px;
     height: 112px;
@@ -193,6 +190,7 @@ main {
     gap: 10px;
     background-color: var(--BACKGROUND-COLOR);
     padding: 10px 20px 10px 10px;
+    box-shadow: rgba(3, 26, 42, 0.12) 6px 8px 28px 0;
 }
 
 .navbar_dropdown-element a {
@@ -234,11 +232,12 @@ main {
 
 .duyuru_container {
     width: 500px;
-    margin: auto;
+    margin: 30px auto;
     display: flex;
     flex-direction: column;
     padding: 50px;
     gap: 30px;
+    box-shadow: rgba(3, 26, 42, 0.12) 6px 8px 28px 0;
 }
 
 .duyuru_header {
@@ -247,8 +246,44 @@ main {
     justify-content: space-between;
 }
 
+.duyuru_h3 {
+    color: var(--FONT-COLOR);
+    font-size: 25px;
+}
+
+.duyuru_button {
+    background-color: rgb(17, 17, 17);
+    color: rgb(249, 249, 249);
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: Inter, sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.duyuru_button:link, .duyuru_button:visited {
+    color: white;
+}
+
+.duyuru_button:hover {
+    background-color: #636363;
+}
+
 .duyuru_latest-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.duyuru_element {
+    padding: 10px 5px;
+}
+
+.duyuru_element-topic {
+    font-size: 18px;
+}
+
+.duyuru_element-text {
+    font-size: 15px;
 }
