@@ -1,4 +1,3 @@
-from django.db.models import Q
 from django.shortcuts import render
 
 from .models import Duyuru
@@ -72,8 +71,8 @@ def duyurular(request):
     return render(request, 'base/duyurular.html', context)
 
 
-def duyuru(request, pk):
-    duyuru = Duyuru.objects.get(id=pk)
+def duyuru(request, slug):
+    duyuru = Duyuru.objects.get(slug=slug)
     context = {'duyuru': duyuru, 'page_css': 'savDergi/css/duyuru.css'}
     return render(request, 'base/duyuru.html', context)
 

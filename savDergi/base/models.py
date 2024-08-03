@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 
 class Duyuru(models.Model):
@@ -7,6 +8,8 @@ class Duyuru(models.Model):
 
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
+
+    slug = models.SlugField(default="", null=False, unique=True)
 
     class Meta:
         ordering = ['-updated', '-created']
