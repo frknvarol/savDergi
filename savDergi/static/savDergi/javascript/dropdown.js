@@ -1,6 +1,5 @@
 const kurumsal = document.querySelector('.navbar_kurumsal')
 const dropdown = document.querySelector('.navbar_kurumsal-dropdown')
-console.log(kurumsal)
 
 
 kurumsal.addEventListener('mouseover', function(e) {

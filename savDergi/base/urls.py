@@ -16,5 +16,5 @@ urlpatterns = [
     path('bir-hukukcunun-portresi', views.hukukcu_portre, name='hukukcu_portre'),
     path('metodoloji-egitimleri', views.metodoloji, name='metodoloji'),
     path('duyurular', views.duyurular, name='duyurular'),
-    path('duyurular/<str:pk>/', views.duyuru, name='duyuru'),
+    path('duyurular/<slug:slug>/', views.duyuru, name='duyuru'),
 ]

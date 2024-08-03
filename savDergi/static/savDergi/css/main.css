@@ -279,17 +279,27 @@ main {
 }
 
 .duyuru_element {
-    padding: 10px 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: rgb(243, 245, 249);
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: transform 75ms ease-in-out;
+}
+
+.duyuru_element:hover {
+    transform: scale(1.03);
 }
 
 .duyuru_element-topic {
     font-size: 20px;
+    font-family: Cardo, sans-serif;
 }
 
-.duyuru_element-topic:hover {
-    text-decoration: underline;
-}
 
 .duyuru_element-text {
     font-size: 15px;
+    font-family: Inter, sans-serif;
 }
