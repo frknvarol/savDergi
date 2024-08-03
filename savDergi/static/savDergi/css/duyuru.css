@@ -2,3 +2,8 @@
     width: 1000px;
 }
 
+.duyuru_button {
+    max-width: 100px;
+    text-align: center;
+    margin-left: auto;
+}

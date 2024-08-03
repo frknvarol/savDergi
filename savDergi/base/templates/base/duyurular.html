@@ -6,15 +6,17 @@
 
         {% for duyuru in duyuru_group %}
             <div class="duyurular_div">
-                <a class="duyurular_topic" href="{% url 'duyuru' duyuru.slug%}">{{ duyuru.topic }}</a>
+                <a class="duyurular_topic" href="{% url 'duyuru' duyuru.id%}">{{ duyuru.topic }}</a>
                 <p class="duyurular_text">{{ duyuru.text }}</p>
                 <p class="duyurular_date">{{ duyuru.updated }}</p>
+
             </div>
         {% endfor %}
 
     </div>
 
 
-
+{% load static %}
+<script src="{% static 'savDergi/javascript/duyurular.js' %}"></script>
 
 {% endblock content %}

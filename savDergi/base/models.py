@@ -9,7 +9,6 @@ class Duyuru(models.Model):
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
-    slug = models.SlugField(default="", null=False, unique=True)
 
     class Meta:
         ordering = ['-updated', '-created']

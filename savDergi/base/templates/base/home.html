@@ -29,7 +29,7 @@
             {% for duyuru in duyurus %}
 
                     <div class="duyuru_element">
-                        <a class="duyuru_element-topic" href="{% url 'duyuru' duyuru.slug %}">{{ duyuru.topic }}</a>
+                        <a class="duyuru_element-topic" href="{% url 'duyuru' duyuru.id %}">{{ duyuru.topic }}</a>
                         <p class="duyuru_element-text">{{ duyuru.text }}</p>
                     </div>
 
