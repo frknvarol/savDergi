@@ -310,16 +310,46 @@ main {
 @media screen and (max-width: 600px) {
 
     .navbar {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navbar_list {
         display: none;
     }
 
+    .navbar_logo {
+        background-size: contain;
+        background-repeat: no-repeat;
+        align-self: start;
+    }
 
     .main_welcome {
-        width: 300px;
-        margin: auto;
+        min-width: 300px;
+        max-width: 420px;
+        margin: 20px auto;
+    }
+    .home-image {
+        display: none;
     }
 
     .duyuru_container {
-        width: 300px;
+
+        min-width: 300px;
+        max-width: 420px;
     }
+
+    .duyuru_header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .duyuru_h3 {
+        text-align: center;
+    }
+
+    .duyuru_button {
+        text-align: center;
+    }
+
 }
