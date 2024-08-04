@@ -7,7 +7,9 @@
         {% for duyuru in duyuru_group %}
             <div class="duyurular_div">
                 <a class="duyurular_topic" href="{% url 'duyuru' duyuru.slug%}">{{ duyuru.topic }}</a>
-                <p class="duyurular_text">{{ duyuru.text }}</p>
+                {% with text=duyuru.text|linebreaksbr %}
+                <p class="duyurular_text">{{ text|truncatewords:100 }}</p>
+                {% endwith %}
                 <p class="duyurular_date">{{ duyuru.updated|date:"j F Y" }}</p>
 
             </div>

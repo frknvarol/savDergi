@@ -303,3 +303,23 @@ main {
     font-size: 15px;
     font-family: Inter, sans-serif;
 }
+
+
+
+
+@media screen and (max-width: 600px) {
+
+    .navbar {
+        display: none;
+    }
+
+
+    .main_welcome {
+        width: 300px;
+        margin: auto;
+    }
+
+    .duyuru_container {
+        width: 300px;
+    }
+}
