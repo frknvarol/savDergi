@@ -1,7 +1,7 @@
 
 body:has(.misyonumuz_container) {
     background: var(--BACKGROUND-COLOR) url("../media/art-gallery.webp") no-repeat;
-    background-size: 100%;
+    background-size: cover;
     height: 1000px;
     background-attachment: fixed;
 
@@ -110,6 +110,7 @@ body:has(.misyonumuz_container) {
         width: 322px;
         height: 500px;
         border-radius: 5px;
+        margin: auto;
     }
 
     .misyonumuz_amaclarimiz {
@@ -120,10 +121,6 @@ body:has(.misyonumuz_container) {
         width: 100%;
     }
 
-    .misyonumuz_amaclarimiz-container figure {
-        width: 322px;
-        height: 500px;
-    }
 
     .misyonumuz_amaclarimiz-container {
         flex-direction: column;
@@ -132,13 +129,4 @@ body:has(.misyonumuz_container) {
     }
 
 
-
-
-    body:has(.misyonumuz_container) {
-        background: var(--BACKGROUND-COLOR) url("../media/art-gallery.webp") no-repeat;
-        background-size: cover;
-        height: 1000px;
-        background-attachment: fixed;
-
-    }
 }
