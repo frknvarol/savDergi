@@ -81,18 +81,16 @@ body:has(.misyonumuz_container) {
     }
 
     .misyonumuz_header {
-        padding: 40px 0;
+        padding: 60px 0 40px 0;
     }
 
     .misyonumuz_header h1 {
         margin: 0;
+        font-family: Cardo;
+        font-size: 40px;
     }
 
     .misyonumuz_container > *{
-        width: 100%;
-    }
-
-    .misyonumuz_container {
         width: 100%;
     }
 
@@ -109,8 +107,9 @@ body:has(.misyonumuz_container) {
     }
 
     .misyonumuz_amaclarimiz-img {
-        width: 20%;
-        height: 20%;
+        width: 322px;
+        height: 500px;
+        border-radius: 5px;
     }
 
     .misyonumuz_amaclarimiz {
@@ -120,6 +119,20 @@ body:has(.misyonumuz_container) {
     .misyonumuz_amaclarimiz-container > * {
         width: 100%;
     }
+
+    .misyonumuz_amaclarimiz-container figure {
+        width: 322px;
+        height: 500px;
+    }
+
+    .misyonumuz_amaclarimiz-container {
+        flex-direction: column;
+        padding: 30px;
+        align-items: center;
+    }
+
+
+
 
     body:has(.misyonumuz_container) {
         background: var(--BACKGROUND-COLOR) url("../media/art-gallery.webp") no-repeat;
