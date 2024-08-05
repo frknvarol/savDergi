@@ -71,3 +71,61 @@ body:has(.misyonumuz_container) {
     font-size: 17px;
     padding: 10px 0;
 }
+
+
+
+@media screen and (max-width: 600px) {
+
+    .misyonumuz_container {
+        width: 100%;
+    }
+
+    .misyonumuz_header {
+        padding: 40px 0;
+    }
+
+    .misyonumuz_header h1 {
+        margin: 0;
+    }
+
+    .misyonumuz_container > *{
+        width: 100%;
+    }
+
+    .misyonumuz_container {
+        width: 100%;
+    }
+
+    .misyonumuz_div p {
+        width: 300px;
+        margin: auto;
+        padding: 30px 0 50px 0;
+    }
+
+    .misyonumuz_div {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 100vh;
+    }
+
+    .misyonumuz_amaclarimiz-img {
+        width: 20%;
+        height: 20%;
+    }
+
+    .misyonumuz_amaclarimiz {
+        padding: 50px 10px;
+    }
+
+    .misyonumuz_amaclarimiz-container > * {
+        width: 100%;
+    }
+
+    body:has(.misyonumuz_container) {
+        background: var(--BACKGROUND-COLOR) url("../media/art-gallery.webp") no-repeat;
+        background-size: cover;
+        height: 1000px;
+        background-attachment: fixed;
+
+    }
+}

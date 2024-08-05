@@ -325,18 +325,16 @@ main {
     }
 
     .main_welcome {
-        min-width: 300px;
-        max-width: 420px;
+        width: 90%;
         margin: 20px auto;
     }
+
     .home-image {
         display: none;
     }
 
     .duyuru_container {
-
-        min-width: 300px;
-        max-width: 420px;
+        width: 90%;
     }
 
     .duyuru_header {
