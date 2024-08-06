@@ -1,0 +1,23 @@
+.yazim-kuralları_container {
+    width: 35vw;
+    margin: auto;
+}
+
+.yazim-kuralları_header {
+    margin: 120px 0 80px 0;
+}
+
+.yazim-kuralları_h3 {
+    font-size: 52px;
+    font-family: Cardo;
+}
+
+.yazim-kuralları_text-div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.yazim-kuralları_text-div > * {
+    display: inline-block;
+}
