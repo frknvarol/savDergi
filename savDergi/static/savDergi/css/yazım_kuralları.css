@@ -72,26 +72,36 @@
         gap: 10px;
         align-items: start;
         padding: 10px 0;
-        width: 100vw;
+        width: 100%;
+        max-width: 100%;
     }
-
 
     .navbar_list {
         display: flex;
-        gap: 10px;
         justify-content: space-around;
-        width: 95vw;
+        width: 100%;
+        max-width: 100%;
         flex-wrap: wrap;
+        padding: 10px 100px;
     }
 
     .navbar_list-element a {
         font-size: 14px;
     }
 
-    .yazim-kuralları_container {
-        margin: 50 auto;
-
+    .navbar_logo {
+        padding: 10px 0 10px 100px;
     }
+
+    .yazim-kuralları_container {
+        margin: 50px auto;
+    }
+
+    .navbar_kurumsal::before {
+        left: 77px;
+    }
+
+
 }
 
 @media only screen and (min-width: 1200px) {
