@@ -1,5 +1,5 @@
 .yazim-kuralları_container {
-    width: 35vw;
+    width: 45vw;
     margin: auto;
 }
 
@@ -20,4 +20,80 @@
 
 .yazim-kuralları_text-div > * {
     display: inline-block;
+    font-size: 17px;
+    font-family: Inter, sans-serif;
+}
+
+.yazim-kuralları_text-div h2 {
+    font-size: 40px;
+    font-family: Cardo;
+}
+
+@media screen and (max-width: 600px) {
+    .yazim-kuralları_container {
+        width: 90vw;
+    }
+    .yazim-kuralları_text-div h2 {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+
+    .navbar {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navbar_list {
+        display: none;
+    }
+
+    .navbar_logo {
+        width: 100%;
+        margin: auto;
+    }
+
+    .yazim-kuralları_container {
+        width: 70vw;
+        margin: auto;
+    }
+
+}
+/* NOT DONE NEED TO MAKE THE NAVBAR RESPONSIVE FIRST */
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 992px) {
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 10px;
+        align-items: start;
+        padding: 10px 0;
+        width: 100vw;
+    }
+
+
+    .navbar_list {
+        display: flex;
+        gap: 10px;
+        justify-content: space-around;
+        width: 95vw;
+        flex-wrap: wrap;
+    }
+
+    .navbar_list-element a {
+        font-size: 14px;
+    }
+
+    .yazim-kuralları_container {
+        margin: 50 auto;
+
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+
 }

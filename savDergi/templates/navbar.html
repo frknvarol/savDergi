@@ -3,8 +3,10 @@
 <nav class="navbar">
 
     {% load static %}
-    <img class="navbar_logo" src="{% static 'savDergi/media/sav-dergi-logo.png' %}" alt="Sav Dergi">
-
+    <figure class="navbar_figure">
+        <img class="navbar_logo" src="{% static 'savDergi/media/sav-dergi-logo.png' %}" alt="Sav Dergi">
+    </figure>
+    
     <ul class="navbar_list">
         <li class="navbar_list-element">
             <a href="{% url 'home' %}">Ana Sayfa</a>
