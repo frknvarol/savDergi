@@ -66,27 +66,11 @@
 
 @media only screen and (min-width: 992px) {
     .navbar {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        gap: 10px;
-        align-items: start;
         padding: 10px 0;
-        width: 100%;
-        max-width: 100%;
     }
 
     .navbar_list {
         display: flex;
-        justify-content: space-around;
-        width: 100%;
-        max-width: 100%;
-        flex-wrap: wrap;
-        padding: 10px 100px;
-    }
-
-    .navbar_list-element a {
-        font-size: 14px;
     }
 
     .navbar_logo {
@@ -97,13 +81,9 @@
         margin: 50px auto;
     }
 
-    .navbar_kurumsal::before {
-        left: 77px;
-    }
 
 
 }
 
 @media only screen and (min-width: 1200px) {
-
 }
