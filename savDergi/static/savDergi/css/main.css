@@ -304,6 +304,47 @@ main {
     font-family: Inter, sans-serif;
 }
 
+.navbar_button {
+
+}
+
+.navbar_button::before {
+    content: "";
+    background-color: black;
+    position: relative;
+    left: 18px;
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    margin-bottom: 0;
+    border-radius: 2px;
+
+}
+
+.navbar_button::after {
+    content: "";
+    background-color: black;
+    position: relative;
+    left: 0;
+    bottom: 10px;
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    margin-bottom: 0;
+    border-radius: 2px;
+
+}
+
+
+/*  MEDIA QUERIES */
+
+@media screen and (max-width: 336px) {
+    .navbar_button::before {
+        left: 0;
+        top: 5px;
+    }
+
+}
 
 
 
@@ -311,7 +352,10 @@ main {
 
     .navbar {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        gap: 0;
+        justify-content: space-around;
+        padding: 10px 0;
     }
 
     .navbar_list {
@@ -322,6 +366,8 @@ main {
         background-size: contain;
         background-repeat: no-repeat;
         align-self: start;
+        width: 50%;
+        height: 50%;
     }
 
     .main_welcome {
@@ -354,6 +400,10 @@ main {
 
 /* NOT DONE NEED TO MAKE THE NAVBAR RESPONSIVE FIRST */
 @media only screen and (min-width: 600px) {
+
+    .navbar_button {
+        display: none;
+    }
 
     .navbar {
         display: flex;
