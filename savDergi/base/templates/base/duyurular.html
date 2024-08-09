@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <div class="duyurular_container">
+
+        {% for duyuru in duyuru_group %}
+            <div class="duyurular_div">
+                <a class="duyurular_topic" href="{% url 'duyuru' duyuru.slug%}">{{ duyuru.topic }}</a>
+                {% with text=duyuru.text|linebreaksbr %}
+                <p class="duyurular_text">{{ text|truncatewords:100 }}</p>
+                {% endwith %}
+                <p class="duyurular_date">{{ duyuru.updated|date:"j F Y" }}</p>
+
+            </div>
+        {% endfor %}
+
+    </div>
+
+
+{% load static %}
+<script src="{% static 'savDergi/javascript/duyurular.js' %}"></script>
+
+{% endblock content %}

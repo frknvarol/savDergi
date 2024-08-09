@@ -1,8 +1,13 @@
 from django.shortcuts import render
 
+from .models import Duyuru
+
 
 def home(request):
-    return render(request, 'base/home.html')
+    duyurus = Duyuru.objects.all()[:2]
+
+    context = {'duyurus': duyurus}
+    return render(request, 'base/home.html', context)
 
 
 def amac_kapsam(request):
@@ -60,6 +65,14 @@ def hukukcu_portre(request):
     return render(request, 'base/hukukcu_portre.html', context)
 
 
-def duyuru(request):
-    context = {'page_css': 'savDergi/css/duyuru.css'}
+def duyurular(request):
+    duyuru_group = Duyuru.objects.all()
+    context = {'page_css': 'savDergi/css/duyurular.css', 'duyuru_group': duyuru_group}
+    return render(request, 'base/duyurular.html', context)
+
+
+def duyuru(request, slug):
+    duyuru = Duyuru.objects.get(slug=slug)
+    context = {'duyuru': duyuru, 'page_css': 'savDergi/css/duyuru.css'}
     return render(request, 'base/duyuru.html', context)
+

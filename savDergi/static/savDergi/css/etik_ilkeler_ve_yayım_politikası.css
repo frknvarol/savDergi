@@ -90,3 +90,61 @@
     flex-direction: column;
     gap: 20px;
 }
+
+
+@media screen and (max-width: 600px) {
+
+    .etik > div {
+        width: 100vw;
+        padding: 30px 30px;
+    }
+
+    .etik .etik_header-div {
+        padding: 30px 0;
+    }
+
+    .etik_beyan-div {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .etik_beyan-div > * {
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .etik_header-div h1, .etik_header-div h3 {
+        font-size: 40px;
+        margin: 0;
+    }
+
+    .etik_beyan-h3 {
+        font-size: 30px;
+    }
+
+    .etik_beyan-text {
+        width: 80vw;
+        gap: 20px
+    }
+
+    .etik_h2 {
+        font-size: 29px;
+    }
+
+    .etik_beyan-figure, .etik_beyan-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+    }
+
+    .etik_beyan-text> * {
+        width: 80vw;
+    }
+
+    .etik_default-div, .etik_default-div > * {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+}

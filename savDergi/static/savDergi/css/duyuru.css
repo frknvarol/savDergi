@@ -1,0 +1,30 @@
+.duyuru_container {
+    width: 1000px;
+}
+
+.duyuru_button {
+    min-width: 100px;
+    text-align: center;
+    margin-left: auto;
+}
+
+.duyuru_topic {
+    font-size: 24px;
+}
+
+.duyuru_text {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 600px) {
+
+    .duyuru_container {
+        margin: 40px 10px;
+        padding: 10px;
+        width: 95vw;
+    }
+
+    .duyuru_button {
+        margin: auto;
+    }
+}

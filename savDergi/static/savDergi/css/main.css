@@ -9,6 +9,7 @@
     margin: 0;
     --FONT-COLOR: rgb(17,17,17);
     --BACKGROUND-COLOR: rgb(249, 249, 249);
+    --BOX-SHADOW: rgba(3, 26, 42, 0.12) 6px 8px 28px 0;
 }
 /*
   Typographic tweaks!
@@ -91,9 +92,6 @@ main {
     font-weight: bold;
     cursor: pointer;
 }
-
-
-
 
 .navbar_logo {
     width: 150px;
@@ -193,6 +191,8 @@ main {
     gap: 10px;
     background-color: var(--BACKGROUND-COLOR);
     padding: 10px 20px 10px 10px;
+    box-shadow: var(--BOX-SHADOW);
+    border-radius: 3px;
 }
 
 .navbar_dropdown-element a {
@@ -230,4 +230,278 @@ main {
     margin-bottom: 5px;
     transform: rotate(-45deg);
     border-radius: 2px;
+}
+
+.duyuru_container {
+    width: 500px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    gap: 30px;
+    box-shadow: var(--BOX-SHADOW);
+}
+
+.duyuru_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.duyuru_h3 {
+    color: var(--FONT-COLOR);
+    font-size: 25px;
+}
+
+.duyuru_button {
+    background-color: rgb(17, 17, 17);
+    color: rgb(249, 249, 249);
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: Inter, sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.duyuru_button:link, .duyuru_button:visited {
+    color: white;
+}
+
+.duyuru_button:hover {
+    background-color: #636363;
+}
+
+.duyuru_latest-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.duyuru_element {
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: rgb(243, 245, 249);
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: transform 75ms ease-in-out;
+}
+
+.duyuru_element:hover {
+    transform: scale(1.03);
+}
+
+.duyuru_element-topic {
+    font-size: 20px;
+    font-family: Cardo, sans-serif;
+}
+
+
+.duyuru_element-text {
+    font-size: 15px;
+    font-family: Inter, sans-serif;
+}
+
+.navbar_button {
+
+}
+
+.navbar_button::before {
+    content: "";
+    background-color: black;
+    position: relative;
+    left: 18px;
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    margin-bottom: 0;
+    border-radius: 2px;
+
+}
+
+.navbar_button::after {
+    content: "";
+    background-color: black;
+    position: relative;
+    left: 0;
+    bottom: 10px;
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    margin-bottom: 0;
+    border-radius: 2px;
+
+}
+
+
+/*  MEDIA QUERIES */
+
+@media screen and (max-width: 336px) {
+    .navbar_button::before {
+        left: 0;
+        top: 5px;
+    }
+
+}
+
+
+
+@media screen and (max-width: 600px) {
+
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        justify-content: space-around;
+        padding: 10px 0;
+    }
+
+    .navbar_list {
+        display: none;
+    }
+
+    .navbar_logo {
+        background-size: contain;
+        background-repeat: no-repeat;
+        align-self: start;
+        width: 50%;
+        height: 50%;
+    }
+
+    .main_welcome {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .home-image {
+        display: none;
+    }
+
+    .duyuru_container {
+        width: 90%;
+    }
+
+    .duyuru_header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .duyuru_h3 {
+        text-align: center;
+    }
+
+    .duyuru_button {
+        text-align: center;
+    }
+
+}
+
+/* NOT DONE NEED TO MAKE THE NAVBAR RESPONSIVE FIRST */
+@media only screen and (min-width: 600px) {
+
+    .navbar_button {
+        display: none;
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 10px;
+        align-items: start;
+        padding: 10px 0 30px 0;
+        width: 100%;
+        max-width: 100%;
+        height: 200px;
+    }
+    .navbar_list {
+        justify-content: space-around;
+        width: 100%;
+        max-width: 100%;
+        padding: 10px 0;
+        gap: 5px;
+    }
+
+    .navbar_list-element a {
+        font-size: 11px;
+    }
+
+    .navbar_logo {
+        padding: 10px 0 10px 100px;
+        width: 100%;
+    }
+
+
+    .navbar_kurumsal::before {
+        left: 64px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+    .navbar_list-element a {
+        font-size: 14px;
+    }
+
+    .navbar_kurumsal::before {
+        left: 77px;
+    }
+
+}
+
+@media only screen and (min-width: 992px) {
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 10px;
+        align-items: start;
+        padding: 10px 0 30px 0;
+        width: 100%;
+        max-width: 100%;
+        height: 200px;
+    }
+
+    .navbar_list {
+        justify-content: space-around;
+        width: 100%;
+        max-width: 100%;
+        flex-wrap: wrap;
+        padding: 10px 100px;
+    }
+
+    .navbar_list-element a {
+        font-size: 16px;
+    }
+
+    .navbar_logo {
+        padding: 10px 0 10px 100px;
+        width: 100%;
+    }
+
+
+    .navbar_kurumsal::before {
+        left: 86px;
+    }
+
+
+}
+
+@media only screen and (min-width: 1200px) {
+    .navbar_list-element a {
+        font-size: 20px;
+    }
+
+    .navbar_logo {
+        padding: 10px 0 10px 100px;
+        width: 100%;
+    }
+
+
+    .navbar_kurumsal::before {
+        left: 103px;
+    }
+
 }

@@ -2,6 +2,17 @@
 
 {% block content %}
 
+<div class="duyuru_container">
+
+    <div class="duyuru_header">
+        <h3 class="duyuru_topic">{{ duyuru.topic }}</h3>
+        <p class="duyuru_date">{{ duyuru.updated|date:"j F Y"}}</p>
+    </div>
+
+    <p class="duyuru_text">{{ duyuru.text|linebreaksbr }}</p>
+
+    <a class="duyuru_button" href="{% url 'duyurular' %}">Tüm Duyurular</a>
+</div>
 
 
 {% endblock content %}

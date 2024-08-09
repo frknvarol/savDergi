@@ -17,7 +17,29 @@
     {% load static %}
     <img class="home-image" src="{% static 'savDergi/media/home-image.webp' %}" alt="">
 
+    <div class="duyuru_container">
+        <div class="duyuru_header">
+            <h3 class="duyuru_h3">Duyurular</h3>
+
+            <a class="duyuru_button" href="{% url 'duyurular' %}">Tüm Duyurular</a>
+        </div>
+
+        <div class="duyuru_latest-container">
+
+            {% for duyuru in duyurus %}
+
+                    <div class="duyuru_element">
+                        <a class="duyuru_element-topic" href="{% url 'duyuru' duyuru.slug %}">{{ duyuru.topic }}</a>
+                        <p class="duyuru_element-text">{{ duyuru.text|truncatewords:20 }}</p>
+                    </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
 
 </main>
-
+{% load static %}
+<script src="{% static 'savDergi/javascript/duyurular.js' %}"></script>
 {% endblock content %}
