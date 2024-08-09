@@ -347,7 +347,6 @@ main {
 .navbar_mobile-button {
     width: 30px;
     height: 30px;
-    background-color: hotpink;
     z-index: 2;
     margin: 20px;
 }
@@ -382,6 +381,7 @@ main {
     height: 20px;
     background-color: green;
     margin: 20px;
+
 }
 
 
