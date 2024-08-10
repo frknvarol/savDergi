@@ -308,7 +308,7 @@ main {
     content: "";
     background-color: black;
     position: relative;
-    left: 18px;
+    left: 8px;
     display: inline-block;
     width: 18px;
     height: 2px;
@@ -321,7 +321,7 @@ main {
     content: "";
     background-color: black;
     position: relative;
-    left: 0;
+    left: -10px;
     bottom: 10px;
     display: inline-block;
     width: 18px;
