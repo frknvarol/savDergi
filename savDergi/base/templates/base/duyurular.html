@@ -18,8 +18,7 @@
         {% for duyuru in duyuru_group %}
             {% if duyuru.block_type == 'paragraph' %}
                 <p>{{ duyuru.text }}</p>
-            {% elif duyuru.block_type == 'image' %}
-                <img src="{{ duyuru.image }}" alt="Image {{ forloop.counter }}">
+                <img src="{{ duyuru.image.url }}" alt="">
             {% endif %}
         {% endfor %}
 

@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 from . import views
 
@@ -17,4 +19,4 @@ urlpatterns = [
     path('metodoloji-egitimleri', views.metodoloji, name='metodoloji'),
     path('duyurular', views.duyurular, name='duyurular'),
     path('duyurular/<slug:slug>/', views.duyuru, name='duyuru'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
