@@ -6,11 +6,36 @@
     <div class="album_container">
 
     {% for image in images %}
-        <figure class="album_figure">
-        <img class="album_image" src="{{ image.image.url }}" alt="" width="300">
-        </figure>
+
+        {% load base_tags %}
+            {% if forloop.counter|modulo:3 == 0 %}
+                <div class="album_container-column1">
+                    <figure class="album_figure">
+                        <img class="album_image" src="{{ image.image.url }}" alt="" >
+                    </figure>
+                </div>
+            {% elif forloop.counter|modulo:3 == 1 %}
+                <div class="album_container-column2">
+                    <figure class="album_figure">
+                        <img class="album_image" src="{{ image.image.url }}" alt="" >
+                    </figure>
+                </div>
+            {% elif forloop.counter|modulo:3 == 2 %}
+                <div class="album_container-column3">
+                    <figure class="album_figure">
+                        <img class="album_image" src="{{ image.image.url }}" alt="" >
+                    </figure>
+                </div>
+            {% endif %}
+
+
+
+
+
     {% endfor %}
 
     </div>
 
+{% load static %}
+<script src="{% static 'savDergi/javascript/album.js' %}"></script>
 {% endblock content %}
