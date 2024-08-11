@@ -1,10 +1,20 @@
 {% extends 'main.html' %}
 
 {% block content %}
+
+    <div class="album_container">
     
-        {% for image in images %}
-            <img src="{{ image.image.url }}" alt="" width="500">
+        {% for album in albums %}
+
+            <div class="album_div">
+                <p class="album_name"><a href="">{{ album.name }}</a></p>
+            </div>
+
         {% endfor %}
 
+    </div>
+
+{% load static %}
+<script src="{% static 'savDergi/javascript/galeri.js' %}"></script>
 
 {% endblock content %}

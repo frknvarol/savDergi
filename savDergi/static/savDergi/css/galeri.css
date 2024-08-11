@@ -1,0 +1,23 @@
+.album_container {
+    width: 50vw;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 5vw;
+    justify-content: left;
+    row-gap: 2vw;
+}
+
+
+.album_div {
+    width: 20vw;
+    height: 150px;
+    box-shadow: var(--BOX-SHADOW);
+    cursor: pointer;
+}
+
+.album_name {
+    text-align: center;
+    margin: 65px 0;
+}
