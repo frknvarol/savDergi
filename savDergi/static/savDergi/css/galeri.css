@@ -21,3 +21,16 @@
     text-align: center;
     margin: 65px 0;
 }
+
+.album_container {
+    width: 70vw;
+    margin: 100px auto;
+    padding: 30px 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 5vw;
+    row-gap: 2vw;
+    box-shadow: var(--BOX-SHADOW);
+    justify-content: space-evenly;
+}

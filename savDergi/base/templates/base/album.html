@@ -6,8 +6,8 @@
     <div class="album_container">
 
     {% for image in images %}
-        <figure>
-        <img src="{{ image.image.url }}" alt="" width="500">
+        <figure class="album_figure">
+        <img class="album_image" src="{{ image.image.url }}" alt="" width="300">
         </figure>
     {% endfor %}
 
