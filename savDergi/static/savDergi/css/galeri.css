@@ -32,9 +32,15 @@
     column-gap: 5vw;
     row-gap: 2vw;
     box-shadow: var(--BOX-SHADOW);
-    justify-content: space-evenly;
+    justify-content: left;
+}
+
+.album_figure {
+    height: 300px;
+    width: 300px;
 }
 
 .album_image {
-    width: 300px;
+    height: 100%;
+    margin: auto;
 }
