@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+    <div class="album_container">
+
+    {% for image in images %}
+        <figure>
+        <img src="{{ image.image.url }}" alt="" width="500">
+        </figure>
+    {% endfor %}
+
+    </div>
+
+{% endblock content %}

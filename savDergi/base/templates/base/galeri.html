@@ -2,12 +2,12 @@
 
 {% block content %}
 
-    <div class="album_container">
+    <div class="gallery_container">
     
         {% for album in albums %}
 
             <div class="album_div">
-                <p class="album_name"><a href="">{{ album.name }}</a></p>
+                <p class="album_name"><a href="{% url 'album' album.name %}">{{ album.name }}</a></p>
             </div>
 
         {% endfor %}
