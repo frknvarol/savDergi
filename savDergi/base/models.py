@@ -40,3 +40,24 @@ class Duyuru(models.Model):
 
     def __str__(self):
         return f"{self.get_block_type_display()} -{str(self.order)}"
+
+
+class Album(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class Image(models.Model):
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    album = models.ForeignKey(Album, on_delete=models.CASCADE)
+
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return str(self.image)
+

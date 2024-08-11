@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Duyuru
+from .models import Duyuru, Album, Image
 
 
 def home(request):
@@ -36,7 +36,9 @@ def dergi(request):
 
 
 def galeri(request):
-    context = {'page_css': 'savDergi/css/galeri.css'}
+    albums = Album.objects.all()
+    images = Image.objects.all()
+    context = {'page_css': 'savDergi/css/galeri.css', 'albums': albums, 'images': images}
     return render(request, 'base/galeri.html', context)
 
 
