@@ -2,15 +2,21 @@
 
 {% block content %}
 
+    <div class="album_header">
+        <h1>{{ album_name }}</h1>
+    </div>
 
     <div class="album_container">
 
     {% for image in images %}
-        <figure>
-        <img src="{{ image.image.url }}" alt="" width="500">
-        </figure>
-    {% endfor %}
 
+        <figure class="album_figure">
+            <img class="album_image" src="{{ image.image.url }}" alt="" >
+        </figure>
+
+    {% endfor %}
     </div>
 
+{% load static %}
+<script src="{% static 'savDergi/javascript/album.js' %}"></script>
 {% endblock content %}

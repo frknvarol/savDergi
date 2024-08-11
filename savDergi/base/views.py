@@ -82,6 +82,6 @@ def galeri(request):
 def album(request, album_name):
     album = Album.objects.get(name=album_name)
     images = Image.objects.filter(name=album)
-    context = {'images': images, 'page_css': 'savDergi/css/galeri.css'}
+    context = {'images': images, 'album_name': album_name, 'page_css': 'savDergi/css/galeri.css'}
     return render(request, 'base/album.html', context)
 
