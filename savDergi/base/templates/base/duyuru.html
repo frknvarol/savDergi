@@ -11,6 +11,10 @@
 
     <p class="duyuru_text">{{ duyuru.text|linebreaksbr }}</p>
 
+    {% if duyuru.image %}
+        <img src="{{ duyuru.image.url }}" alt="">
+    {% endif %}
+
     <a class="duyuru_button" href="{% url 'duyurular' %}">Tüm Duyurular</a>
 </div>
 

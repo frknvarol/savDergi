@@ -4,17 +4,8 @@ from django.utils.text import slugify
 
 class Duyuru(models.Model):
 
-    BLOCK_TYPES = (
-        ('paragraph', 'Paragraph'),
-        ('image', 'Image')
-    )
-
     topic = models.CharField(max_length=200)
-
-    block_type = models.CharField(max_length=10, choices=BLOCK_TYPES, default='')
-    text = models.TextField(blank=True, null=True)  # For paragraph text
-    image = models.ImageField(upload_to='images/', blank=True, null=True)  # For images
-    order = models.PositiveIntegerField(default=0)  # To maintain the order of blocks
+    text = models.TextField(blank=True, null=True)
 
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -39,4 +30,25 @@ class Duyuru(models.Model):
         ordering = ['-updated', '-created']
 
     def __str__(self):
-        return f"{self.get_block_type_display()} -{str(self.order)}"
+        return self.topic
+
+
+class Album(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class Image(models.Model):
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    name = models.ForeignKey(Album, on_delete=models.CASCADE)
+
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return str(self.image)
+

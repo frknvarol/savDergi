@@ -2,6 +2,19 @@
 
 {% block content %}
 
+    <div class="gallery_container">
+    
+        {% for album in albums %}
 
+            <div class="album_div">
+                <p class="album_name"><a href="{% url 'album' album.name %}">{{ album.name }}</a></p>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+{% load static %}
+<script src="{% static 'savDergi/javascript/galeri.js' %}"></script>
 
 {% endblock content %}

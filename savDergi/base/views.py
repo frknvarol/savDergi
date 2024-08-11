@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Duyuru
+from .models import Duyuru, Album, Image
 
 
 def home(request):
@@ -33,11 +33,6 @@ def yazim_kurallari(request):
 def dergi(request):
     context = {'page_css': 'savDergi/css/dergi.css'}
     return render(request, 'base/dergi.html', context)
-
-
-def galeri(request):
-    context = {'page_css': 'savDergi/css/galeri.css'}
-    return render(request, 'base/galeri.html', context)
 
 
 def konferanslar(request):
@@ -75,4 +70,18 @@ def duyuru(request, slug):
     duyuru = Duyuru.objects.get(slug=slug)
     context = {'duyuru': duyuru, 'page_css': 'savDergi/css/duyuru.css'}
     return render(request, 'base/duyuru.html', context)
+
+
+def galeri(request):
+    albums = Album.objects.all()
+    images = Image.objects.all()
+    context = {'page_css': 'savDergi/css/galeri.css', 'albums': albums, 'images': images}
+    return render(request, 'base/galeri.html', context)
+
+
+def album(request, album_name):
+    album = Album.objects.get(name=album_name)
+    images = Image.objects.filter(name=album)
+    context = {'images': images, 'page_css': 'savDergi/css/galeri.css'}
+    return render(request, 'base/album.html', context)
 
