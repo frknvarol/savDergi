@@ -28,16 +28,21 @@ body:has(.misyonumuz_container) {
     text-align: left;
     color: var(--FONT-COLOR);
     font-family: Inter, sans-serif;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 26px;
     max-width: 620px;
+    padding: 0 0 0 15px;
 }
 
 
 .misyonumuz_amaclarimiz {
     background-color: var(--BACKGROUND-COLOR);
     padding: 150px 10px;
+}
+
+.misyonumuz_amaclarimiz h1 {
+    font-size: 50px;
 }
 
 
@@ -68,7 +73,7 @@ body:has(.misyonumuz_container) {
     font-style: italic;
     line-height: 26px;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 22px;
     padding: 10px 0;
 }
 
@@ -128,5 +133,96 @@ body:has(.misyonumuz_container) {
         align-items: center;
     }
 
+
+}
+
+
+@media only screen and (min-width: 600px) {
+    .misyonumuz_container {
+        width: 100%;
+    }
+
+    .misyonumuz_header {
+        padding: 60px 0 40px 0;
+    }
+
+    .misyonumuz_header h1 {
+        margin: 0;
+        font-family: Cardo;
+        font-size: 40px;
+    }
+
+    .misyonumuz_container > *{
+        width: 100%;
+    }
+
+    .misyonumuz_div p {
+        width: 300px;
+        margin: auto;
+        padding: 30px 0 50px 0;
+    }
+
+    .misyonumuz_div {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 100vh;
+    }
+
+    .misyonumuz_amaclarimiz-img {
+        width: 322px;
+        height: 500px;
+        border-radius: 5px;
+        margin: auto;
+    }
+
+    .misyonumuz_amaclarimiz {
+        padding: 50px 10px;
+    }
+
+    .misyonumuz_amaclarimiz-container > * {
+        width: 100%;
+    }
+
+
+    .misyonumuz_amaclarimiz-container {
+        flex-direction: column;
+        padding: 30px;
+        align-items: center;
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+    .misyonumuz_container {
+        width: 100%;
+    }
+
+    .misyonumuz_header {
+        padding: 60px 0 40px 0;
+    }
+
+    .misyonumuz_header h1 {
+        margin: 0;
+        font-family: Cardo;
+        font-size: 40px;
+    }
+
+    .misyonumuz_container > *{
+        width: 100%;
+    }
+
+    .misyonumuz_div p {
+        width: 70vw;
+        margin: auto;
+        padding: 30px 0 50px 0;
+    }
+
+}
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
 
 }

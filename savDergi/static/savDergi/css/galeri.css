@@ -44,3 +44,9 @@
     height: 100%;
     margin: auto;
 }
+
+.album_header-h1 {
+    text-align: center;
+    margin: 50px 0;
+    font-family: Cardo, sans-serif;
+}
