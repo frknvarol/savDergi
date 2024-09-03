@@ -221,6 +221,19 @@ body:has(.misyonumuz_container) {
 
 @media only screen and (min-width: 992px) {
 
+    .misyonumuz_amaclarimiz-img {
+        width: 80%;
+        height: 80%;
+        border-radius: 5px;
+        margin: auto;
+    }
+    .misyonumuz_amaclarimiz-container {
+        flex-direction: row;
+        padding: 40px;
+        align-items: center;
+        gap: 30px;
+    }
+
 }
 
 @media only screen and (min-width: 1200px) {
