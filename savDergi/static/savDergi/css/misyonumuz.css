@@ -10,6 +10,7 @@ body:has(.misyonumuz_container) {
 .misyonumuz_header {
     background-color: var(--BACKGROUND-COLOR);
     padding: 100px 0 20px 0;
+    margin-bottom: 1000px;
 }
 
 .misyonumuz_header h1 {
@@ -17,14 +18,7 @@ body:has(.misyonumuz_container) {
     font-size: 53px;
 }
 
-
-.misyonumuz_div {
-    background-color: var(--BACKGROUND-COLOR);
-    padding: 10px 500px 100px 500px;
-    margin-bottom: 1000px;
-}
-
-.misyonumuz_div p {
+.misyonumuz_header p {
     text-align: left;
     color: var(--FONT-COLOR);
     font-family: Inter, sans-serif;
@@ -32,7 +26,8 @@ body:has(.misyonumuz_container) {
     font-weight: 400;
     line-height: 26px;
     max-width: 620px;
-    padding: 0 0 0 15px;
+    padding: 0 15px 0 30px;
+    margin-top: 50px;
 }
 
 
@@ -99,17 +94,6 @@ body:has(.misyonumuz_container) {
         width: 100%;
     }
 
-    .misyonumuz_div p {
-        width: 300px;
-        margin: auto;
-        padding: 30px 0 50px 0;
-    }
-
-    .misyonumuz_div {
-        width: 100%;
-        padding: 0;
-        margin-bottom: 100vh;
-    }
 
     .misyonumuz_amaclarimiz-img {
         width: 322px;
@@ -156,21 +140,16 @@ body:has(.misyonumuz_container) {
         width: 100%;
     }
 
-    .misyonumuz_div p {
-        width: 300px;
+    .misyonumuz_header p {
+        width: 85vw;
         margin: auto;
         padding: 30px 0 50px 0;
     }
 
-    .misyonumuz_div {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 100vh;
-    }
 
     .misyonumuz_amaclarimiz-img {
-        width: 322px;
-        height: 500px;
+        width: 55%;
+        height: 55%;
         border-radius: 5px;
         margin: auto;
     }
@@ -211,8 +190,8 @@ body:has(.misyonumuz_container) {
         width: 100%;
     }
 
-    .misyonumuz_div p {
-        width: 70vw;
+    .misyonumuz_header p {
+        width: 90vw;
         margin: auto;
         padding: 30px 0 50px 0;
     }
@@ -237,5 +216,14 @@ body:has(.misyonumuz_container) {
 }
 
 @media only screen and (min-width: 1200px) {
-
+    .misyonumuz_amaclarimiz-img {
+        width: 474px;
+        height: 843px;
+    }
+    .misyonumuz_amaclarimiz-container {
+        gap: 10px;
+    }
+    .misyonumuz_amaclarimiz-container figure {
+        width: 474px;
+    }
 }
