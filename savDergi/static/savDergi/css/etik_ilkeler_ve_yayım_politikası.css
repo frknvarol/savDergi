@@ -15,7 +15,6 @@
     display: flex;
     flex-direction: row;
     gap: 100px;
-
     padding: 100px 200px;
 }
 
@@ -73,13 +72,9 @@
     font-size: 40px;
 }
 
-
-
 .etik_sorumluluk-div {
     background-color: var(--ETIK-BACKGROUND-COLOR2);
 }
-
-
 
 .etik_yayin-div {
     background-color: var(--ETIK-BACKGROUND-COLOR1);
@@ -147,4 +142,91 @@
         width: 100%;
     }
 
+}
+
+@media only screen and (min-width: 600px) {
+
+    .etik_beyan-div {
+        flex-direction: column;
+        padding: 100px 5%;
+    }
+
+    .etik_beyan-figure, .etik_beyan-img {
+        width: 95%;
+        height: 95%;
+        border-radius: 5px;
+        margin: auto;
+    }
+
+    .etik_default-div {
+        padding: 100px 5%;
+        width: 95%;
+    }
+
+    .etik_sorumluluk-div > * {
+        padding: 100px 5%;
+        width: 95%;
+    }
+
+    .etik_yayin-div > * {
+        padding: 100px 5%;
+        width: 95%;
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+
+    .etik_beyan-div {
+        flex-direction: column;
+        padding: 100px 15%;
+    }
+
+    .etik_beyan-figure, .etik_beyan-img {
+        border-radius: 15px;
+    }
+
+    .etik_default-div {
+        padding: 100px 15%;
+    }
+
+    .etik_sorumluluk-div > * {
+        padding: 100px 15%;
+    }
+
+    .etik_yayin-div > * {
+        padding: 100px 15%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+    .etik_beyan-div {
+        flex-direction: row;
+        gap: 100px;
+        padding: 100px 7%;
+    }
+
+    .etik_beyan-figure, .etik_beyan-img {
+        border-radius: 15px;
+    }
+
+    .etik_default-div {
+        padding: 100px 7%;
+    }
+
+    .etik_sorumluluk-div > * {
+        padding: 100px 7%;
+    }
+
+    .etik_yayin-div > * {
+        padding: 100px 7%;
+    }
+
+    .etik_p {
+        font-size: 20px;
+    }
 }
