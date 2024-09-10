@@ -4,10 +4,11 @@
 
     <div class="gallery_container">
     
-        {% for album in albums %}
+        {% for album, image in album_images %}
 
             <div class="album_div">
                 <p class="album_name"><a href="{% url 'album' album.name %}">{{ album.name }}</a></p>
+                <img src="{{ image.image.url }}" alt="{{ album.name }}">
             </div>
 
         {% endfor %}
