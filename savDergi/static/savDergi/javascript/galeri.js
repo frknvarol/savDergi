@@ -8,7 +8,7 @@ albumDiv.forEach(div => {
 
 albumDiv.forEach(div => {
    div.addEventListener('mouseover', () => {
-       div.querySelector('.album_gallery-image').style.transition = "transform 75ms ease-in-out"
+       div.querySelector('.album_gallery-image').style.transition = "transform 150ms ease-in-out"
        div.querySelector('.album_gallery-image').style.transform = "scale(1.1)"
    })
 });

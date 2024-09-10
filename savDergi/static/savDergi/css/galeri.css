@@ -20,6 +20,11 @@
     align-items: center;
     padding: 20px 10px;
     gap: 10px;
+    transition: box-shadow ease-in-out 150ms;
+}
+
+.album_div:hover {
+    box-shadow: rgba(3, 26, 42, 0.25) 6px 8px 28px 0;
 }
 
 .album_name {
