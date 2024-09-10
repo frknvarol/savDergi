@@ -54,6 +54,21 @@
     margin: auto;
 }
 
+.album_image:hover  {
+    cursor: zoom-in;
+}
+
+.album_clicked {
+    position: sticky;
+    top: 350px;
+    left: 0;
+    right: 0;
+    height: 80vh;
+    width: auto;
+    margin: 0 auto;
+}
+
+
 .album_header-h1 {
     text-align: center;
     margin: 50px 0;
