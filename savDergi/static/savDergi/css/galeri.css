@@ -12,14 +12,18 @@
 
 .album_div {
     width: 20vw;
-    height: 150px;
     box-shadow: var(--BOX-SHADOW);
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+    gap: 10px;
 }
 
 .album_name {
     text-align: center;
-    margin: 65px 0;
 }
 
 .album_container {
@@ -49,4 +53,17 @@
     text-align: center;
     margin: 50px 0;
     font-family: Cardo, sans-serif;
+}
+
+.album_gallery-figure {
+
+}
+
+.album_gallery-image {
+    width: 15vw;
+    height: 10vw;
+    object-fit: cover;
+}
+
+.album_gallery-image:hover {
 }

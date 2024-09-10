@@ -79,7 +79,7 @@ def galeri(request):
     for album in albums:
         first_image = Image.objects.filter(name=album).first()
         album_images.append((album, first_image))
-    context = {'page_css': 'savDergi/css/galeri.css', 'albums': albums, 'album_images': album_images}
+    context = {'page_css': 'savDergi/css/galeri.css', 'album_images': album_images}
     return render(request, 'base/galeri.html', context)
 
 

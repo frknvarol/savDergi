@@ -7,8 +7,10 @@
         {% for album, image in album_images %}
 
             <div class="album_div">
+                <figure class="album_gallery-figure">
+                    <img class="album_gallery-image" src="{{ image.image.url }}" alt="">
+                </figure>
                 <p class="album_name"><a href="{% url 'album' album.name %}">{{ album.name }}</a></p>
-                <img src="{{ image.image.url }}" alt="{{ album.name }}">
             </div>
 
         {% endfor %}
