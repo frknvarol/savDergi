@@ -50,8 +50,10 @@
 }
 
 .album_image {
-    height: 100%;
+    height: 300px;
+    width: auto;
     margin: auto;
+    object-fit: contain;
 }
 
 .album_image:hover  {
@@ -60,12 +62,19 @@
 
 .album_clicked {
     position: absolute;
-    top: 350px;
+    top: 0;
     left: 0;
     right: 0;
-    height: 80vh;
+    height: 100vw;
+    overflow: auto;
     width: auto;
     margin: 0 auto;
+    background-color: rgba(99, 99, 99, 0.29);
+}
+
+.album_clicked img {
+    height: 70%;
+    margin: auto;
 }
 
 
@@ -112,3 +121,5 @@
 .album_button:link, .album_button:visited {
     color: rgb(249, 249, 249);
 }
+
+

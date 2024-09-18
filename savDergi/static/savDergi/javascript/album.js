@@ -1,13 +1,22 @@
 const albumImages = document.querySelectorAll('.album_image');
-const docWidth = parseInt(window.getComputedStyle(document.querySelector('.album_header')).width.replace('px', ''))
+const album = document.querySelector('.album');
+const fullHeight = String(document.querySelector('body').scrollHeight) + 'px';
+
+const clickedImageDiv = document.createElement('div');
+const clickedImage = document.createElement('img');
+clickedImageDiv.appendChild(clickedImage)
+
+clickedImageDiv.classList.add('album_clicked');
+clickedImageDiv.style.height = fullHeight;
+
 
 albumImages.forEach(img => {
-    const imgWidth = parseInt(window.getComputedStyle(img).width.replace('px', ''))
-
-    let newWidth = String((docWidth - imgWidth) / 2) + 'px'
     img.addEventListener('click', () => {
-        img.classList.add('album_clicked')
+        clickedImage.src = img.src
+        album.appendChild(clickedImageDiv)
     });
 });
 
-
+clickedImageDiv.addEventListener('click', () => {
+    album.removeChild(clickedImageDiv)
+})
