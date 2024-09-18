@@ -1,21 +1,30 @@
 {% extends 'main.html' %}
 
 {% block content %}
+    
+    <div class="album">
 
-    <div class="album_header">
-        <h1 class="album_header-h1">{{ album_name }}</h1>
+        <div class="album_header">
+            <h1 class="album_header-h1">{{ album_name }}</h1>
+
+            <a class="album_button" href="{% url 'galeri' %}">Geri Dön</a>
+        </div>
+    
+        <div class="album_container">
+    
+        {% for image in images %}
+    
+            <figure class="album_figure">
+                <img class="album_image" src="{{ image.image.url }}" alt="" >
+            </figure>
+    
+        {% endfor %}
+        </div>
+        
+
     </div>
-
-    <div class="album_container">
-
-    {% for image in images %}
-
-        <figure class="album_figure">
-            <img class="album_image" src="{{ image.image.url }}" alt="" >
-        </figure>
-
-    {% endfor %}
-    </div>
+    
+    
 
 {% load static %}
 <script src="{% static 'savDergi/javascript/album.js' %}"></script>

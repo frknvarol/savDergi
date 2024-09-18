@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from embed_video.fields import EmbedVideoField
 
 
 class Duyuru(models.Model):
@@ -52,3 +53,15 @@ class Image(models.Model):
     def __str__(self):
         return str(self.image)
 
+
+class EmbeddedVideo(models.Model):
+    title = models.CharField(max_length=100)
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+    url = EmbedVideoField()
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['created']

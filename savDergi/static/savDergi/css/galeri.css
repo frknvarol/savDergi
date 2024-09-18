@@ -12,19 +12,28 @@
 
 .album_div {
     width: 20vw;
-    height: 150px;
     box-shadow: var(--BOX-SHADOW);
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+    gap: 10px;
+    transition: box-shadow ease-in-out 150ms;
+}
+
+.album_div:hover {
+    box-shadow: rgba(3, 26, 42, 0.25) 6px 8px 28px 0;
 }
 
 .album_name {
     text-align: center;
-    margin: 65px 0;
 }
 
 .album_container {
     width: 70vw;
-    margin: 100px auto;
+    margin: 30px auto;
     padding: 30px 10px;
     display: flex;
     flex-direction: row;
@@ -41,12 +50,83 @@
 }
 
 .album_image {
-    height: 100%;
+    height: 300px;
+    width: auto;
+    margin: auto;
+    object-fit: contain;
+}
+
+.album_image:hover  {
+    cursor: zoom-in;
+}
+
+.album_clicked {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10vh 10vw;
+    width: auto;
+    margin: 0 auto;
+    background-color: rgba(99, 99, 99, 0.25);
+}
+
+.album_clicked-figure {
+    height: 80vh;
+    width: auto;
     margin: auto;
 }
+
+.album_clicked-img {
+    width: inherit;
+    height: inherit;
+    margin: auto;
+    object-fit: contain;
+}
+
 
 .album_header-h1 {
     text-align: center;
     margin: 50px 0;
     font-family: Cardo, sans-serif;
 }
+
+.album_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.album_gallery-figure {
+
+}
+
+.album_gallery-image {
+    width: 15vw;
+    height: 10vw;
+    object-fit: cover;
+}
+
+.album_gallery-image:hover {
+}
+
+.album_button {
+    background-color: rgb(17, 17, 17);
+    color: rgb(249, 249, 249);
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: Inter, sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+    display: block;
+}
+
+.album_button:link, .album_button:visited {
+    color: rgb(249, 249, 249);
+}
+
+

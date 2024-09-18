@@ -1,12 +1,13 @@
 from django.shortcuts import render
 
-from .models import Duyuru, Album, Image
+from .models import Duyuru, Album, Image, EmbeddedVideo
 
 
 def home(request):
     duyurus = Duyuru.objects.all()[:2]
+    videos = EmbeddedVideo.objects.all()
 
-    context = {'duyurus': duyurus}
+    context = {'duyurus': duyurus, 'videos': videos}
     return render(request, 'base/home.html', context)
 
 
@@ -74,8 +75,12 @@ def duyuru(request, slug):
 
 def galeri(request):
     albums = Album.objects.all()
-    images = Image.objects.all()
-    context = {'page_css': 'savDergi/css/galeri.css', 'albums': albums, 'images': images}
+    album_images = []
+
+    for album in albums:
+        first_image = Image.objects.filter(name=album).first()
+        album_images.append((album, first_image))
+    context = {'page_css': 'savDergi/css/galeri.css', 'album_images': album_images}
     return render(request, 'base/galeri.html', context)
 
 
