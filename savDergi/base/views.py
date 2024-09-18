@@ -1,12 +1,13 @@
 from django.shortcuts import render
 
-from .models import Duyuru, Album, Image
+from .models import Duyuru, Album, Image, EmbeddedVideo
 
 
 def home(request):
     duyurus = Duyuru.objects.all()[:2]
+    videos = EmbeddedVideo.objects.all()
 
-    context = {'duyurus': duyurus}
+    context = {'duyurus': duyurus, 'videos': videos}
     return render(request, 'base/home.html', context)
 
 
