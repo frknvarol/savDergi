@@ -81,6 +81,7 @@
     width: inherit;
     height: inherit;
     margin: auto;
+    object-fit: contain;
 }
 
 
