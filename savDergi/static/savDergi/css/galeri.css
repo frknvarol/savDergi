@@ -61,19 +61,25 @@
 }
 
 .album_clicked {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 100vw;
-    overflow: auto;
+    padding: 10vh 10vw;
     width: auto;
     margin: 0 auto;
-    background-color: rgba(99, 99, 99, 0.29);
+    background-color: rgba(99, 99, 99, 0.25);
 }
 
-.album_clicked img {
-    height: 70%;
+.album_clicked-figure {
+    height: 80vh;
+    width: auto;
+    margin: auto;
+}
+
+.album_clicked-img {
+    width: inherit;
+    height: inherit;
     margin: auto;
 }
 

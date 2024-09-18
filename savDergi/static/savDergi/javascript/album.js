@@ -1,10 +1,19 @@
 const albumImages = document.querySelectorAll('.album_image');
 const album = document.querySelector('.album');
-const fullHeight = String(document.querySelector('body').scrollHeight) + 'px';
+const body = document.querySelector('body')
+const html = document.querySelector('html')
+const fullHeight = String(Math.max(body.scrollHeight, body.offsetHeight,
+  html.clientHeight, html.scrollHeight, html.offsetHeight)) + 'px';
 
 const clickedImageDiv = document.createElement('div');
+const clickedImageFigure = document.createElement('figure');
 const clickedImage = document.createElement('img');
-clickedImageDiv.appendChild(clickedImage)
+
+clickedImageFigure.classList.add('album_clicked-figure')
+clickedImage.classList.add('album_clicked-img')
+
+clickedImageDiv.appendChild(clickedImageFigure)
+clickedImageFigure.appendChild(clickedImage)
 
 clickedImageDiv.classList.add('album_clicked');
 clickedImageDiv.style.height = fullHeight;
