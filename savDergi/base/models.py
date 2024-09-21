@@ -28,7 +28,7 @@ class Duyuru(models.Model):
         super(Duyuru, self).save(*args, **kwargs)
 
     class Meta:
-        ordering = ['-updated', '-created']
+        ordering = ['-updated', '-created',]
 
     def __str__(self):
         return self.topic
@@ -39,11 +39,17 @@ class DuyuruText(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     topic = models.ForeignKey(Duyuru, on_delete=models.CASCADE)
 
+    class Meta:
+        ordering = ['-created']
+
 
 class DuyuruImage(models.Model):
     image = models.ImageField(upload_to='images/', blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     topic = models.ForeignKey(Duyuru, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ['-created']
 
 
 class Album(models.Model):
