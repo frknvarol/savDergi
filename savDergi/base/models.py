@@ -34,6 +34,18 @@ class Duyuru(models.Model):
         return self.topic
 
 
+class DuyuruText(models.Model):
+    text = models.TextField(blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    topic = models.ForeignKey(Duyuru, on_delete=models.CASCADE)
+
+
+class DuyuruImage(models.Model):
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    topic = models.ForeignKey(Duyuru, on_delete=models.CASCADE)
+
+
 class Album(models.Model):
     name = models.CharField(max_length=100)
 
