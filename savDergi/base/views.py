@@ -68,7 +68,7 @@ def duyurular(request):
     first_duyuru = []
 
     for duyuru in duyuru_group:
-        first_text = DuyuruText.objects.filter(topic=duyuru).first()
+        first_text = sorted(DuyuruText.objects.filter(topic=duyuru), key=attrgetter('ordering'))[0]
         first_duyuru.append((duyuru, first_text))
 
     context = {'page_css': 'savDergi/css/duyurular.css', 'duyuru_group': first_duyuru}
@@ -81,7 +81,7 @@ def duyuru(request, slug):
     texts = DuyuruText.objects.filter(topic=duyuru)
     images = DuyuruImage.objects.filter(topic=duyuru)
 
-    duyurular = (*sorted(chain(texts, images), key=attrgetter('created')),)
+    duyurular = (*sorted(chain(texts, images), key=attrgetter('ordering')),)
 
     context = {'duyuru': duyuru, 'duyurular': duyurular, 'page_css': 'savDergi/css/duyuru.css'}
     return render(request, 'base/duyuru.html', context)

@@ -37,6 +37,7 @@ class DuyuruText(models.Model):
     text = models.TextField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     topic = models.ForeignKey(Duyuru, on_delete=models.CASCADE)
+    ordering = models.PositiveIntegerField(default=0)
 
     class Meta:
         ordering = ['-created']
@@ -49,6 +50,7 @@ class DuyuruImage(models.Model):
     image = models.ImageField(upload_to='images/', blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     topic = models.ForeignKey(Duyuru, on_delete=models.CASCADE)
+    ordering = models.PositiveIntegerField(default=0)
 
     class Meta:
         ordering = ['-created']
