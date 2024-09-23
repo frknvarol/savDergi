@@ -35,22 +35,17 @@
     width: 70vw;
     margin: 30px auto;
     padding: 30px 10px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    column-gap: 5vw;
-    row-gap: 2vw;
     box-shadow: var(--BOX-SHADOW);
     justify-content: left;
+    columns: 300px;
 }
 
 .album_figure {
-    height: 300px;
     width: 300px;
+    padding: 0 10px 10px 10px;
 }
 
 .album_image {
-    height: 300px;
     width: auto;
     margin: auto;
     object-fit: contain;

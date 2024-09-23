@@ -75,10 +75,9 @@ def duyuru(request, slug):
     texts = DuyuruText.objects.filter(topic=duyuru)
     images = DuyuruImage.objects.filter(topic=duyuru)
 
-    duyurular = (*sorted(
-        chain(texts, images), key=attrgetter('created')
-    ),)
-    context = {'duyuru': duyuru, 'page_css': 'savDergi/css/duyuru.css', duyurular: 'duyurular'}
+    duyurular = (*sorted(chain(texts, images), key=attrgetter('created')),)
+
+    context = {'duyuru': duyuru, 'duyurular': duyurular, 'page_css': 'savDergi/css/duyuru.css'}
     return render(request, 'base/duyuru.html', context)
 
 
