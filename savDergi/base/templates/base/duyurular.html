@@ -4,10 +4,10 @@
 
     <div class="duyurular_container">
 
-        {% for duyuru in duyuru_group %}
+        {% for duyuru, first_text in duyuru_group %}
             <div class="duyurular_div">
                 <a class="duyurular_topic" href="{% url 'duyuru' duyuru.slug%}">{{ duyuru.topic }}</a>
-                {% with text=duyuru.text|linebreaksbr %}
+                {% with text=first_text.text|linebreaksbr %}
                 <p class="duyurular_text">{{ text|truncatewords:100 }}</p>
                 {% endwith %}
                 <p class="duyurular_date">{{ duyuru.updated|date:"j F Y" }}</p>
@@ -15,12 +15,7 @@
             </div>
         {% endfor %}
 
-        {% for duyuru in duyuru_group %}
-            {% if duyuru.block_type == 'paragraph' %}
-                <p>{{ duyuru.text }}</p>
-                <img src="{{ duyuru.image.url }}" alt="">
-            {% endif %}
-        {% endfor %}
+
 
     </div>
 

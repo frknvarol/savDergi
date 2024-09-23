@@ -6,7 +6,6 @@ from embed_video.fields import EmbedVideoField
 class Duyuru(models.Model):
 
     topic = models.CharField(max_length=200)
-    text = models.TextField(blank=True, null=True)
 
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -42,6 +41,9 @@ class DuyuruText(models.Model):
     class Meta:
         ordering = ['-created']
 
+    def __str__(self):
+        return f"{self.topic} text"
+
 
 class DuyuruImage(models.Model):
     image = models.ImageField(upload_to='images/', blank=True, null=True)
@@ -50,6 +52,9 @@ class DuyuruImage(models.Model):
 
     class Meta:
         ordering = ['-created']
+
+    def __str__(self):
+        return f"{self.topic} image"
 
 
 class Album(models.Model):

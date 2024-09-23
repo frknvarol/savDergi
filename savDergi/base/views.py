@@ -65,7 +65,13 @@ def hukukcu_portre(request):
 def duyurular(request):
     duyuru_group = Duyuru.objects.all()
 
-    context = {'page_css': 'savDergi/css/duyurular.css', 'duyuru_group': duyuru_group}
+    first_duyuru = []
+
+    for duyuru in duyuru_group:
+        first_text = DuyuruText.objects.filter(topic=duyuru).first()
+        first_duyuru.append((duyuru, first_text))
+
+    context = {'page_css': 'savDergi/css/duyurular.css', 'duyuru_group': first_duyuru}
     return render(request, 'base/duyurular.html', context)
 
 
