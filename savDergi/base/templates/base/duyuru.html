@@ -9,11 +9,17 @@
         <p class="duyuru_date">{{ duyuru.updated|date:"j F Y"}}</p>
     </div>
 
-    <p class="duyuru_text">{{ duyuru.text|linebreaksbr }}</p>
 
-    {% if duyuru.image %}
-        <img src="{{ duyuru.image.url }}" alt="">
-    {% endif %}
+    {% for duyuru_element in duyurular %}
+        {% if duyuru_element.text %}
+            <p class="duyuru_text">{{ duyuru_element.text|linebreaksbr }}</p>
+        {% elif duyuru_element.image %}
+            <figure class="duyuru_figure">
+            <img class="duyuru_img" src="{{ duyuru_element.image.url }}" alt="">
+            </figure>
+        {% endif %}
+    {% endfor %}
+
 
     <a class="duyuru_button" href="{% url 'duyurular' %}">Tüm Duyurular</a>
 </div>

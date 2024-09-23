@@ -1,6 +1,7 @@
 from django.shortcuts import render
-
-from .models import Duyuru, Album, Image, EmbeddedVideo
+from itertools import chain
+from operator import attrgetter
+from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText
 
 
 def home(request):
@@ -63,13 +64,26 @@ def hukukcu_portre(request):
 
 def duyurular(request):
     duyuru_group = Duyuru.objects.all()
-    context = {'page_css': 'savDergi/css/duyurular.css', 'duyuru_group': duyuru_group}
+
+    first_duyuru = []
+
+    for duyuru in duyuru_group:
+        first_text = sorted(DuyuruText.objects.filter(topic=duyuru), key=attrgetter('ordering'))[0]
+        first_duyuru.append((duyuru, first_text))
+
+    context = {'page_css': 'savDergi/css/duyurular.css', 'duyuru_group': first_duyuru}
     return render(request, 'base/duyurular.html', context)
 
 
 def duyuru(request, slug):
     duyuru = Duyuru.objects.get(slug=slug)
-    context = {'duyuru': duyuru, 'page_css': 'savDergi/css/duyuru.css'}
+
+    texts = DuyuruText.objects.filter(topic=duyuru)
+    images = DuyuruImage.objects.filter(topic=duyuru)
+
+    duyurular = (*sorted(chain(texts, images), key=attrgetter('ordering')),)
+
+    context = {'duyuru': duyuru, 'duyurular': duyurular, 'page_css': 'savDergi/css/duyuru.css'}
     return render(request, 'base/duyuru.html', context)
 
 
