@@ -1,8 +1,12 @@
 from django.contrib import admin
-from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText
+from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiText, DergiSource, DergiKeyword
 
 admin.site.register(EmbeddedVideo)
 admin.site.register(Image)
+admin.site.register(Dergi)
+admin.site.register(DergiKeyword)
+admin.site.register(DergiSource)
+admin.site.register(DergiText)
 
 
 @admin.register(DuyuruImage)
