@@ -3,10 +3,6 @@ from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText
 
 admin.site.register(EmbeddedVideo)
 admin.site.register(Image)
-admin.site.register(Dergi)
-admin.site.register(DergiKeyword)
-admin.site.register(DergiSource)
-admin.site.register(DergiText)
 
 
 @admin.register(DuyuruImage)
@@ -51,3 +47,47 @@ class ImageTextInline(admin.TabularInline):
 @admin.register(Album)
 class AlbumAdmin(admin.ModelAdmin):
     inlines = [ImageTextInline]
+
+
+@admin.register(DergiKeyword)
+class DergiKeywordAdmin(admin.ModelAdmin):
+    list_display = ("title", "keyword", "created")
+
+
+class DergiKeywordInline(admin.TabularInline):
+    model = DergiKeyword
+    extra = 0
+    min = 1
+    max_num = 50
+    fields = ('title', 'keyword', "ordering")
+
+
+@admin.register(DergiSource)
+class DergiSourceAdmin(admin.ModelAdmin):
+    list_display = ("title", "source", "created")
+
+
+class DergiSourceInline(admin.TabularInline):
+    model = DergiSource
+    extra = 0
+    min = 1
+    max_num = 50
+    fields = ('title', 'source', 'ordering')
+
+
+@admin.register(DergiText)
+class DergiTextAdmin(admin.ModelAdmin):
+    list_display = ("title", "text", "created")
+
+
+class DergiTextInline(admin.TabularInline):
+    model = DergiText
+    extra = 0
+    min = 1
+    max_num = 50
+    fields = ('title', 'text', 'ordering')
+
+
+@admin.register(Dergi)
+class DergiInline(admin.ModelAdmin):
+    inlines = [DergiTextInline, DergiKeywordInline, DergiSourceInline]
