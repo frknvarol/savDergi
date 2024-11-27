@@ -99,6 +99,9 @@ class Dergi(models.Model):
 
     author = models.TextField(blank=False, null=False)
 
+    def __str__(self):
+        return self.title
+
 
 class DergiMakale(models.Model):
     title = models.ForeignKey(Dergi, on_delete=models.CASCADE)

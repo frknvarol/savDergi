@@ -1,4 +1,6 @@
 from django.contrib import admin
+from nested_inline.admin import NestedStackedInline, NestedModelAdmin
+from django.contrib.admin.options import StackedInline
 from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiMakale, DergiSource, \
     DergiKeyword, DergiMakaleText
 
@@ -81,7 +83,7 @@ class DergiMakaleTextAdmin(admin.ModelAdmin):
     list_display = ("title", "text", "created")
 
 
-class DergiMakaleTextInline(admin.TabularInline):
+class DergiMakaleTextInline(NestedStackedInline):
     model = DergiMakaleText
     extra = 0
     min = 1
@@ -94,7 +96,7 @@ class DergiMakaleAdmin(admin.ModelAdmin):
     list_display = ("title", "created")
 
 
-class DergiMakaleInline(admin.TabularInline):
+class DergiMakaleInline(NestedStackedInline):
     model = DergiMakale
     inlines = [DergiMakaleTextInline]
     extra = 0
@@ -103,6 +105,10 @@ class DergiMakaleInline(admin.TabularInline):
     fields = ('title', 'ordering')
 
 
-@admin.register(Dergi)
-class DergiInline(admin.ModelAdmin):
+class DergiAdmin(NestedModelAdmin):
+    model = Dergi
     inlines = [DergiMakaleInline, DergiKeywordInline, DergiSourceInline]
+
+
+admin.site.register(Dergi, DergiAdmin)
+

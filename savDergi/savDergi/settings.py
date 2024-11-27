@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'base.apps.BaseConfig',
     'embed_video',
+    'nested_inline',
 ]
 
 MIDDLEWARE = [
