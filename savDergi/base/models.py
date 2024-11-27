@@ -97,14 +97,14 @@ class Dergi(models.Model):
     created = models.DateTimeField(auto_now=True)
     updated = models.DateTimeField(auto_now_add=True)
 
-    author = models.TextField(blank=False, null=False)
-
     def __str__(self):
         return self.title
 
 
 class DergiMakale(models.Model):
     title = models.ForeignKey(Dergi, on_delete=models.CASCADE)
+    topic = models.CharField(max_length=100, default='makale')
+    author = models.CharField(max_length=100, default='yazar')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     ordering = models.PositiveIntegerField(default=0)
@@ -113,11 +113,11 @@ class DergiMakale(models.Model):
         ordering = ['-created']
 
     def __str__(self):
-        return f"{self.title} makale"
+        return f"{self.title}"
 
 
 class DergiMakaleText(models.Model):
-    title = models.ForeignKey(DergiMakale, on_delete=models.CASCADE)
+    topic = models.ForeignKey(DergiMakale, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     text = models.TextField()
@@ -127,14 +127,14 @@ class DergiMakaleText(models.Model):
         ordering = ['-created']
 
     def __str__(self):
-        return f"{self.title} makale"
+        return f"{self.topic} paragraf"
 
 
 class DergiSource(models.Model):
     title = models.ForeignKey(Dergi, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    source = models.TextField(blank=False, null=False)
+    source = models.CharField(max_length=50, blank=True, null=True)
     ordering = models.PositiveIntegerField(default=0)
 
     class Meta:
@@ -146,7 +146,7 @@ class DergiSource(models.Model):
 
 class DergiKeyword(models.Model):
     title = models.ForeignKey(Dergi, on_delete=models.CASCADE)
-    keyword = models.TextField()
+    keyword = models.CharField(max_length=50, blank=True, null=True)
     ordering = models.PositiveIntegerField(default=0)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
