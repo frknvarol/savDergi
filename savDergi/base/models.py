@@ -81,8 +81,8 @@ class Image(models.Model):
 
 class EmbeddedVideo(models.Model):
     title = models.CharField(max_length=100)
-    updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
     url = EmbedVideoField()
 
     def __str__(self):
@@ -90,3 +90,66 @@ class EmbeddedVideo(models.Model):
 
     class Meta:
         ordering = ['created']
+
+
+class Dergi(models.Model):
+    title = models.CharField(max_length=100)
+    created = models.DateTimeField(auto_now=True)
+    updated = models.DateTimeField(auto_now_add=True)
+
+    author = models.TextField(blank=False, null=False)
+
+
+class DergiMakale(models.Model):
+    title = models.ForeignKey(Dergi, on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    ordering = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return f"{self.title} makale"
+
+
+class DergiMakaleText(models.Model):
+    title = models.ForeignKey(DergiMakale, on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    text = models.TextField()
+    ordering = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return f"{self.title} makale"
+
+
+class DergiSource(models.Model):
+    title = models.ForeignKey(Dergi, on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    source = models.TextField(blank=False, null=False)
+    ordering = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return f"{self.source}"
+
+
+class DergiKeyword(models.Model):
+    title = models.ForeignKey(Dergi, on_delete=models.CASCADE)
+    keyword = models.TextField()
+    ordering = models.PositiveIntegerField(default=0)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return f"{self.keyword} "
