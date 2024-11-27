@@ -100,8 +100,21 @@ class Dergi(models.Model):
     author = models.TextField(blank=False, null=False)
 
 
-class DergiText(models.Model):
+class DergiMakale(models.Model):
     title = models.ForeignKey(Dergi, on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    ordering = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return f"{self.title} makale"
+
+
+class DergiMakaleText(models.Model):
+    title = models.ForeignKey(DergiMakale, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     text = models.TextField()
@@ -111,7 +124,7 @@ class DergiText(models.Model):
         ordering = ['-created']
 
     def __str__(self):
-        return f"{self.title} text"
+        return f"{self.title} makale"
 
 
 class DergiSource(models.Model):

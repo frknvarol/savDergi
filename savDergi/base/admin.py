@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiText, DergiSource, DergiKeyword
+from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiMakale, DergiSource, \
+    DergiKeyword, DergiMakaleText
 
 admin.site.register(EmbeddedVideo)
 admin.site.register(Image)
@@ -75,19 +76,33 @@ class DergiSourceInline(admin.TabularInline):
     fields = ('title', 'source', 'ordering')
 
 
-@admin.register(DergiText)
-class DergiTextAdmin(admin.ModelAdmin):
+@admin.register(DergiMakaleText)
+class DergiMakaleTextAdmin(admin.ModelAdmin):
     list_display = ("title", "text", "created")
 
 
-class DergiTextInline(admin.TabularInline):
-    model = DergiText
+class DergiMakaleTextInline(admin.TabularInline):
+    model = DergiMakaleText
     extra = 0
     min = 1
     max_num = 50
     fields = ('title', 'text', 'ordering')
 
 
+@admin.register(DergiMakale)
+class DergiMakaleAdmin(admin.ModelAdmin):
+    list_display = ("title", "created")
+
+
+class DergiMakaleInline(admin.TabularInline):
+    model = DergiMakale
+    inlines = [DergiMakaleTextInline]
+    extra = 0
+    min = 1
+    max_num = 50
+    fields = ('title', 'ordering')
+
+
 @admin.register(Dergi)
 class DergiInline(admin.ModelAdmin):
-    inlines = [DergiTextInline, DergiKeywordInline, DergiSourceInline]
+    inlines = [DergiMakaleInline, DergiKeywordInline, DergiSourceInline]

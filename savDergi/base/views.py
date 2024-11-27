@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from itertools import chain
 from operator import attrgetter
-from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiText, DergiSource, DergiKeyword
+from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiMakale, DergiSource, DergiKeyword
 
 
 def home(request):
