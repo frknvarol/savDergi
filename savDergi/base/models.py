@@ -96,6 +96,7 @@ class Dergi(models.Model):
     title = models.CharField(max_length=100)
     created = models.DateTimeField(auto_now=True)
     updated = models.DateTimeField(auto_now_add=True)
+    sayi = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
@@ -104,7 +105,10 @@ class Dergi(models.Model):
 class DergiMakale(models.Model):
     title = models.ForeignKey(Dergi, on_delete=models.CASCADE)
     topic = models.CharField(max_length=100, default='makale')
-    author = models.CharField(max_length=100, default='yazar')
+    konu = models.CharField(max_length=100, default='konu')
+    Oz = models.TextField(max_length=10000, default='Öz')
+    bolum = models.CharField(max_length=100, default='bölüm')
+    birinci_dil = models.CharField(max_length=100, default='birinci dil')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     ordering = models.PositiveIntegerField(default=0)
@@ -130,23 +134,23 @@ class DergiMakaleText(models.Model):
         return f"{self.topic} paragraf"
 
 
-class DergiSource(models.Model):
-    title = models.ForeignKey(Dergi, on_delete=models.CASCADE)
+class DergiMakaleKaynak(models.Model):
+    topic = models.ForeignKey(DergiMakale, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    source = models.CharField(max_length=50, blank=True, null=True)
+    kaynak = models.CharField(max_length=50, blank=True, null=True)
     ordering = models.PositiveIntegerField(default=0)
 
     class Meta:
         ordering = ['-created']
 
     def __str__(self):
-        return f"{self.source}"
+        return f"{self.kaynak}"
 
 
-class DergiKeyword(models.Model):
-    title = models.ForeignKey(Dergi, on_delete=models.CASCADE)
-    keyword = models.CharField(max_length=50, blank=True, null=True)
+class DergiMakaleAnahtar(models.Model):
+    topic = models.ForeignKey(DergiMakale, on_delete=models.CASCADE)
+    anahtar = models.CharField(max_length=50, blank=True, null=True)
     ordering = models.PositiveIntegerField(default=0)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -155,4 +159,17 @@ class DergiKeyword(models.Model):
         ordering = ['-created']
 
     def __str__(self):
-        return f"{self.keyword} "
+        return f"{self.anahtar} "
+
+
+class DergiMakaleYazar(models.Model):
+    topic = models.ForeignKey(DergiMakale, on_delete=models.CASCADE)
+    yazar = models.CharField(max_length=50, blank=False, null=False)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return f"{self.yazar} "

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from nested_inline.admin import NestedTabularInline, NestedModelAdmin, NestedStackedInline
-from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiMakale, DergiSource, \
-    DergiKeyword, DergiMakaleText
+from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiMakale, DergiMakaleYazar, \
+    DergiMakaleAnahtar, DergiMakaleText, DergiMakaleKaynak
 
 admin.site.register(EmbeddedVideo)
 admin.site.register(Image)
@@ -51,30 +51,30 @@ class AlbumAdmin(admin.ModelAdmin):
     inlines = [ImageTextInline]
 
 
-@admin.register(DergiKeyword)
-class DergiKeywordAdmin(admin.ModelAdmin):
-    list_display = ('title', 'keyword', 'created')
+@admin.register(DergiMakaleAnahtar)
+class DergiMakaleAnahtarAdmin(admin.ModelAdmin):
+    list_display = ('topic', 'anahtar', 'created')
 
 
-class DergiKeywordInline(NestedTabularInline):
-    model = DergiKeyword
+class DergiMakaleAnahtarInline(NestedTabularInline):
+    model = DergiMakaleAnahtar
     extra = 0
     min = 1
     max_num = 50
-    fields = ('title', 'keyword', 'ordering')
+    fields = ('topic', 'anahtar', 'ordering')
 
 
-@admin.register(DergiSource)
-class DergiSourceAdmin(admin.ModelAdmin):
-    list_display = ('title', 'source', 'created')
+@admin.register(DergiMakaleKaynak)
+class DergiMakaleKaynakAdmin(admin.ModelAdmin):
+    list_display = ('topic', 'kaynak', 'created')
 
 
-class DergiSourceInline(NestedTabularInline):
-    model = DergiSource
+class DergiMakaleKaynakInline(NestedTabularInline):
+    model = DergiMakaleKaynak
     extra = 0
     min = 1
     max_num = 50
-    fields = ('title', 'source', 'ordering')
+    fields = ('topic', 'kaynak', 'ordering')
 
 
 @admin.register(DergiMakaleText)
@@ -90,23 +90,36 @@ class DergiMakaleTextInline(NestedTabularInline):
     fields = ('text', 'ordering')
 
 
+@admin.register(DergiMakaleYazar)
+class DergiMakaleYazarAdmin(admin.ModelAdmin):
+    list_display = ('yazar', 'created')
+
+
+class DergiMakaleYazarInline(NestedTabularInline):
+    model = DergiMakaleYazar
+    extra = 1
+    min = 1
+    max_num = 10
+    fields = ('yazar',)
+
+
 @admin.register(DergiMakale)
 class DergiMakaleAdmin(admin.ModelAdmin):
-    list_display = ('topic', 'author', 'created')
+    list_display = ('topic', 'created')
 
 
 class DergiMakaleInline(NestedStackedInline):
     model = DergiMakale
-    inlines = [DergiMakaleTextInline,]
+    inlines = [DergiMakaleTextInline, DergiMakaleKaynakInline, DergiMakaleAnahtarInline, DergiMakaleYazarInline]
     extra = 0
     min = 1
     max_num = 50
-    fields = ('topic', 'author', 'ordering')
+    fields = ('topic', 'ordering')
 
 
 class DergiAdmin(NestedModelAdmin):
     model = Dergi
-    inlines = [DergiMakaleInline, DergiKeywordInline, DergiSourceInline]
+    inlines = [DergiMakaleInline,]
 
 
 admin.site.register(Dergi, DergiAdmin)
