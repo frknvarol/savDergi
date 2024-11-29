@@ -19,5 +19,5 @@ urlpatterns = [
     path('duyurular', views.duyurular, name='duyurular'),
     path('duyurular/<slug:slug>/', views.duyuru, name='duyuru'),
     path('galeri', views.galeri, name='galeri'),
-    path('galeri/<str:album_name>/', views.album, name='album'),
+    path('galeri/<slug:slug>/', views.album, name='album'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
