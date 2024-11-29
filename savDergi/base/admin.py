@@ -1,7 +1,7 @@
 from django.contrib import admin
 from nested_inline.admin import NestedTabularInline, NestedModelAdmin, NestedStackedInline
-from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiMakale, DergiMakaleYazar, \
-    DergiMakaleAnahtar, DergiMakaleText, DergiMakaleKaynak
+from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiMakale,  \
+    DergiMakaleYazar, DergiMakaleAnahtar, DergiMakaleText, DergiMakaleKaynak
 
 admin.site.register(EmbeddedVideo)
 admin.site.register(Image)
@@ -114,7 +114,7 @@ class DergiMakaleInline(NestedStackedInline):
     extra = 0
     min = 1
     max_num = 50
-    fields = ('topic', 'ordering')
+    fields = ('topic', 'ordering', 'konu', 'Oz', 'bolum', 'pdf')
 
 
 class DergiAdmin(NestedModelAdmin):

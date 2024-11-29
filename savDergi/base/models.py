@@ -113,6 +113,8 @@ class DergiMakale(models.Model):
     updated = models.DateTimeField(auto_now=True)
     ordering = models.PositiveIntegerField(default=0)
 
+    pdf = models.FileField(upload_to='pdfs/', null=True, blank=True,)
+
     class Meta:
         ordering = ['-created']
 
