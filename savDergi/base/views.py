@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from itertools import chain
 from operator import attrgetter
-from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiMakale
+from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiMakale, \
+    DergiMakaleText, DergiMakaleKaynak, DergiMakaleAnahtar, DergiMakaleYazar
 
 
 def home(request):
@@ -33,7 +34,9 @@ def yazim_kurallari(request):
 
 
 def dergi(request):
-    context = {'page_css': 'savDergi/css/dergi.css'}
+    dergi_group = Dergi.objects.all()
+
+    context = {'page_css': 'savDergi/css/dergi.css', 'dergi_group': dergi_group}
     return render(request, 'base/dergi.html', context)
 
 
@@ -98,9 +101,9 @@ def galeri(request):
     return render(request, 'base/galeri.html', context)
 
 
-def album(request, album_name):
-    album = Album.objects.get(name=album_name)
+def album(request, slug):
+    album = Album.objects.get(slug=slug)
     images = Image.objects.filter(name=album)
-    context = {'images': images, 'album_name': album_name, 'page_css': 'savDergi/css/galeri.css'}
+    context = {'images': images, 'slug': slug, 'page_css': 'savDergi/css/galeri.css'}
     return render(request, 'base/album.html', context)
 

@@ -62,6 +62,22 @@ class DuyuruImage(models.Model):
 class Album(models.Model):
     name = models.CharField(max_length=100)
 
+    slug = models.SlugField(editable=False, unique=True, default=slugify('name'))
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            base_slug = slugify(self.name)
+            slug = base_slug
+            counter = 1
+
+            while Album.objects.filter(slug=slug):
+                slug = f"{slug}-{counter}"
+                counter += 1
+
+            self.slug = slug
+
+        super(Album, self).save(*args, **kwargs)
+
     def __str__(self):
         return self.name
 
