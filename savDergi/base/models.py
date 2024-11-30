@@ -129,7 +129,11 @@ class DergiMakale(models.Model):
     updated = models.DateTimeField(auto_now=True)
     ordering = models.PositiveIntegerField(default=0)
 
+<<<<<<< Updated upstream
     pdf = models.FileField(upload_to='pdfs/', null=True, blank=True,)
+=======
+    pdf = models.FileField(upload_to='pdfs/', blank=True, null=True)
+>>>>>>> Stashed changes
 
     class Meta:
         ordering = ['-created']

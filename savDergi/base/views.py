@@ -1,8 +1,13 @@
 from django.shortcuts import render
 from itertools import chain
 from operator import attrgetter
+<<<<<<< Updated upstream
 from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiMakale, \
     DergiMakaleText, DergiMakaleKaynak, DergiMakaleAnahtar, DergiMakaleYazar
+=======
+
+from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiMakale
+>>>>>>> Stashed changes
 
 
 def home(request):
