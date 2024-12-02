@@ -118,7 +118,7 @@ class Dergi(models.Model):
         return self.title
 
 
-class DergiMakale(models.Model):
+class DergiSayi(models.Model):
     title = models.ForeignKey(Dergi, on_delete=models.CASCADE)
     topic = models.CharField(max_length=100, default='makale')
     konu = models.CharField(max_length=100, default='konu')
@@ -129,11 +129,7 @@ class DergiMakale(models.Model):
     updated = models.DateTimeField(auto_now=True)
     ordering = models.PositiveIntegerField(default=0)
 
-<<<<<<< Updated upstream
     pdf = models.FileField(upload_to='pdfs/', null=True, blank=True,)
-=======
-    pdf = models.FileField(upload_to='pdfs/', blank=True, null=True)
->>>>>>> Stashed changes
 
     class Meta:
         ordering = ['-created']
@@ -142,8 +138,8 @@ class DergiMakale(models.Model):
         return f"{self.title}"
 
 
-class DergiMakaleText(models.Model):
-    topic = models.ForeignKey(DergiMakale, on_delete=models.CASCADE)
+class DergiSayiText(models.Model):
+    topic = models.ForeignKey(DergiSayi, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     text = models.TextField()
@@ -156,8 +152,8 @@ class DergiMakaleText(models.Model):
         return f"{self.topic} paragraf"
 
 
-class DergiMakaleKaynak(models.Model):
-    topic = models.ForeignKey(DergiMakale, on_delete=models.CASCADE)
+class DergiSayiKaynak(models.Model):
+    topic = models.ForeignKey(DergiSayi, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     kaynak = models.CharField(max_length=50, blank=True, null=True)
@@ -170,8 +166,8 @@ class DergiMakaleKaynak(models.Model):
         return f"{self.kaynak}"
 
 
-class DergiMakaleAnahtar(models.Model):
-    topic = models.ForeignKey(DergiMakale, on_delete=models.CASCADE)
+class DergiSayiAnahtar(models.Model):
+    topic = models.ForeignKey(DergiSayi, on_delete=models.CASCADE)
     anahtar = models.CharField(max_length=50, blank=True, null=True)
     ordering = models.PositiveIntegerField(default=0)
     created = models.DateTimeField(auto_now_add=True)
@@ -184,8 +180,8 @@ class DergiMakaleAnahtar(models.Model):
         return f"{self.anahtar} "
 
 
-class DergiMakaleYazar(models.Model):
-    topic = models.ForeignKey(DergiMakale, on_delete=models.CASCADE)
+class DergiSayiYazar(models.Model):
+    topic = models.ForeignKey(DergiSayi, on_delete=models.CASCADE)
     yazar = models.CharField(max_length=50, blank=False, null=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

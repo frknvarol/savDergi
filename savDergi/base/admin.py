@@ -1,12 +1,7 @@
 from django.contrib import admin
 from nested_inline.admin import NestedTabularInline, NestedModelAdmin, NestedStackedInline
-<<<<<<< Updated upstream
-from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiMakale,  \
-    DergiMakaleYazar, DergiMakaleAnahtar, DergiMakaleText, DergiMakaleKaynak
-=======
-from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiMakale, DergiMakaleYazar, \
-    DergiMakaleAnahtar, DergiMakaleText, DergiMakaleKaynak
->>>>>>> Stashed changes
+from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiSayi, DergiSayiYazar, \
+    DergiSayiAnahtar, DergiSayiText, DergiSayiKaynak
 
 admin.site.register(EmbeddedVideo)
 admin.site.register(Image)
@@ -56,79 +51,75 @@ class AlbumAdmin(admin.ModelAdmin):
     inlines = [ImageTextInline]
 
 
-@admin.register(DergiMakaleAnahtar)
-class DergiMakaleAnahtarAdmin(admin.ModelAdmin):
+@admin.register(DergiSayiAnahtar)
+class DergiSayiAnahtarAdmin(admin.ModelAdmin):
     list_display = ('topic', 'anahtar', 'created')
 
 
-class DergiMakaleAnahtarInline(NestedTabularInline):
-    model = DergiMakaleAnahtar
+class DergiSayiAnahtarInline(NestedTabularInline):
+    model = DergiSayiAnahtar
     extra = 0
     min = 1
     max_num = 50
     fields = ('topic', 'anahtar', 'ordering')
 
 
-@admin.register(DergiMakaleKaynak)
-class DergiMakaleKaynakAdmin(admin.ModelAdmin):
+@admin.register(DergiSayiKaynak)
+class DergiSayiKaynakAdmin(admin.ModelAdmin):
     list_display = ('topic', 'kaynak', 'created')
 
 
-class DergiMakaleKaynakInline(NestedTabularInline):
-    model = DergiMakaleKaynak
+class DergiSayiKaynakInline(NestedTabularInline):
+    model = DergiSayiKaynak
     extra = 0
     min = 1
     max_num = 50
     fields = ('topic', 'kaynak', 'ordering')
 
 
-@admin.register(DergiMakaleText)
-class DergiMakaleTextAdmin(admin.ModelAdmin):
+@admin.register(DergiSayiText)
+class DergiSayiTextAdmin(admin.ModelAdmin):
     list_display = ('topic', 'text', 'created')
 
 
-class DergiMakaleTextInline(NestedTabularInline):
-    model = DergiMakaleText
+class DergiSayiTextInline(NestedTabularInline):
+    model = DergiSayiText
     extra = 0
     min = 1
     max_num = 50
     fields = ('text', 'ordering')
 
 
-@admin.register(DergiMakaleYazar)
-class DergiMakaleYazarAdmin(admin.ModelAdmin):
+@admin.register(DergiSayiYazar)
+class DergiSayiYazarAdmin(admin.ModelAdmin):
     list_display = ('yazar', 'created')
 
 
-class DergiMakaleYazarInline(NestedTabularInline):
-    model = DergiMakaleYazar
+class DergiSayiYazarInline(NestedTabularInline):
+    model = DergiSayiYazar
     extra = 1
     min = 1
     max_num = 10
     fields = ('yazar',)
 
 
-@admin.register(DergiMakale)
-class DergiMakaleAdmin(admin.ModelAdmin):
+@admin.register(DergiSayi)
+class DergiSayiAdmin(admin.ModelAdmin):
     list_display = ('topic', 'created')
 
 
-class DergiMakaleInline(NestedStackedInline):
-    model = DergiMakale
-    inlines = [DergiMakaleTextInline, DergiMakaleKaynakInline, DergiMakaleAnahtarInline, DergiMakaleYazarInline]
+class DergiSayiInline(NestedStackedInline):
+    model = DergiSayi
+    inlines = [DergiSayiTextInline, DergiSayiKaynakInline, DergiSayiAnahtarInline, DergiSayiYazarInline]
     extra = 0
     min = 1
     max_num = 50
-<<<<<<< Updated upstream
-    fields = ('topic', 'ordering', 'konu', 'Oz', 'bolum', 'pdf')
-=======
     fields = ('topic', 'konu', 'Oz', 'bolum', 'birinci_dil', 'pdf', 'ordering')
->>>>>>> Stashed changes
 
 
 class DergiAdmin(NestedModelAdmin):
     model = Dergi
-    inlines = [DergiMakaleInline,]
+    inlines = [DergiSayiInline,]
 
 
 admin.site.register(Dergi, DergiAdmin)

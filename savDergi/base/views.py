@@ -1,13 +1,8 @@
 from django.shortcuts import render
 from itertools import chain
 from operator import attrgetter
-<<<<<<< Updated upstream
-from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiMakale, \
-    DergiMakaleText, DergiMakaleKaynak, DergiMakaleAnahtar, DergiMakaleYazar
-=======
-
-from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiMakale
->>>>>>> Stashed changes
+from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiSayi, \
+    DergiSayiText, DergiSayiKaynak, DergiSayiAnahtar, DergiSayiYazar
 
 
 def home(request):
@@ -37,12 +32,6 @@ def yazim_kurallari(request):
     context = {'page_css': 'savDergi/css/yazım_kuralları.css'}
     return render(request, 'base/yazım_kuralları.html', context)
 
-
-def dergi(request):
-    dergi_group = Dergi.objects.all()
-
-    context = {'page_css': 'savDergi/css/dergi.css', 'dergi_group': dergi_group}
-    return render(request, 'base/dergi.html', context)
 
 
 def konferanslar(request):
@@ -111,4 +100,12 @@ def album(request, slug):
     images = Image.objects.filter(name=album)
     context = {'images': images, 'slug': slug, 'page_css': 'savDergi/css/galeri.css'}
     return render(request, 'base/album.html', context)
+
+
+def dergi(request):
+    dergi_group = Dergi.objects.all()
+
+    context = {'page_css': 'savDergi/css/dergi.css', 'dergi_group': dergi_group}
+    return render(request, 'base/dergi.html', context)
+
 
