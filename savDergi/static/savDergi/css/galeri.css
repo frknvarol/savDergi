@@ -5,7 +5,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     column-gap: 5vw;
-    justify-content: left;
+    justify-content: center;
     row-gap: 2vw;
 }
 

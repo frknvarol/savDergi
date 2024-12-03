@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from itertools import chain
 from operator import attrgetter
-from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiMakale, DergiSource
+from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiSayi, \
+    DergiSayiText, DergiSayiKaynak, DergiSayiAnahtar, DergiSayiYazar
+
 
 
 def home(request):
@@ -102,5 +104,9 @@ def album(request, slug):
 
 def dergi(request):
 
-    context = {'page_css': 'savDergi/css/dergi.css'}
+    dergi_group = Dergi.objects.all()
+
+    context = {'page_css': 'savDergi/css/dergi.css', 'dergi_group': dergi_group}
     return render(request, 'base/dergi.html', context)
+
+

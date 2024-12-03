@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiMakale, DergiSource, \
-    DergiKeyword, DergiMakaleText
+from nested_inline.admin import NestedTabularInline, NestedModelAdmin, NestedStackedInline
+from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiSayi, DergiSayiYazar, \
+    DergiSayiAnahtar, DergiSayiText, DergiSayiKaynak
 
 admin.site.register(EmbeddedVideo)
 admin.site.register(Image)
@@ -8,7 +9,7 @@ admin.site.register(Image)
 
 @admin.register(DuyuruImage)
 class DuyuruImageAdmin(admin.ModelAdmin):
-    list_display = ("topic", "image", "created")
+    list_display = ('topic', 'image', 'created')
 
 
 class DuyuruImageInline(admin.TabularInline):
@@ -21,7 +22,7 @@ class DuyuruImageInline(admin.TabularInline):
 
 @admin.register(DuyuruText)
 class DuyuruTextAdmin(admin.ModelAdmin):
-    list_display = ("topic", "text", "created")
+    list_display = ('topic', 'text', 'created')
 
 
 class DuyuruTextInline(admin.TabularInline):
@@ -50,59 +51,76 @@ class AlbumAdmin(admin.ModelAdmin):
     inlines = [ImageTextInline]
 
 
-@admin.register(DergiKeyword)
-class DergiKeywordAdmin(admin.ModelAdmin):
-    list_display = ("title", "keyword", "created")
+@admin.register(DergiSayiAnahtar)
+class DergiSayiAnahtarAdmin(admin.ModelAdmin):
+    list_display = ('topic', 'anahtar', 'created')
 
 
-class DergiKeywordInline(admin.TabularInline):
-    model = DergiKeyword
+class DergiSayiAnahtarInline(NestedTabularInline):
+    model = DergiSayiAnahtar
     extra = 0
     min = 1
     max_num = 50
-    fields = ('title', 'keyword', "ordering")
+    fields = ('topic', 'anahtar', 'ordering')
 
 
-@admin.register(DergiSource)
-class DergiSourceAdmin(admin.ModelAdmin):
-    list_display = ("title", "source", "created")
+@admin.register(DergiSayiKaynak)
+class DergiSayiKaynakAdmin(admin.ModelAdmin):
+    list_display = ('topic', 'kaynak', 'created')
 
 
-class DergiSourceInline(admin.TabularInline):
-    model = DergiSource
+class DergiSayiKaynakInline(NestedTabularInline):
+    model = DergiSayiKaynak
     extra = 0
     min = 1
     max_num = 50
-    fields = ('title', 'source', 'ordering')
+    fields = ('topic', 'kaynak', 'ordering')
 
 
-@admin.register(DergiMakaleText)
-class DergiMakaleTextAdmin(admin.ModelAdmin):
-    list_display = ("title", "text", "created")
+@admin.register(DergiSayiText)
+class DergiSayiTextAdmin(admin.ModelAdmin):
+    list_display = ('topic', 'text', 'created')
 
 
-class DergiMakaleTextInline(admin.TabularInline):
-    model = DergiMakaleText
+class DergiSayiTextInline(NestedTabularInline):
+    model = DergiSayiText
     extra = 0
     min = 1
     max_num = 50
-    fields = ('title', 'text', 'ordering')
+    fields = ('text', 'ordering')
 
 
-@admin.register(DergiMakale)
-class DergiMakaleAdmin(admin.ModelAdmin):
-    list_display = ("title", "created")
+@admin.register(DergiSayiYazar)
+class DergiSayiYazarAdmin(admin.ModelAdmin):
+    list_display = ('yazar', 'created')
 
 
-class DergiMakaleInline(admin.TabularInline):
-    model = DergiMakale
-    inlines = [DergiMakaleTextInline]
+class DergiSayiYazarInline(NestedTabularInline):
+    model = DergiSayiYazar
+    extra = 1
+    min = 1
+    max_num = 10
+    fields = ('yazar',)
+
+
+@admin.register(DergiSayi)
+class DergiSayiAdmin(admin.ModelAdmin):
+    list_display = ('topic', 'created')
+
+
+class DergiSayiInline(NestedStackedInline):
+    model = DergiSayi
+    inlines = [DergiSayiTextInline, DergiSayiKaynakInline, DergiSayiAnahtarInline, DergiSayiYazarInline]
     extra = 0
     min = 1
     max_num = 50
-    fields = ('title', 'ordering')
+    fields = ('topic', 'konu', 'Oz', 'bolum', 'birinci_dil', 'pdf', 'ordering')
 
 
-@admin.register(Dergi)
-class DergiInline(admin.ModelAdmin):
-    inlines = [DergiMakaleInline, DergiKeywordInline, DergiSourceInline]
+class DergiAdmin(NestedModelAdmin):
+    model = Dergi
+    inlines = [DergiSayiInline,]
+
+
+admin.site.register(Dergi, DergiAdmin)
+

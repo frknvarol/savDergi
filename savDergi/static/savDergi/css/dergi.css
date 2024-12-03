@@ -1,0 +1,17 @@
+.dergi_container {
+    width: 70%;
+    margin: 50px auto;
+    box-shadow: var(--BOX-SHADOW);
+}
+
+.dergi_div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    padding: 10px 25px;
+    gap: 20px;
+}
+
+.dergi_sayi {
+    text-align: end;
+}
