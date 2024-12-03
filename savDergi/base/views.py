@@ -5,6 +5,7 @@ from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText
     DergiSayiText, DergiSayiKaynak, DergiSayiAnahtar, DergiSayiYazar
 
 
+
 def home(request):
     duyurus = Duyuru.objects.all()[:2]
     videos = EmbeddedVideo.objects.all()
@@ -31,7 +32,6 @@ def etik_ilkeler(request):
 def yazim_kurallari(request):
     context = {'page_css': 'savDergi/css/yazım_kuralları.css'}
     return render(request, 'base/yazım_kuralları.html', context)
-
 
 
 def konferanslar(request):
@@ -103,6 +103,7 @@ def album(request, slug):
 
 
 def dergi(request):
+
     dergi_group = Dergi.objects.all()
 
     context = {'page_css': 'savDergi/css/dergi.css', 'dergi_group': dergi_group}
