@@ -108,3 +108,10 @@ def dergi(request):
     return render(request, 'base/dergi.html', context)
 
 
+def sayi(request, slug):
+    sayi = Dergi.objects.get(slug=slug)
+    context = {'sayi': sayi, 'page_css': 'savDergi/css/sayi.css'}
+
+    return render(request, 'base/sayi.html', context)
+
+
