@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 from django.utils.text import slugify
 from embed_video.fields import EmbedVideoField
 
@@ -10,21 +12,21 @@ class Duyuru(models.Model):
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
-    slug = models.SlugField(editable=False, unique=True, default=slugify('topic'))
+    slug = models.SlugField(editable=False, unique=True, blank=True)
 
-    def save(self, *args, **kwargs):
-        if not self.id:
-            base_slug = slugify(self.topic)
-            slug = base_slug
-            counter = 1
-
-            while Duyuru.objects.filter(slug=slug):
-                slug = f"{slug}-{counter}"
-                counter += 1
-
-            self.slug = slug
-
-        super(Duyuru, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     if not self.id:
+    #         base_slug = slugify(self.topic)
+    #         slug = base_slug
+    #         counter = 1
+    #
+    #         while Duyuru.objects.filter(slug=slug):
+    #             slug = f"{slug}-{counter}"
+    #             counter += 1
+    #
+    #         self.slug = slug
+    #
+    #     super(Duyuru, self).save(*args, **kwargs)
 
     class Meta:
         ordering = ['-updated', '-created',]
@@ -61,22 +63,28 @@ class DuyuruImage(models.Model):
 
 class Album(models.Model):
     name = models.CharField(max_length=100)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
-    slug = models.SlugField(editable=False, unique=True, default=slugify('name'))
+    slug = models.SlugField(editable=False, unique=True, blank=True)
 
-    def save(self, *args, **kwargs):
-        if not self.id:
-            base_slug = slugify(self.name)
-            slug = base_slug
-            counter = 1
+    # def save(self, *args, **kwargs):
+    #     if not self.id:
+    #         base_slug = slugify(self.name)
+    #         slug = base_slug
+    #         counter = 1
+    #
+    #         while Album.objects.filter(slug=slug):
+    #             slug = f"{slug}-{counter}"
+    #             counter += 1
+    #
+    #         self.slug = slug
+    #
+    #     super(Album, self).save(*args, **kwargs)
+    #
 
-            while Album.objects.filter(slug=slug):
-                slug = f"{slug}-{counter}"
-                counter += 1
-
-            self.slug = slug
-
-        super(Album, self).save(*args, **kwargs)
+    class Meta:
+        ordering = ['-updated', '-created', ]
 
     def __str__(self):
         return self.name
@@ -130,6 +138,8 @@ class DergiSayi(models.Model):
     ordering = models.PositiveIntegerField(default=0)
 
     pdf = models.FileField(upload_to='pdfs/', null=True, blank=True,)
+
+    slug = models.SlugField(editable=False, unique=True, blank=True)
 
     class Meta:
         ordering = ['-created']
@@ -191,3 +201,45 @@ class DergiSayiYazar(models.Model):
 
     def __str__(self):
         return f"{self.yazar} "
+
+
+@receiver(pre_save, sender=Album)
+def generate_unique_slug(sender, instance, **kwargs):
+    if not instance.slug:
+        base_slug = slugify(instance.name)
+        slug = base_slug
+        counter = 1
+
+        while sender.objects.filter(slug=slug).exists():
+            slug = f"{base_slug}-{counter}"
+            counter += 1
+
+        instance.slug = slug
+
+
+@receiver(pre_save, sender=Duyuru)
+def generate_unique_slug(sender, instance, **kwargs):
+    if not instance.slug:
+        base_slug = slugify(instance.topic)
+        slug = base_slug
+        counter = 1
+
+        while sender.objects.filter(slug=slug).exists():
+            slug = f"{base_slug}-{counter}"
+            counter += 1
+
+        instance.slug = slug
+
+
+@receiver(pre_save, sender=DergiSayi)
+def generate_unique_slug(sender, instance, **kwargs):
+    if not instance.slug:
+        base_slug = slugify(instance.topic)
+        slug = base_slug
+        counter = 1
+
+        while sender.objects.filter(slug=slug).exists():
+            slug = f"{base_slug}-{counter}"
+            counter += 1
+
+        instance.slug = slug
