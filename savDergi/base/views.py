@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from itertools import chain
 from operator import attrgetter
-from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiSayi, \
-    DergiSayiText, DergiSayiKaynak, DergiSayiAnahtar, DergiSayiYazar
+from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, Dergi, \
+    DergiText, DergiKaynak, DergiAnahtar, DergiYazar
 
 
 def home(request):
@@ -31,7 +31,6 @@ def etik_ilkeler(request):
 def yazim_kurallari(request):
     context = {'page_css': 'savDergi/css/yazım_kuralları.css'}
     return render(request, 'base/yazım_kuralları.html', context)
-
 
 
 def konferanslar(request):
