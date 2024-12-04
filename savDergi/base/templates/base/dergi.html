@@ -5,7 +5,7 @@
     <div class="dergi_container">
         {% for dergi in dergi_group %}
             <div class="dergi_div">
-                <h3 class="dergi_title">{{ dergi.topic }}</h3>
+                <h3 class="dergi_title"><a href="{% url 'sayi' dergi.slug %}">{{ dergi.topic }}</a></h3>
                 <p class="dergi_sayi"> Sayı: {{ dergi.sayi }}</p>
                 <p class="dergi_created"> {{ dergi.created|date:"j F Y" }}</p>
             </div>

@@ -12,7 +12,7 @@ class Duyuru(models.Model):
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
-    slug = models.SlugField(editable=False, unique=True, blank=True)
+    slug = models.SlugField(unique=True, blank=True)
 
     # def save(self, *args, **kwargs):
     #     if not self.id:
@@ -66,7 +66,7 @@ class Album(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    slug = models.SlugField(editable=False, unique=True, blank=True)
+    slug = models.SlugField(unique=True, blank=True)
 
     # def save(self, *args, **kwargs):
     #     if not self.id:
@@ -128,7 +128,7 @@ class Dergi(models.Model):
 
     pdf = models.FileField(upload_to='pdfs/', null=True, blank=True,)
 
-    slug = models.SlugField(editable=False, unique=True, blank=True)
+    slug = models.SlugField(unique=True, blank=True)
 
     class Meta:
         ordering = ['-created']
@@ -192,7 +192,7 @@ class DergiYazar(models.Model):
 
 @receiver(pre_save, sender=Album)
 def generate_unique_slug(sender, instance, **kwargs):
-    if not instance.slug:
+    if not instance.slug or instance.name != sender.objects.filter(pk=instance.pk).first().name:
         base_slug = slugify(instance.name)
         slug = base_slug
         counter = 1
@@ -206,7 +206,7 @@ def generate_unique_slug(sender, instance, **kwargs):
 
 @receiver(pre_save, sender=Duyuru)
 def generate_unique_slug(sender, instance, **kwargs):
-    if not instance.slug:
+    if not instance.slug or instance.topic != sender.objects.filter(pk=instance.pk).first().topic:
         base_slug = slugify(instance.topic)
         slug = base_slug
         counter = 1
@@ -220,7 +220,7 @@ def generate_unique_slug(sender, instance, **kwargs):
 
 @receiver(pre_save, sender=Dergi)
 def generate_unique_slug(sender, instance, **kwargs):
-    if not instance.slug:
+    if not instance.slug or instance.topic != sender.objects.filter(pk=instance.pk).first().topic:
         base_slug = slugify(instance.topic)
         slug = base_slug
         counter = 1
