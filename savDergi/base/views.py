@@ -5,6 +5,7 @@ from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText
     DergiText, DergiKaynak, DergiAnahtar, DergiYazar
 
 
+
 def home(request):
     duyurus = Duyuru.objects.all()[:2]
     videos = EmbeddedVideo.objects.all()
@@ -102,6 +103,7 @@ def album(request, slug):
 
 
 def dergi(request):
+
     dergi_group = Dergi.objects.all()
 
     context = {'page_css': 'savDergi/css/dergi.css', 'dergi_group': dergi_group}
