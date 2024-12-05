@@ -18,19 +18,36 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=100)),
-                ('slug', models.SlugField(default='name', editable=False, unique=True)),
+                ('created', models.DateTimeField(auto_now_add=True)),
+                ('updated', models.DateTimeField(auto_now=True)),
+                ('slug', models.SlugField(blank=True, editable=False, unique=True)),
             ],
+            options={
+                'ordering': ['-updated', '-created'],
+            },
         ),
         migrations.CreateModel(
             name='Dergi',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=100)),
-                ('created', models.DateTimeField(auto_now=True)),
-                ('updated', models.DateTimeField(auto_now_add=True)),
+                ('topic', models.CharField(default='makale', max_length=100)),
+                ('konu', models.CharField(default='konu', max_length=100)),
+                ('Oz', models.TextField(default='Öz', max_length=10000)),
+                ('bolum', models.CharField(default='bölüm', max_length=100)),
+                ('birinci_dil', models.CharField(default='birinci dil', max_length=100)),
+                ('created', models.DateTimeField(auto_now_add=True)),
+                ('updated', models.DateTimeField(auto_now=True)),
+                ('ordering', models.PositiveIntegerField(default=0)),
                 ('sayi', models.IntegerField(default=0)),
 
+                ('pdf', models.FileField(blank=True, null=True, upload_to='pdfs/')),
+                ('slug', models.SlugField(blank=True, editable=False, unique=True)),
+
+
             ],
+            options={
+                'ordering': ['-created'],
+            },
         ),
         migrations.CreateModel(
             name='Duyuru',
@@ -39,7 +56,7 @@ class Migration(migrations.Migration):
                 ('topic', models.CharField(max_length=200)),
                 ('updated', models.DateTimeField(auto_now=True)),
                 ('created', models.DateTimeField(auto_now_add=True)),
-                ('slug', models.SlugField(default='topic', editable=False, unique=True)),
+                ('slug', models.SlugField(blank=True, editable=False, unique=True)),
             ],
             options={
                 'ordering': ['-updated', '-created'],
@@ -59,33 +76,15 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='DergiSayi',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('topic', models.CharField(default='makale', max_length=100)),
-                ('konu', models.CharField(default='konu', max_length=100)),
-                ('Oz', models.TextField(default='Öz', max_length=10000)),
-                ('bolum', models.CharField(default='bölüm', max_length=100)),
-                ('birinci_dil', models.CharField(default='birinci dil', max_length=100)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('updated', models.DateTimeField(auto_now=True)),
-                ('ordering', models.PositiveIntegerField(default=0)),
-                ('pdf', models.FileField(blank=True, null=True, upload_to='pdfs/')),
-                ('title', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='base.dergi')),
-            ],
-            options={
-                'ordering': ['-created'],
-            },
-        ),
-        migrations.CreateModel(
-            name='DergiSayiAnahtar',
+            name='DergiAnahtar',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('anahtar', models.CharField(blank=True, max_length=50, null=True)),
                 ('ordering', models.PositiveIntegerField(default=0)),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('updated', models.DateTimeField(auto_now=True)),
-                ('topic', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='base.dergisayi')),
+
+                ('topic', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='base.dergi')),
 
             ],
             options={
@@ -93,7 +92,8 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='DergiSayiKaynak',
+
+            name='DergiKaynak',
 
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
@@ -102,7 +102,8 @@ class Migration(migrations.Migration):
 
                 ('kaynak', models.CharField(blank=True, max_length=50, null=True)),
                 ('ordering', models.PositiveIntegerField(default=0)),
-                ('topic', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='base.dergisayi')),
+
+                ('topic', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='base.dergi')),
 
             ],
             options={
@@ -110,7 +111,8 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='DergiSayiText',
+
+            name='DergiText',
 
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
@@ -118,7 +120,8 @@ class Migration(migrations.Migration):
                 ('updated', models.DateTimeField(auto_now=True)),
                 ('text', models.TextField()),
                 ('ordering', models.PositiveIntegerField(default=0)),
-                ('topic', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='base.dergisayi')),
+
+                ('topic', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='base.dergi')),
 
             ],
             options={
@@ -127,13 +130,15 @@ class Migration(migrations.Migration):
         ),
         migrations.CreateModel(
 
-            name='DergiSayiYazar',
+            name='DergiYazar',
+
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('yazar', models.CharField(max_length=50)),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('updated', models.DateTimeField(auto_now=True)),
-                ('topic', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='base.dergisayi')),
+
+                ('topic', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='base.dergi')),
 
             ],
             options={
