@@ -3,28 +3,36 @@
 {% block content %}
 
     <p>topic: {{ sayi.topic }}</p>
-    <p>konu: {{ sayi.konu }}</p>
+    <p>sayı: {{ sayi.sayi }}</p>
     <p>Öz: {{ sayi.Oz }}</p>
+    <p>konu: {{ sayi.konu }}</p>
     <p>bölüm: {{ sayi.bolum }}</p>
     <p>birinci dil: {{ sayi.birinci_dil }}</p>
-    <p>created: {{ sayi.created }}</p>
-    <p>updated: {{ sayi.updated }}</p>
-    <p>sayı: {{ sayi.sayi }}</p>
-    <b></b>
+
+
+    <br>
+
+
     {% for text in text %}
         <p>text: {{ text.text }}</p>
     {% endfor %}
 
-    {% for kaynak in kaynak %}
-        <p>kaynak:  {{ kaynak.kaynak }}</p>
-    {% endfor %}
+    <p>kaynak:
+        {% for kaynak in kaynak %}
+              {{ kaynak.kaynak }}
+        {% endfor %}
+    </p>
 
-    {% for anahtar in anahtar %}
-        <p>anahtar: {{ anahtar.anahtar }}</p>
-    {% endfor %}
+    <p>anahtar:
+        {% for anahtar in anahtar %}
+             {{ anahtar.anahtar }}
+        {% endfor %}
+    </p>
 
-    {% for yazar in yazar %}
-        <p>yazar:  {{ yazar.yazar }}</p>
-    {% endfor %}
+    <p>yazar:
+        {% for yazar in yazar %}
+              {{ yazar.yazar }}
+        {% endfor %}
+    </p>
 
 {% endblock content %}
