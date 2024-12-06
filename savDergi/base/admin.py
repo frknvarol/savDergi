@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, DergiYazar, \
-    DergiAnahtar, DergiText, DergiKaynak
+from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Sayi, MakaleYazar, \
+    MakaleAnahtar, MakaleText, MakaleKaynak
 
 admin.site.register(EmbeddedVideo)
 admin.site.register(Image)
@@ -50,61 +50,61 @@ class AlbumAdmin(admin.ModelAdmin):
     inlines = [ImageTextInline]
 
 
-@admin.register(DergiAnahtar)
-class DergiAnahtarAdmin(admin.ModelAdmin):
-    list_display = ('topic', 'anahtar', 'created')
+@admin.register(MakaleAnahtar)
+class MakaleAnahtarAdmin(admin.ModelAdmin):
+    list_display = ('konu', 'sayi', 'anahtar', 'created')
 
 
-class DergiAnahtarInline(admin.TabularInline):
-    model = DergiAnahtar
+class MakaleAnahtarInline(admin.TabularInline):
+    model = MakaleAnahtar
     extra = 1
     min = 1
     max_num = 50
-    fields = ('topic', 'anahtar')
+    fields = ('konu', 'sayi', 'anahtar')
 
 
-@admin.register(DergiKaynak)
-class DergiKaynakAdmin(admin.ModelAdmin):
-    list_display = ('topic', 'kaynak', 'created')
+@admin.register(MakaleKaynak)
+class MakaleKaynakAdmin(admin.ModelAdmin):
+    list_display = ('konu', 'sayi', 'kaynak', 'created')
 
 
-class DergiKaynakInline(admin.TabularInline):
-    model = DergiKaynak
+class MakaleKaynakInline(admin.TabularInline):
+    model = MakaleKaynak
     extra = 1
     min = 1
     max_num = 50
-    fields = ('topic', 'kaynak')
+    fields = ('konu', 'kaynak')
 
 
-@admin.register(DergiText)
-class DergiTextAdmin(admin.ModelAdmin):
-    list_display = ('topic', 'text', 'created')
+@admin.register(MakaleText)
+class MakaleTextAdmin(admin.ModelAdmin):
+    list_display = ('konu', 'text', 'created')
 
 
-class DergiTextInline(admin.TabularInline):
-    model = DergiText
+class MakaleTextInline(admin.TabularInline):
+    model = MakaleText
     extra = 1
     min = 1
     max_num = 50
     fields = ('text', 'ordering')
 
 
-@admin.register(DergiYazar)
-class DergiYazarAdmin(admin.ModelAdmin):
-    list_display = ('topic', 'yazar', 'created')
+@admin.register(MakaleYazar)
+class MakaleYazarAdmin(admin.ModelAdmin):
+    list_display = ('konu', 'yazar', 'created')
 
 
-class DergiYazarInline(admin.TabularInline):
-    model = DergiYazar
+class MakaleYazarInline(admin.TabularInline):
+    model = MakaleYazar
     extra = 1
     min = 1
     max_num = 10
     fields = ('yazar',)
 
 
-@admin.register(Dergi)
-class DergiAdmin(admin.ModelAdmin):
-    list_display = ('topic', 'created')
-    inlines = [DergiTextInline, DergiKaynakInline, DergiAnahtarInline, DergiYazarInline]
+@admin.register(Sayi)
+class SayiAdmin(admin.ModelAdmin):
+    list_display = ('sayi', 'created')
+    inlines = [MakaleTextInline, MakaleKaynakInline, MakaleAnahtarInline, MakaleYazarInline]
 
 
