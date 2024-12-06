@@ -133,7 +133,7 @@ class EmbeddedVideo(models.Model):
 
 
 class Sayi(models.Model):
-    sayi = models.IntegerField(max_length=100,unique=True, default=1, blank=False)
+    sayi = models.IntegerField(max_length=100, unique=True, default=0, blank=False)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

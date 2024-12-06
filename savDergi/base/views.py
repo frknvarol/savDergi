@@ -110,10 +110,9 @@ def dergi(request):
 
 def sayi(request, slug):
     sayi = Sayi.objects.get(slug=slug)
-    makale = Makale.objects.filter(sayi=sayi)
-    yazar = MakaleYazar.objects.filter(konu=makale)
+    makaleler = Makale.objects.filter(sayi=sayi)
 
-    context = {'sayi': sayi, 'makale': makale, 'yazar': yazar, 'page_css': 'savDergi/css/sayi.css'}
+    context = {'sayi': sayi, 'makaleler': makaleler, 'page_css': 'savDergi/css/sayi.css'}
 
     return render(request, 'base/sayi.html', context)
 

@@ -110,7 +110,7 @@ class MakaleAdmin(admin.ModelAdmin):
 
 class MakaleInline(NestedStackedInline):
     model = Makale
-    extra = 1
+    extra = 0
     min = 1
     max_num = 50
     inlines = [MakaleTextInline, MakaleKaynakInline, MakaleAnahtarInline, MakaleYazarInline]
