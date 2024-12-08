@@ -112,8 +112,10 @@ def sayi(request, slug):
     sayi = Sayi.objects.get(slug=slug)
     makaleler = Makale.objects.filter(sayi=sayi)
     kaynaklar = MakaleKaynak.objects.filter(konu__in=makaleler)
+    anahtarlar = MakaleAnahtar.objects.filter(konu__in=makaleler)
+    yazarlar = MakaleYazar.objects.filter(konu__in=makaleler)
 
-    context = {'sayi': sayi, 'makaleler': makaleler, 'kaynaklar': kaynaklar, 'page_css': 'savDergi/css/sayi.css'}
+    context = {'sayi': sayi, 'makaleler': makaleler, 'kaynaklar': kaynaklar, 'anahtarlar': anahtarlar, 'yazarlar': yazarlar, 'page_css': 'savDergi/css/sayi.css'}
 
     return render(request, 'base/sayi.html', context)
 

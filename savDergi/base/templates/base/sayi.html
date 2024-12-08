@@ -10,10 +10,19 @@
             <p>bölüm: {{ makale.bolum }}</p>
             <p>birinci dil: {{ makale.birinci_dil }}</p>
 
+            <p>Kaynaklar:</p>
             {% for kaynak in kaynaklar %}
-
                 <p>{{ kaynak.kaynak }}</p>
+            {% endfor %}
 
+            <p>Yazar(lar);</p>
+            {% for yazar in yazarlar %}
+                <p>{{ yazar.yazar }}</p>
+            {% endfor %}
+
+            <p>Anahtarlar:</p>
+            {% for anahtar in anahtarlar %}
+                <p>{{ anahtar.anahtar }}</p>
             {% endfor %}
         </div>
         <br>

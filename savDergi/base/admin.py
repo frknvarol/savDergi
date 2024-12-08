@@ -1,5 +1,5 @@
 from django.contrib import admin
-from nested_inline.admin import NestedStackedInline
+from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Sayi, MakaleYazar, \
     MakaleAnahtar, MakaleText, MakaleKaynak, Makale
 
@@ -116,9 +116,11 @@ class MakaleInline(NestedStackedInline):
     inlines = [MakaleTextInline, MakaleKaynakInline, MakaleAnahtarInline, MakaleYazarInline]
 
 
-@admin.register(Sayi)
-class SayiAdmin(admin.ModelAdmin):
+class SayiAdmin(NestedModelAdmin):
     list_display = ('sayi', 'created')
     inlines = [MakaleInline]
+
+
+admin.site.register(Sayi, SayiAdmin)
 
 
