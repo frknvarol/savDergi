@@ -1,0 +1,17 @@
+.makale_container {
+    box-shadow: var(--BOX-SHADOW);
+    margin: 10px 10vw;
+}
+
+.makale_div {
+    padding: 10px 30px;
+    display: flex;
+    flex-flow: column;
+    font-family: Cardo, sans-serif;
+}
+
+.makale_baslik {
+    font-family: Inter, sans-serif;
+}
+
+

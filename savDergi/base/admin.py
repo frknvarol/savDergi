@@ -1,7 +1,7 @@
 from django.contrib import admin
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Sayi, MakaleYazar, \
-    MakaleAnahtar, MakaleText, MakaleKaynak, Makale
+    MakaleAnahtar, MakaleKaynak, Makale
 
 admin.site.register(EmbeddedVideo)
 admin.site.register(Image)
@@ -53,7 +53,7 @@ class AlbumAdmin(admin.ModelAdmin):
 
 @admin.register(MakaleAnahtar)
 class MakaleAnahtarAdmin(admin.ModelAdmin):
-    list_display = ('konu', 'anahtar', 'created')
+    list_display = ('baslik', 'anahtar', 'created')
 
 
 class MakaleAnahtarInline(NestedStackedInline):
@@ -61,12 +61,12 @@ class MakaleAnahtarInline(NestedStackedInline):
     extra = 1
     min = 1
     max_num = 50
-    fields = ('konu', 'anahtar')
+    fields = ('baslik', 'anahtar')
 
 
 @admin.register(MakaleKaynak)
 class MakaleKaynakAdmin(admin.ModelAdmin):
-    list_display = ('konu', 'kaynak', 'created')
+    list_display = ('baslik', 'kaynak', 'created')
 
 
 class MakaleKaynakInline(NestedStackedInline):
@@ -74,25 +74,12 @@ class MakaleKaynakInline(NestedStackedInline):
     extra = 1
     min = 1
     max_num = 50
-    fields = ('konu', 'kaynak')
-
-
-@admin.register(MakaleText)
-class MakaleTextAdmin(admin.ModelAdmin):
-    list_display = ('konu', 'text', 'created')
-
-
-class MakaleTextInline(NestedStackedInline):
-    model = MakaleText
-    extra = 1
-    min = 1
-    max_num = 50
-    fields = ('text', 'ordering')
+    fields = ('baslik', 'kaynak')
 
 
 @admin.register(MakaleYazar)
 class MakaleYazarAdmin(admin.ModelAdmin):
-    list_display = ('konu', 'yazar', 'created')
+    list_display = ('baslik', 'yazar', 'created')
 
 
 class MakaleYazarInline(NestedStackedInline):
@@ -105,7 +92,7 @@ class MakaleYazarInline(NestedStackedInline):
 
 @admin.register(Makale)
 class MakaleAdmin(admin.ModelAdmin):
-    list_display = ('sayi', 'konu', 'Oz', 'bolum', 'birinci_dil', 'created', 'pdf')
+    list_display = ('sayi', 'baslik', 'Oz', 'bolum', 'birinci_dil', 'created', 'pdf')
 
 
 class MakaleInline(NestedStackedInline):
@@ -113,7 +100,7 @@ class MakaleInline(NestedStackedInline):
     extra = 0
     min = 1
     max_num = 50
-    inlines = [MakaleTextInline, MakaleKaynakInline, MakaleAnahtarInline, MakaleYazarInline]
+    inlines = [MakaleKaynakInline, MakaleAnahtarInline, MakaleYazarInline]
 
 
 class SayiAdmin(NestedModelAdmin):
