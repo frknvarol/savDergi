@@ -2,36 +2,5 @@
 
 {% block content %}
 
-    <p>topic: {{ sayi.topic }}</p>
-    <p>sayı: {{ sayi.sayi }}</p>
-    <p>konu: {{ sayi.konu }}</p>
-    <p>bölüm: {{ sayi.bolum }}</p>
-    <p>birinci dil: {{ sayi.birinci_dil }}</p>
-
-
-    <br>
-
-
-    {% for text in text %}
-        <p>text: {{ text.text }}</p>
-    {% endfor %}
-
-    <p>kaynak:
-        {% for kaynak in kaynak %}
-              {{ kaynak.kaynak }}
-        {% endfor %}
-    </p>
-
-    <p>anahtar:
-        {% for anahtar in anahtar %}
-             {{ anahtar.anahtar }}
-        {% endfor %}
-    </p>
-
-    <p>yazar:
-        {% for yazar in yazar %}
-              {{ yazar.yazar }}
-        {% endfor %}
-    </p>
 
 {% endblock content %}

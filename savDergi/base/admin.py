@@ -1,6 +1,7 @@
 from django.contrib import admin
+from nested_inline.admin import NestedStackedInline
 from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Sayi, MakaleYazar, \
-    MakaleAnahtar, MakaleText, MakaleKaynak
+    MakaleAnahtar, MakaleText, MakaleKaynak, Makale
 
 admin.site.register(EmbeddedVideo)
 admin.site.register(Image)
@@ -52,23 +53,23 @@ class AlbumAdmin(admin.ModelAdmin):
 
 @admin.register(MakaleAnahtar)
 class MakaleAnahtarAdmin(admin.ModelAdmin):
-    list_display = ('konu', 'sayi', 'anahtar', 'created')
+    list_display = ('konu', 'anahtar', 'created')
 
 
-class MakaleAnahtarInline(admin.TabularInline):
+class MakaleAnahtarInline(NestedStackedInline):
     model = MakaleAnahtar
     extra = 1
     min = 1
     max_num = 50
-    fields = ('konu', 'sayi', 'anahtar')
+    fields = ('konu', 'anahtar')
 
 
 @admin.register(MakaleKaynak)
 class MakaleKaynakAdmin(admin.ModelAdmin):
-    list_display = ('konu', 'sayi', 'kaynak', 'created')
+    list_display = ('konu', 'kaynak', 'created')
 
 
-class MakaleKaynakInline(admin.TabularInline):
+class MakaleKaynakInline(NestedStackedInline):
     model = MakaleKaynak
     extra = 1
     min = 1
@@ -81,7 +82,7 @@ class MakaleTextAdmin(admin.ModelAdmin):
     list_display = ('konu', 'text', 'created')
 
 
-class MakaleTextInline(admin.TabularInline):
+class MakaleTextInline(NestedStackedInline):
     model = MakaleText
     extra = 1
     min = 1
@@ -94,7 +95,7 @@ class MakaleYazarAdmin(admin.ModelAdmin):
     list_display = ('konu', 'yazar', 'created')
 
 
-class MakaleYazarInline(admin.TabularInline):
+class MakaleYazarInline(NestedStackedInline):
     model = MakaleYazar
     extra = 1
     min = 1
@@ -102,9 +103,22 @@ class MakaleYazarInline(admin.TabularInline):
     fields = ('yazar',)
 
 
+@admin.register(Makale)
+class MakaleAdmin(admin.ModelAdmin):
+    list_display = ('sayi', 'konu', 'Oz', 'bolum', 'birinci_dil', 'created', 'pdf')
+
+
+class MakaleInline(NestedStackedInline):
+    model = Makale
+    extra = 1
+    min = 1
+    max_num = 50
+    inlines = [MakaleTextInline, MakaleKaynakInline, MakaleAnahtarInline, MakaleYazarInline]
+
+
 @admin.register(Sayi)
 class SayiAdmin(admin.ModelAdmin):
     list_display = ('sayi', 'created')
-    inlines = [MakaleTextInline, MakaleKaynakInline, MakaleAnahtarInline, MakaleYazarInline]
+    inlines = [MakaleInline]
 
 
