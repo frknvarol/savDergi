@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from itertools import chain
 from operator import attrgetter
-from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Dergi, \
-    DergiText, DergiKaynak, DergiAnahtar, DergiYazar
-
+from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Sayi, Makale, \
+    MakaleAnahtar, MakaleText, MakaleKaynak, MakaleYazar
 
 
 def home(request):
@@ -103,22 +102,20 @@ def album(request, slug):
 
 
 def dergi(request):
+    sayi_group = Sayi.objects.all()
 
-    dergi_group = Dergi.objects.all()
-
-    context = {'page_css': 'savDergi/css/dergi.css', 'dergi_group': dergi_group}
+    context = {'page_css': 'savDergi/css/dergi.css', 'sayi_group': sayi_group}
     return render(request, 'base/dergi.html', context)
 
 
 def sayi(request, slug):
-    sayi = Dergi.objects.get(slug=slug)
-    text = DergiText.objects.filter(topic=sayi)
-    kaynak = DergiKaynak.objects.filter(topic=sayi)
-    anahtar = DergiAnahtar.objects.filter(topic=sayi)
-    yazar = DergiYazar.objects.filter(topic=sayi)
+    sayi = Sayi.objects.get(slug=slug)
+    makaleler = Makale.objects.filter(sayi=sayi)
+    kaynaklar = MakaleKaynak.objects.filter(konu__in=makaleler)
+    anahtarlar = MakaleAnahtar.objects.filter(konu__in=makaleler)
+    yazarlar = MakaleYazar.objects.filter(konu__in=makaleler)
 
-    context = {'sayi': sayi, 'text': text, 'kaynak': kaynak, 'anahtar': anahtar, 'yazar': yazar,
-               'page_css': 'savDergi/css/sayi.css'}
+    context = {'sayi': sayi, 'makaleler': makaleler, 'kaynaklar': kaynaklar, 'anahtarlar': anahtarlar, 'yazarlar': yazarlar, 'page_css': 'savDergi/css/sayi.css'}
 
     return render(request, 'base/sayi.html', context)
 

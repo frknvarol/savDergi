@@ -12,21 +12,21 @@ class Duyuru(models.Model):
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
-    slug = models.SlugField(unique=True, blank=True)
+    slug = models.SlugField(unique=True, editable=False)
 
-    # def save(self, *args, **kwargs):
-    #     if not self.id:
-    #         base_slug = slugify(self.topic)
-    #         slug = base_slug
-    #         counter = 1
-    #
-    #         while Duyuru.objects.filter(slug=slug):
-    #             slug = f"{slug}-{counter}"
-    #             counter += 1
-    #
-    #         self.slug = slug
-    #
-    #     super(Duyuru, self).save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        if not self.id:
+            base_slug = slugify(self.topic)
+            slug = base_slug
+            counter = 1
+
+            while Duyuru.objects.filter(slug=slug):
+                slug = f"{slug}-{counter}"
+                counter += 1
+
+            self.slug = slug
+
+        super(Duyuru, self).save(*args, **kwargs)
 
     class Meta:
         ordering = ['-updated', '-created',]
@@ -66,22 +66,22 @@ class Album(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    slug = models.SlugField(unique=True, blank=True)
+    slug = models.SlugField(unique=True, editable=False)
 
-    # def save(self, *args, **kwargs):
-    #     if not self.id:
-    #         base_slug = slugify(self.name)
-    #         slug = base_slug
-    #         counter = 1
-    #
-    #         while Album.objects.filter(slug=slug):
-    #             slug = f"{slug}-{counter}"
-    #             counter += 1
-    #
-    #         self.slug = slug
-    #
-    #     super(Album, self).save(*args, **kwargs)
-    #
+    def save(self, *args, **kwargs):
+        if not self.id:
+            base_slug = slugify(self.name)
+            slug = base_slug
+            counter = 1
+
+            while Album.objects.filter(slug=slug):
+                slug = f"{slug}-{counter}"
+                counter += 1
+
+            self.slug = slug
+
+        super(Album, self).save(*args, **kwargs)
+
 
     class Meta:
         ordering = ['-updated', '-created', ]
@@ -132,29 +132,71 @@ class EmbeddedVideo(models.Model):
         ordering = ['created']
 
 
-class Dergi(models.Model):
-    topic = models.CharField(max_length=100, default='makale')
+class Sayi(models.Model):
+    sayi = models.IntegerField(unique=True, default=0, blank=False)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    slug = models.SlugField(unique=True, editable=False)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            base_slug = slugify(self.sayi)
+            slug = base_slug
+            counter = 1
+
+            while Sayi.objects.filter(slug=slug):
+                slug = f"{slug}-{counter}"
+                counter += 1
+
+            self.slug = slug
+
+        super(Sayi, self).save(*args, **kwargs)
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return f"sayi: {self.sayi}"
+
+
+class Makale(models.Model):
     konu = models.CharField(max_length=100, default='konu')
     Oz = models.TextField(max_length=10000, default='Öz')
     bolum = models.CharField(max_length=100, default='bölüm')
     birinci_dil = models.CharField(max_length=100, default='birinci dil')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    sayi = models.IntegerField(default=1, unique=True)
+    sayi = models.ForeignKey(Sayi, on_delete=models.CASCADE)
 
     pdf = models.FileField(upload_to='pdfs/', null=True, blank=True,)
 
-    slug = models.SlugField(unique=True, blank=True)
+    slug = models.SlugField(unique=True, editable=False)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            base_slug = slugify(self.konu)
+            slug = base_slug
+            counter = 1
+
+            while Makale.objects.filter(slug=slug):
+                slug = f"{slug}-{counter}"
+                counter += 1
+
+            self.slug = slug
+
+        super(Makale, self).save(*args, **kwargs)
 
     class Meta:
         ordering = ['-created']
 
     def __str__(self):
-        return f"{self.topic}"
+        return f"makale: {self.konu}"
 
 
-class DergiText(models.Model):
-    topic = models.ForeignKey(Dergi, on_delete=models.CASCADE)
+class MakaleText(models.Model):
+    konu = models.ForeignKey(Makale, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     text = models.TextField()
@@ -164,11 +206,11 @@ class DergiText(models.Model):
         ordering = ['-created']
 
     def __str__(self):
-        return f"{self.topic} paragraf"
+        return f"{self.konu} paragraf"
 
 
-class DergiKaynak(models.Model):
-    topic = models.ForeignKey(Dergi, on_delete=models.CASCADE)
+class MakaleKaynak(models.Model):
+    konu = models.ForeignKey(Makale, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     kaynak = models.CharField(max_length=50, blank=True, null=True)
@@ -177,11 +219,11 @@ class DergiKaynak(models.Model):
         ordering = ['-created']
 
     def __str__(self):
-        return f"{self.kaynak}"
+        return f"kaynak :{self.kaynak}"
 
 
-class DergiAnahtar(models.Model):
-    topic = models.ForeignKey(Dergi, on_delete=models.CASCADE)
+class MakaleAnahtar(models.Model):
+    konu = models.ForeignKey(Makale, on_delete=models.CASCADE)
     anahtar = models.CharField(max_length=50, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -190,11 +232,11 @@ class DergiAnahtar(models.Model):
         ordering = ['-created']
 
     def __str__(self):
-        return f"{self.anahtar} "
+        return f"anahtar :{self.anahtar} "
 
 
-class DergiYazar(models.Model):
-    topic = models.ForeignKey(Dergi, on_delete=models.CASCADE)
+class MakaleYazar(models.Model):
+    konu = models.ForeignKey(Makale, on_delete=models.CASCADE)
     yazar = models.CharField(max_length=50, blank=False, null=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -203,46 +245,4 @@ class DergiYazar(models.Model):
         ordering = ['-created']
 
     def __str__(self):
-        return f"{self.yazar} "
-
-
-@receiver(pre_save, sender=Album)
-def generate_unique_slug(sender, instance, **kwargs):
-    if not instance.slug or instance.name != sender.objects.filter(pk=instance.pk).first().name:
-        base_slug = slugify(instance.name)
-        slug = base_slug
-        counter = 1
-
-        while sender.objects.filter(slug=slug).exists():
-            slug = f"{base_slug}-{counter}"
-            counter += 1
-
-        instance.slug = slug
-
-
-@receiver(pre_save, sender=Duyuru)
-def generate_unique_slug(sender, instance, **kwargs):
-    if not instance.slug or instance.topic != sender.objects.filter(pk=instance.pk).first().topic:
-        base_slug = slugify(instance.topic)
-        slug = base_slug
-        counter = 1
-
-        while sender.objects.filter(slug=slug).exists():
-            slug = f"{base_slug}-{counter}"
-            counter += 1
-
-        instance.slug = slug
-
-
-@receiver(pre_save, sender=Dergi)
-def generate_unique_slug(sender, instance, **kwargs):
-    if not instance.slug or instance.topic != sender.objects.filter(pk=instance.pk).first().topic:
-        base_slug = slugify(instance.topic)
-        slug = base_slug
-        counter = 1
-
-        while sender.objects.filter(slug=slug).exists():
-            slug = f"{base_slug}-{counter}"
-            counter += 1
-
-        instance.slug = slug
+        return f"yazar: {self.yazar} "
