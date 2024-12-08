@@ -4,8 +4,19 @@
 
     {% for makale in makaleler %}
 
-        {{ makale.oz }}
+        <div class="makale_div">
+            <p>konu: {{ makale.konu }}</p>
+            <p>Öz: {{ makale.Oz }}</p>
+            <p>bölüm: {{ makale.bolum }}</p>
+            <p>birinci dil: {{ makale.birinci_dil }}</p>
 
+            {% for kaynak in kaynaklar %}
+
+                <p>{{ kaynak.kaynak }}</p>
+
+            {% endfor %}
+        </div>
+        <br>
     {% endfor %}
 
 {% endblock content %}
