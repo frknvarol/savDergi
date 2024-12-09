@@ -1,13 +1,25 @@
 .makale_container {
     box-shadow: var(--BOX-SHADOW);
     margin: 10px 10vw;
+    gap: 30px;
+    padding: 30px 40px;
+    display: flex;
+    flex-flow: column;
 }
 
 .makale_div {
-    padding: 10px 30px;
     display: flex;
     flex-flow: column;
     font-family: Cardo, sans-serif;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: rgb(243, 245, 249);
+    padding: 10px 20px;
+    transition: transform 100ms ease-in-out;
+}
+
+.makale_div:hover {
+    transform: scale(1.02);
 }
 
 .makale_baslik {

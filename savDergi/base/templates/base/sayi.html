@@ -13,12 +13,14 @@
                 {% endif %}
             {% endfor %}
 
-            {% if makale.pdf.url %}
-            <a href="{{ makale.pdf.url }}" target="_blank">PDF</a>
-            {% endif %}
+
         </div>
-        <br>
     {% endfor %}
     </div>
+
+
+
+{% load static %}
+<script src="{% static 'savDergi/javascript/sayi.js' %}"></script>
 
 {% endblock content %}

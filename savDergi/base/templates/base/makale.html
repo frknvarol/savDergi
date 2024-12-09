@@ -3,26 +3,39 @@
 {% block content %}
 
     <div class="makale-instance_div">
-        {{ makale.baslik }}
-        <br>
-        {{ makale.Oz }}
-        <br>
-        {{ makale.bolum }}
-        <br>
+        <div class="makale-instance_header">
+            <h2 class="makale-instance_baslik">{{ makale.baslik }}</h2>
+            {% if makale.pdf.url is not None %}
+            <a class="makale-instance_pdf" href="{{ makale.pdf.url }}" target="_blank">PDF</a>
+            {% endif %}
+        </div>
 
+        <p class="makale-instance_created">{{ makale.created|date:"j F Y" }}</p>
+
+        <p class="makale-instance_yazar">
         {% for yazar in yazarlar %}
             {{ yazar.yazar }}
         {% endfor %}
-        <br>
+        </p>
 
-        {% for anahtar in anahtarlar %}
-            {{ anahtar.anahtar }}
-        {% endfor %}
-        <br>
+        <p class="makale-instance_oz">{{ makale.Oz }}</p>
 
-        {% for kaynak in kaynaklar %}
-            {{ kaynak.kaynak }}
-        {% endfor %}
+        <p class="makale-instance_bolum"><b>Bölüm: </b>{{ makale.bolum }}</p>
+
+        <div class="makale-instance_anahtar-div">
+            <h4 class="makale-instance_anahtar-header">Anahtarlar:</h4>
+            <p class="makale-instance_anahtar-p">
+                {% for anahtar in anahtarlar %}
+                   {{ anahtar.anahtar }}
+                {% endfor %}
+            </p>
+        </div>
+        <div class="makale-instance_kaynak-div">
+            <h4 class="makale-instance_kaynak-header">Kaynaklar:</h4>
+            {% for kaynak in kaynaklar %}
+                <p class="makale-instance_kaynak-p">{{ kaynak.kaynak }}</p>
+            {% endfor %}
+        </div>
     </div>
 
 {% endblock content %}

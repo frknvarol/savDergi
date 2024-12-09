@@ -1,0 +1,34 @@
+.makale-instance_div {
+    margin: 40px 15vw;
+    box-shadow: var(--BOX-SHADOW);
+    padding: 15px 20px;
+    display: flex;
+    flex-flow: column;
+    gap: 15px;
+}
+
+.makale-instance_header {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+.makale-instance_anahtar-div {
+    display: flex;
+    align-items: center;
+}
+
+.makale-instance_anahtar-header {
+    padding-right: 10px;
+}
+
+
+.makale-instance_kaynak-div {
+    display: flex;
+    align-items: center;
+}
+
+.makale-instance_kaynak-header {
+    padding-right: 10px;
+}

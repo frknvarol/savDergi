@@ -5,9 +5,8 @@
 }
 
 .dergi_div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: space-between;
+    display: flex;
+    flex-flow: column;
     padding: 10px 25px;
     gap: 20px;
     box-shadow: var(--BOX-SHADOW);
