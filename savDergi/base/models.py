@@ -162,7 +162,7 @@ class Sayi(models.Model):
 
 
 class Makale(models.Model):
-    konu = models.CharField(max_length=100, default='konu')
+    baslik = models.CharField(max_length=100, default='baslik')
     Oz = models.TextField(max_length=10000, default='Öz')
     bolum = models.CharField(max_length=100, default='bölüm')
     birinci_dil = models.CharField(max_length=100, default='birinci dil')
@@ -176,7 +176,7 @@ class Makale(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            base_slug = slugify(self.konu)
+            base_slug = slugify(self.baslik)
             slug = base_slug
             counter = 1
 
@@ -192,25 +192,11 @@ class Makale(models.Model):
         ordering = ['-created']
 
     def __str__(self):
-        return f"makale: {self.konu}"
-
-
-class MakaleText(models.Model):
-    konu = models.ForeignKey(Makale, on_delete=models.CASCADE)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-    text = models.TextField()
-    ordering = models.PositiveIntegerField(default=0)
-
-    class Meta:
-        ordering = ['-created']
-
-    def __str__(self):
-        return f"{self.konu} paragraf"
+        return f"makale başlığı: {self.baslik}"
 
 
 class MakaleKaynak(models.Model):
-    konu = models.ForeignKey(Makale, on_delete=models.CASCADE)
+    baslik = models.ForeignKey(Makale, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     kaynak = models.CharField(max_length=50, blank=True, null=True)
@@ -223,7 +209,7 @@ class MakaleKaynak(models.Model):
 
 
 class MakaleAnahtar(models.Model):
-    konu = models.ForeignKey(Makale, on_delete=models.CASCADE)
+    baslik = models.ForeignKey(Makale, on_delete=models.CASCADE)
     anahtar = models.CharField(max_length=50, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -236,7 +222,7 @@ class MakaleAnahtar(models.Model):
 
 
 class MakaleYazar(models.Model):
-    konu = models.ForeignKey(Makale, on_delete=models.CASCADE)
+    baslik = models.ForeignKey(Makale, on_delete=models.CASCADE)
     yazar = models.CharField(max_length=50, blank=False, null=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

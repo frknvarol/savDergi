@@ -20,5 +20,6 @@ urlpatterns = [
     path('galeri', views.galeri, name='galeri'),
     path('galeri/<slug:slug>/', views.album, name='album'),
     path('dergi', views.dergi, name='dergi'),
-    path('dergi/<slug:slug>/', views.sayi, name='sayi')
+    path('dergi/<slug:slug>/', views.sayi, name='sayi'),
+    path('dergi/<slug:sayi_slug>/<slug:makale_slug>/', views.makale, name='makale')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

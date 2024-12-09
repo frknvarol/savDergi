@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <div class="makale-instance_div">
+        {{ makale.baslik }}
+        <br>
+        {{ makale.Oz }}
+        <br>
+        {{ makale.bolum }}
+        <br>
+
+        {% for yazar in yazarlar %}
+            {{ yazar.yazar }}
+        {% endfor %}
+        <br>
+
+        {% for anahtar in anahtarlar %}
+            {{ anahtar.anahtar }}
+        {% endfor %}
+        <br>
+
+        {% for kaynak in kaynaklar %}
+            {{ kaynak.kaynak }}
+        {% endfor %}
+    </div>
+
+{% endblock content %}

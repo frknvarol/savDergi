@@ -2,7 +2,7 @@ from django.shortcuts import render
 from itertools import chain
 from operator import attrgetter
 from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Sayi, Makale, \
-    MakaleAnahtar, MakaleText, MakaleKaynak, MakaleYazar
+    MakaleAnahtar, MakaleKaynak, MakaleYazar
 
 
 def home(request):
@@ -111,12 +111,23 @@ def dergi(request):
 def sayi(request, slug):
     sayi = Sayi.objects.get(slug=slug)
     makaleler = Makale.objects.filter(sayi=sayi)
-    kaynaklar = MakaleKaynak.objects.filter(konu__in=makaleler)
-    anahtarlar = MakaleAnahtar.objects.filter(konu__in=makaleler)
-    yazarlar = MakaleYazar.objects.filter(konu__in=makaleler)
+    yazarlar = MakaleYazar.objects.filter(baslik__in=makaleler)
 
-    context = {'sayi': sayi, 'makaleler': makaleler, 'kaynaklar': kaynaklar, 'anahtarlar': anahtarlar, 'yazarlar': yazarlar, 'page_css': 'savDergi/css/sayi.css'}
+    context = {'sayi': sayi, 'makaleler': makaleler, 'yazarlar': yazarlar, 'page_css': 'savDergi/css/sayi.css'}
 
     return render(request, 'base/sayi.html', context)
+
+
+def makale(request, sayi_slug, makale_slug):
+    sayi = Sayi.objects.get(slug=sayi_slug)
+    makale = Makale.objects.get(slug=makale_slug)
+    yazarlar = MakaleYazar.objects.filter(baslik=makale)
+    anahtarlar = MakaleAnahtar.objects.filter(baslik=makale)
+    kaynaklar = MakaleKaynak.objects.filter(baslik=makale)
+
+    context = {'makale': makale, 'yazarlar': yazarlar, 'anahtarlar': anahtarlar,
+               'kaynaklar': kaynaklar, 'sayi': sayi, 'page_css': 'savDergi/css/makale.css'}
+
+    return render(request, 'base/makale.html', context)
 
 
