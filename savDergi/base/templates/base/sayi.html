@@ -5,7 +5,7 @@
     {% for makale in makaleler %}
 
         <div class="makale_div">
-            <h2 class="makale_baslik">{{ makale.baslik }}</h2>
+            <h2 class="makale_baslik"><a href="{% url 'makale' sayi.slug makale.slug %}">{{ makale.baslik }}</a></h2>
 
             {% for yazar in yazarlar %}
                 {% if yazar.baslik == makale %}
