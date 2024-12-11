@@ -56,10 +56,74 @@
 
 @media only screen and (max-width: 336px) {
 
+    .makale-instance_container {
+        margin: 40px 3vw;
+        padding: 15px 10px;
+        gap: 15px;
+    }
+
+    .makale-instance_header {
+        padding-right: 5px;
+    }
+
+    .makale-instance_anahtar-header {
+        padding-right: 0;
+    }
+
+    .makale-instance_kaynak-header {
+        padding-right: 10px;
+        padding-bottom: 5px;
+    }
+
+
+    .makale-instance_kaynak-p-div {
+        gap: 3px;
+        padding-left: 10px;
+    }
+
+
 }
 
 @media only screen and (max-width: 600px) {
 
+    .makale-instance_container {
+        margin: 40px 3vw;
+        padding: 15px 10px;
+        gap: 15px;
+    }
+
+    .makale-instance_header {
+        padding-right: 5px;
+    }
+
+    .makale-instance_header {
+        padding-right: 5px;
+    }
+
+    .makale-instance_anahtar-container {
+        display: flex;
+        flex-flow: column;
+        align-items: start;
+    }
+
+    .makale-instance_anahtar-header {
+        padding-right: 0;
+    }
+
+    .makale-instance_anahtar-p {
+        text-wrap: normal;
+    }
+
+    .makale-instance_kaynak-header {
+        padding-right: 10px;
+        padding-bottom: 5px;
+    }
+
+
+    .makale-instance_kaynak-p-div {
+        gap: 3px;
+        padding-left: 10px;
+    }
 }
 
 @media only screen and (min-width: 600px) {

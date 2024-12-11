@@ -23,7 +23,7 @@
         <p class="makale-instance_bolum"><b>Bölüm: </b>{{ makale.bolum }}</p>
 
         <div class="makale-instance_anahtar-container">
-            <h4 class="makale-instance_anahtar-header">Anahtar Kelimeler:</h4>
+            <h4 class="makale-instance_anahtar-header">Anahtar Kelimeler</h4>
             <p class="makale-instance_anahtar-p">
                 {% for anahtar in anahtarlar %}
                    {{ anahtar.anahtar }}{% if not forloop.last %}, {% else %}. {% endif %}
