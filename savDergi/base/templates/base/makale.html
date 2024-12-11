@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <div class="makale-instance_div">
+    <div class="makale-instance_container">
         <div class="makale-instance_header">
             <h2 class="makale-instance_baslik">{{ makale.baslik }}</h2>
             {% if makale.pdf.url is not None %}
@@ -10,32 +10,36 @@
             {% endif %}
         </div>
 
-        <p class="makale-instance_created">{{ makale.created|date:"j F Y" }}</p>
 
         <p class="makale-instance_yazar">
         {% for yazar in yazarlar %}
-            {{ yazar.yazar }}
+            {{ yazar.yazar }}{% if not forloop.last %}, {% endif %}
         {% endfor %}
         </p>
-
-        <p class="makale-instance_oz">{{ makale.Oz }}</p>
-
+        <div class="makale-instance_oz-container">
+            <h4 class="makale-instance_oz-header"></h4>
+            <p class="makale-instance_oz-p">{{ makale.Oz }}</p>
+        </div>
         <p class="makale-instance_bolum"><b>Bölüm: </b>{{ makale.bolum }}</p>
 
-        <div class="makale-instance_anahtar-div">
-            <h4 class="makale-instance_anahtar-header">Anahtarlar:</h4>
+        <div class="makale-instance_anahtar-container">
+            <h4 class="makale-instance_anahtar-header">Anahtar Kelimeler:</h4>
             <p class="makale-instance_anahtar-p">
                 {% for anahtar in anahtarlar %}
-                   {{ anahtar.anahtar }}
+                   {{ anahtar.anahtar }}{% if not forloop.last %}, {% else %}. {% endif %}
                 {% endfor %}
             </p>
         </div>
-        <div class="makale-instance_kaynak-div">
-            <h4 class="makale-instance_kaynak-header">Kaynaklar:</h4>
-            {% for kaynak in kaynaklar %}
-                <p class="makale-instance_kaynak-p">{{ kaynak.kaynak }}</p>
-            {% endfor %}
+        <div class="makale-instance_kaynak-container">
+            <h4 class="makale-instance_kaynak-header">Kaynakça</h4>
+            <div class="makale-instance_kaynak-p-div">
+                {% for kaynak in kaynaklar %}
+                    <p>{{ kaynak.kaynak }}</p>
+                {% endfor %}
+            </div>
         </div>
+
+        <p class="makale-instance_created">{{ makale.created|date:"j F Y" }}</p>
     </div>
 
 {% endblock content %}

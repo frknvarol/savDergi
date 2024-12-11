@@ -1,4 +1,4 @@
-.makale-instance_div {
+.makale-instance_container {
     margin: 40px 15vw;
     box-shadow: var(--BOX-SHADOW);
     padding: 15px 20px;
@@ -14,7 +14,7 @@
     padding-right: 20px;
 }
 
-.makale-instance_anahtar-div {
+.makale-instance_anahtar-container {
     display: flex;
     align-items: center;
 }
@@ -24,11 +24,25 @@
 }
 
 
-.makale-instance_kaynak-div {
+.makale-instance_kaynak-container {
     display: flex;
-    align-items: center;
+    flex-flow: column;
 }
 
 .makale-instance_kaynak-header {
     padding-right: 10px;
+    padding-bottom: 5px;
+}
+
+
+.makale-instance_kaynak-p-div {
+    display: flex;
+    flex-flow: column;
+    gap: 7px;
+    padding-left: 25px;
+}
+
+
+.makale-instance_created {
+    margin-left: auto;
 }
