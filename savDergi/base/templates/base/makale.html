@@ -6,7 +6,7 @@
         <div class="makale-instance_header">
             <h2 class="makale-instance_baslik">{{ makale.baslik }}</h2>
             {% if makale.pdf.url is not None %}
-            <a class="makale-instance_pdf" href="{{ makale.pdf.url }}" target="_blank">PDF</a>
+                <a class="makale-instance_pdf" href="{% url 'view_pdf' makale.id %}" target="_blank">PDF</a>
             {% endif %}
         </div>
 
