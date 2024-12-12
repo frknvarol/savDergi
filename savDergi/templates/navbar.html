@@ -70,10 +70,10 @@
             <a href="{% url 'home' %}">Ana Sayfa</a>
         </li>
 
-        <li class="navbar_list-element navbar_kurumsal">
-            <a> Kurumsal</a>
-            <ul class="navbar_kurumsal-dropdown hidden">
-
+        <li class="navbar_list-element navbar_list-dropdown">
+            <a>Kurumsal</a>
+            <ul class="navbar_dropdown hidden">
+                
                 <li class="navbar_list-element navbar_dropdown-element">
                     <a href="{% url 'biz_kimiz' %}">Biz Kimiz</a>
                 </li>
@@ -81,7 +81,23 @@
                 <li class="navbar_list-element navbar_dropdown-element">
                     <a href="{% url 'misyonumuz' %}">Misyonumuz</a>
                 </li>
+                
+                <li class="navbar_list-element navbar_dropdown-element">
+                    <a href="{% url 'hukukcu_portre' %}">Bir Hukukçunun Portresi</a>
+                </li>
 
+            </ul>
+        </li>
+        
+        
+         <li class="navbar_list-element navbar_list-dropdown">
+            <a>Dergi</a>
+            <ul class="navbar_dropdown hidden">
+                
+                <li class="navbar_list-element navbar_dropdown-element">
+                    <a href="{% url 'dergi' %}">Dergi</a>
+                </li>
+                
                 <li class="navbar_list-element navbar_dropdown-element">
                     <a href="{% url 'etik_ilkeler' %}">Etik İlkeler ve Yayım Politikası</a>
                 </li>
@@ -91,20 +107,10 @@
                 </li>
 
                 <li class="navbar_list-element navbar_dropdown-element">
-                    <a href="{% url 'hukukcu_portre' %}">Bir Hukukçunun Portresi</a>
-                </li>
-
-                <li class="navbar_list-element navbar_dropdown-element">
                     <a href="{% url 'metodoloji' %}">Metodoloji Eğitimleri</a>
                 </li>
 
-
-
             </ul>
-        </li>
-
-        <li class="navbar_list-element">
-            <a href="{% url 'dergi' %}">Dergi</a>
         </li>
 
         <li class="navbar_list-element">

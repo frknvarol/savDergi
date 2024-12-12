@@ -1,18 +1,18 @@
 //NAVBAR DROPDOWN
 
-const kurumsal = document.querySelector('.navbar_kurumsal');
-const dropdown = document.querySelector('.navbar_kurumsal-dropdown');
+const dropdown = document.querySelectorAll('.navbar_list-dropdown');
 
+dropdown.forEach(ul => {
+    ul.addEventListener('mouseover', () => {
+        ul.querySelector('ul').classList.remove('hidden');
+    });
+});
 
-kurumsal.addEventListener('mouseover', () => {
-    dropdown.classList.remove('hidden');
-    }
-);
-
-kurumsal.addEventListener('mouseout', () => {
-    dropdown.classList.add('hidden');
-    }
-);
+dropdown.forEach(ul => {
+    ul.addEventListener('mouseout', () => {
+        ul.querySelector('ul').classList.add('hidden');
+    });
+});
 
 //NAVBAR MOBILE
 
