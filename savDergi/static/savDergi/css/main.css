@@ -182,7 +182,7 @@ main {
 }
 
 
-.navbar_kurumsal-dropdown {
+.navbar_dropdown {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -206,7 +206,7 @@ main {
     display: none;
 }
 
-.navbar_kurumsal::before {
+.navbar_list-dropdown::before {
     content: "";
     background-color: black;
     position: relative;
@@ -218,7 +218,7 @@ main {
     transform: rotate(45deg);
     border-radius: 2px;
 }
-.navbar_kurumsal::after {
+.navbar_list-dropdown::after {
     content: "";
     background-color: black;
     position: relative;
@@ -230,6 +230,10 @@ main {
     transform: rotate(-45deg);
     border-radius: 2px;
 }
+
+ .navbar_list-dropdown:nth-child(3)::before {
+        left: 57px;
+ }
 
 .duyuru_container {
     width: 500px;
@@ -496,10 +500,10 @@ main {
     }
 
 
-    .navbar_kurumsal::before {
+    .navbar_list-dropdown::before {
         left: 64px;
     }
-    .navbar_kurumsal::after {
+    .navbar_list-dropdown::after {
         left: 6px;
     }
 }
@@ -534,7 +538,7 @@ main {
         font-size: 17px;
     }
 
-    .navbar_kurumsal::before {
+    .navbar_list-dropdown::before {
         left: 90px;
     }
 }
@@ -571,7 +575,7 @@ main {
     }
 
 
-    .navbar_kurumsal::before {
+    .navbar_list-dropdown::before {
         left: 90px;
     }
 }
@@ -595,7 +599,7 @@ main {
         padding: 10px;
     }
 
-    .navbar_kurumsal::before {
+    .navbar_list-dropdown::before {
         left: 90px;
     }
 
