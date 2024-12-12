@@ -1,0 +1,167 @@
+.makale-instance_container {
+    margin: 40px 15vw;
+    box-shadow: var(--BOX-SHADOW);
+    padding: 15px 20px;
+    display: flex;
+    flex-flow: column;
+    gap: 15px;
+    hyphens: auto;
+}
+
+.makale-instance_header {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+.makale-instance_anahtar-container {
+    display: flex;
+    align-items: center;
+}
+
+.makale-instance_anahtar-header {
+    padding-right: 10px;
+}
+
+
+.makale-instance_kaynak-container {
+    display: flex;
+    flex-flow: column;
+}
+
+.makale-instance_kaynak-header {
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+
+
+.makale-instance_kaynak-p-div {
+    display: flex;
+    flex-flow: column;
+    gap: 7px;
+    padding-left: 25px;
+}
+
+
+.makale-instance_created {
+    margin-left: auto;
+}
+
+
+
+
+
+
+/*  MEDIA QUERIES */
+
+@media only screen and (max-width: 336px) {
+
+    .makale-instance_container {
+        margin: 40px 3vw;
+        padding: 15px 10px;
+        gap: 15px;
+        font-size: 22px;
+    }
+
+    .makale-instance_header {
+        padding-right: 5px;
+    }
+
+    .makale-instance_anahtar-header {
+        padding-right: 0;
+    }
+
+    .makale-instance_kaynak-header {
+        padding-right: 10px;
+        padding-bottom: 5px;
+    }
+
+
+    .makale-instance_kaynak-p-div {
+        gap: 3px;
+        padding-left: 10px;
+    }
+
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    .makale-instance_container {
+        margin: 40px 3vw;
+        font-size: 22px;
+    }
+
+
+}
+
+@media only screen and (min-width: 600px) {
+
+    .makale-instance_container {
+        margin: 40px 5vw;
+        padding: 15px 10px;
+        gap: 15px;
+        font-size: 22px;
+    }
+
+    .makale-instance_header {
+        padding-right: 5px;
+    }
+
+    .makale-instance_header {
+        padding-right: 5px;
+    }
+
+    .makale-instance_anahtar-container {
+        display: flex;
+        flex-flow: column;
+        align-items: start;
+    }
+
+    .makale-instance_anahtar-header {
+        padding-right: 0;
+    }
+
+    .makale-instance_anahtar-p {
+        text-wrap: normal;
+    }
+
+    .makale-instance_kaynak-header {
+        padding-right: 10px;
+        padding-bottom: 5px;
+    }
+
+
+    .makale-instance_kaynak-p-div {
+        gap: 3px;
+        padding-left: 10px;
+    }
+}
+
+
+
+@media only screen and (min-width: 768px) {
+    .makale-instance_container {
+        margin: 40px 7vw;
+        font-size: 20px;
+    }
+
+}
+
+@media only screen and (min-width: 992px) {
+    .makale-instance_container {
+        margin: 40px 10vw;
+        font-size: 20px;
+    }
+
+}
+
+@media only screen and (min-width: 1200px) {
+    .makale-instance_container {
+    margin: 40px 15vw;
+    padding: 15px 20px;
+    gap: 15px;
+}
+
+}

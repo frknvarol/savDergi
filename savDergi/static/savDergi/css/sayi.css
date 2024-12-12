@@ -1,17 +1,86 @@
 .makale_container {
     box-shadow: var(--BOX-SHADOW);
-    margin: 10px 10vw;
+    margin: 10px 10vw 40px 10vw;
+    gap: 30px;
+    padding: 30px 40px;
+    display: flex;
+    flex-flow: column;
+    hyphens: auto;
 }
 
 .makale_div {
-    padding: 10px 30px;
     display: flex;
     flex-flow: column;
     font-family: Cardo, sans-serif;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: rgb(243, 245, 249);
+    padding: 10px 20px;
+    transition: transform 100ms ease-in-out;
+}
+
+.makale_div:hover {
+    transform: scale(1.02);
 }
 
 .makale_baslik {
     font-family: Inter, sans-serif;
 }
 
+.makale_yazar-container {
+    display: flex;
+    gap: 4px;
+}
 
+/*  MEDIA QUERIES */
+
+@media only screen and (max-width: 336px) {
+    .makale_container {
+        margin: 10px 3vw;
+        padding: 20px;
+    }
+
+
+}
+
+@media only screen and (max-width: 600px) {
+     .makale_container {
+        margin: 10px 3vw 40px 3vw;
+        padding: 20px;
+    }
+
+
+}
+
+@media only screen and (min-width: 600px) {
+
+    .makale_container {
+        margin: 10px 3vw 40px 3vw;
+        padding: 20px;
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+    .makale_container {
+        margin: 50px 5vw 40px 5vw;
+        padding: 20px;
+    }
+
+}
+
+@media only screen and (min-width: 992px) {
+    .makale_container {
+        margin: 50px 7vw 40px 7vw;
+        padding: 20px;
+    }
+
+}
+
+@media only screen and (min-width: 1200px) {
+    .makale_container {
+        margin: 10px 10vw 40px 10vw;
+        padding: 30px 40px;
+    }
+
+}

@@ -202,7 +202,7 @@ class MakaleKaynak(models.Model):
     kaynak = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
-        ordering = ['-created']
+        ordering = ['created']
 
     def __str__(self):
         return f"kaynak :{self.kaynak}"
@@ -215,7 +215,7 @@ class MakaleAnahtar(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ['-created']
+        ordering = ['created']
 
     def __str__(self):
         return f"anahtar :{self.anahtar} "
@@ -228,7 +228,7 @@ class MakaleYazar(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ['-created']
+        ordering = ['created']
 
     def __str__(self):
         return f"yazar: {self.yazar} "

@@ -4,6 +4,9 @@ from operator import attrgetter
 from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Sayi, Makale, \
     MakaleAnahtar, MakaleKaynak, MakaleYazar
 
+from django.http import FileResponse
+from django.shortcuts import get_object_or_404
+
 
 def home(request):
     duyurus = Duyuru.objects.all()[:2]
@@ -131,3 +134,8 @@ def makale(request, sayi_slug, makale_slug):
     return render(request, 'base/makale.html', context)
 
 
+def view_pdf(request, pk):
+    makale = get_object_or_404(Makale, pk=pk)
+    response = FileResponse(makale.pdf.open(), content_type='application/pdf')
+    response['Content-Disposition'] = 'inline; filename="%s"' % makale.pdf.name
+    return response

@@ -7,18 +7,23 @@
         <div class="makale_div">
             <h2 class="makale_baslik"><a href="{% url 'makale' sayi.slug makale.slug %}">{{ makale.baslik }}</a></h2>
 
+            <div class="makale_yazar-container">
+            <p>
             {% for yazar in yazarlar %}
                 {% if yazar.baslik == makale %}
-                    <p>{{ yazar.yazar }}</p>
+                    {{ yazar.yazar }}{% if not forloop.last %},{% endif %}
                 {% endif %}
             {% endfor %}
+            </p>
+            </div>
 
-            {% if makale.pdf.url %}
-            <a href="{{ makale.pdf.url }}" target="_blank">PDF</a>
-            {% endif %}
         </div>
-        <br>
     {% endfor %}
     </div>
+
+
+
+{% load static %}
+<script src="{% static 'savDergi/javascript/sayi.js' %}"></script>
 
 {% endblock content %}
