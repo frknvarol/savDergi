@@ -5,6 +5,7 @@
     padding: 30px 40px;
     display: flex;
     flex-flow: column;
+    hyphens: auto;
 }
 
 .makale_div {
@@ -62,14 +63,15 @@
 
 @media only screen and (min-width: 768px) {
     .makale_container {
-        margin: 10px 5vw 40px 5vw;
+        margin: 50px 5vw 40px 5vw;
         padding: 20px;
     }
+
 }
 
 @media only screen and (min-width: 992px) {
     .makale_container {
-        margin: 10px 7vw 40px 7vw;
+        margin: 50px 7vw 40px 7vw;
         padding: 20px;
     }
 

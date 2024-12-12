@@ -1,6 +1,7 @@
 .dergi_container {
-    width: 70%;
+    width: 70vw;
     margin: 50px auto;
+    hyphens: auto;
 
 }
 
@@ -26,24 +27,44 @@
 
 @media only screen and (max-width: 336px) {
 
+    .dergi_container {
+        width: 90vw;
+    }
+
 }
 
 @media only screen and (max-width: 600px) {
+    .dergi_container {
+        width: 90vw;
+    }
 
 }
 
 @media only screen and (min-width: 600px) {
+    .dergi_container {
+        width: 90vw;
+    }
 
 }
 
 @media only screen and (min-width: 768px) {
+    .dergi_container {
+        width: 80vw;
+    }
 
 }
 
 @media only screen and (min-width: 992px) {
+    .dergi_container {
+        width: 75vw;
+    }
 
 }
 
 @media only screen and (min-width: 1200px) {
+    .dergi_container {
+        width: 75vw;
+    }
+
 
 }
