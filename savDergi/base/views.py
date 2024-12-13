@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from itertools import chain
 from operator import attrgetter
-from .models import Duyuru, Album, Image, DuyuruImage, DuyuruText, Sayi, Makale, \
-    MakaleAnahtar, MakaleKaynak, MakaleYazar, Portre
+from .models import Duyuru, Album, AlbumImage, DuyuruImage, DuyuruText, Sayi, Makale, \
+    MakaleAnahtar, MakaleKaynak, MakaleYazar, Portre, Konferans, KonferansImage, Metodoloji, MetodolojiImage, \
+    Sava, SavaImage
 
 from django.http import FileResponse
 from django.shortcuts import get_object_or_404
@@ -85,7 +86,7 @@ def galeri(request):
     album_images = []
 
     for album in albums:
-        first_image = Image.objects.filter(name=album).first()
+        first_image = AlbumImage.objects.filter(name=album).first()
         album_images.append((album, first_image))
     context = {'page_css': 'savDergi/css/galeri.css', 'album_images': album_images}
     return render(request, 'base/galeri.html', context)
@@ -93,7 +94,7 @@ def galeri(request):
 
 def album(request, slug):
     album = Album.objects.get(slug=slug)
-    images = Image.objects.filter(name=album)
+    images = AlbumImage.objects.filter(name=album)
     context = {'images': images, 'slug': slug, 'page_css': 'savDergi/css/galeri.css'}
     return render(request, 'base/album.html', context)
 
