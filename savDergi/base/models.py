@@ -119,19 +119,6 @@ class Image(models.Model):
         return str(self.image)
 
 
-class EmbeddedVideo(models.Model):
-    title = models.CharField(max_length=100)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-    url = EmbedVideoField()
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        ordering = ['created']
-
-
 class Sayi(models.Model):
     sayi = models.IntegerField(unique=True, default=0, blank=False)
 
@@ -232,3 +219,25 @@ class MakaleYazar(models.Model):
 
     def __str__(self):
         return f"yazar: {self.yazar} "
+
+
+class Portre(models.Model):
+    baslik = models.CharField(max_length=100, blank=False, null=False, default="Başlık")
+    roportaj = models.TextField(blank=False, null=False, default="röportaj", max_length=99999)
+    link = models.URLField(blank=False, null=False, default="https://open.spotify.com/show/2HE4WPETsojDxh9GRFIiZP?si=8cf043f5e13d41bb")
+    oz_gecmis = models.TextField(blank=False, null=False, default="öz geçmiş", max_length=99999)
+    oz_gecmis_img = models.ImageField(blank=True, null=True)
+    video = EmbedVideoField(blank=True, null=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return f"{self.baslik}"
+
+
+
+

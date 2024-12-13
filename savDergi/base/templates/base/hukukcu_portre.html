@@ -2,6 +2,11 @@
 
 {% block content %}
 
-
+    {% for portre in portreler %}
+        {{ portre.baslik }}
+        {{ portre.roportaj }}
+        {{ portre.oz_gecmis }}
+        <img src="{{ portre.oz_gecmis_img.url }}" alt="">
+    {% endfor %}
 
 {% endblock content %}

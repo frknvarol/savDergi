@@ -1,10 +1,10 @@
 from django.contrib import admin
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin
-from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Sayi, MakaleYazar, \
-    MakaleAnahtar, MakaleKaynak, Makale
+from .models import Duyuru, Album, Image, DuyuruImage, DuyuruText, Sayi, MakaleYazar, \
+    MakaleAnahtar, MakaleKaynak, Makale, Portre
 
-admin.site.register(EmbeddedVideo)
 admin.site.register(Image)
+admin.site.register(Portre)
 
 
 @admin.register(DuyuruImage)
@@ -109,5 +109,8 @@ class SayiAdmin(NestedModelAdmin):
 
 
 admin.site.register(Sayi, SayiAdmin)
+
+
+
 
 

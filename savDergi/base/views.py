@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from itertools import chain
 from operator import attrgetter
-from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Sayi, Makale, \
-    MakaleAnahtar, MakaleKaynak, MakaleYazar
+from .models import Duyuru, Album, Image, DuyuruImage, DuyuruText, Sayi, Makale, \
+    MakaleAnahtar, MakaleKaynak, MakaleYazar, Portre
 
 from django.http import FileResponse
 from django.shortcuts import get_object_or_404
@@ -10,9 +10,8 @@ from django.shortcuts import get_object_or_404
 
 def home(request):
     duyurus = Duyuru.objects.all()[:2]
-    videos = EmbeddedVideo.objects.all()
 
-    context = {'duyurus': duyurus, 'videos': videos}
+    context = {'duyurus': duyurus}
     return render(request, 'base/home.html', context)
 
 
@@ -54,11 +53,6 @@ def biz_kimiz(request):
 def metodoloji(request):
     context = {'page_css': 'savDergi/css/metodoloji.css'}
     return render(request, 'base/metodoloji.html', context)
-
-
-def hukukcu_portre(request):
-    context = {'page_css': 'savDergi/css/hukukcu_portre.css'}
-    return render(request, 'base/hukukcu_portre.html', context)
 
 
 def duyurular(request):
@@ -139,3 +133,11 @@ def view_pdf(request, pk):
     response = FileResponse(makale.pdf.open(), content_type='application/pdf')
     response['Content-Disposition'] = 'inline; filename="%s"' % makale.pdf.name
     return response
+
+
+def hukukcu_portre(request):
+    portreler = Portre.objects.all()
+
+    context = {'page_css': 'savDergi/css/hukukcu_portre.css', 'portreler': portreler}
+    return render(request, 'base/hukukcu_portre.html', context)
+
