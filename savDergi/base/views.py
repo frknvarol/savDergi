@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from itertools import chain
 from operator import attrgetter
-from .models import Duyuru, Album, Image, EmbeddedVideo, DuyuruImage, DuyuruText, Sayi, Makale, \
-    MakaleAnahtar, MakaleKaynak, MakaleYazar
+from .models import Duyuru, Album, AlbumImage, DuyuruImage, DuyuruText, Sayi, Makale, \
+    MakaleAnahtar, MakaleKaynak, MakaleYazar, Portre, Konferans, KonferansImage, Metodoloji, MetodolojiImage, \
+    Sava, SavaImage
 
 from django.http import FileResponse
 from django.shortcuts import get_object_or_404
@@ -10,9 +11,8 @@ from django.shortcuts import get_object_or_404
 
 def home(request):
     duyurus = Duyuru.objects.all()[:2]
-    videos = EmbeddedVideo.objects.all()
 
-    context = {'duyurus': duyurus, 'videos': videos}
+    context = {'duyurus': duyurus}
     return render(request, 'base/home.html', context)
 
 
@@ -56,11 +56,6 @@ def metodoloji(request):
     return render(request, 'base/metodoloji.html', context)
 
 
-def hukukcu_portre(request):
-    context = {'page_css': 'savDergi/css/hukukcu_portre.css'}
-    return render(request, 'base/hukukcu_portre.html', context)
-
-
 def duyurular(request):
     duyuru_group = Duyuru.objects.all()
 
@@ -91,7 +86,7 @@ def galeri(request):
     album_images = []
 
     for album in albums:
-        first_image = Image.objects.filter(name=album).first()
+        first_image = AlbumImage.objects.filter(name=album).first()
         album_images.append((album, first_image))
     context = {'page_css': 'savDergi/css/galeri.css', 'album_images': album_images}
     return render(request, 'base/galeri.html', context)
@@ -99,7 +94,7 @@ def galeri(request):
 
 def album(request, slug):
     album = Album.objects.get(slug=slug)
-    images = Image.objects.filter(name=album)
+    images = AlbumImage.objects.filter(name=album)
     context = {'images': images, 'slug': slug, 'page_css': 'savDergi/css/galeri.css'}
     return render(request, 'base/album.html', context)
 
@@ -139,3 +134,11 @@ def view_pdf(request, pk):
     response = FileResponse(makale.pdf.open(), content_type='application/pdf')
     response['Content-Disposition'] = 'inline; filename="%s"' % makale.pdf.name
     return response
+
+
+def hukukcu_portre(request):
+    portreler = Portre.objects.all()
+
+    context = {'page_css': 'savDergi/css/hukukcu_portre.css', 'portreler': portreler}
+    return render(request, 'base/hukukcu_portre.html', context)
+

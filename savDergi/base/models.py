@@ -1,6 +1,4 @@
 from django.db import models
-from django.db.models.signals import pre_save
-from django.dispatch import receiver
 from django.utils.text import slugify
 from embed_video.fields import EmbedVideoField
 
@@ -106,7 +104,7 @@ class Album(models.Model):
         return self.name
 
 
-class Image(models.Model):
+class AlbumImage(models.Model):
     image = models.ImageField(upload_to='images/', blank=True, null=True)
     name = models.ForeignKey(Album, on_delete=models.CASCADE)
 
@@ -117,19 +115,6 @@ class Image(models.Model):
 
     def __str__(self):
         return str(self.image)
-
-
-class EmbeddedVideo(models.Model):
-    title = models.CharField(max_length=100)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-    url = EmbedVideoField()
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        ordering = ['created']
 
 
 class Sayi(models.Model):
@@ -232,3 +217,166 @@ class MakaleYazar(models.Model):
 
     def __str__(self):
         return f"yazar: {self.yazar} "
+
+
+class Portre(models.Model):
+    baslik = models.CharField(max_length=100, blank=False, null=False, default="Başlık")
+    roportaj = models.TextField(blank=False, null=False, default="röportaj", max_length=99999)
+    link = models.URLField(blank=False, null=False, default="https://open.spotify.com/show/2HE4WPETsojDxh9GRFIiZP?si=8cf043f5e13d41bb")
+    oz_gecmis = models.TextField(blank=False, null=False, default="öz geçmiş", max_length=99999)
+    oz_gecmis_img = models.ImageField(blank=True, null=True)
+    video = EmbedVideoField(blank=True, null=True)
+
+    slug = models.SlugField(unique=True, editable=False)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            base_slug = slugify(self.baslik)
+            slug = base_slug
+            counter = 1
+
+            while Portre.objects.filter(slug=slug):
+                slug = f"{slug}-{counter}"
+                counter += 1
+
+            self.slug = slug
+
+        super(Portre, self).save(*args, **kwargs)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return f"{self.baslik}"
+
+
+class Konferans(models.Model):
+    baslik = models.CharField(max_length=100, blank=False, null=False, default="Başlık")
+    text = models.TextField(blank=False, null=False, default="konferans text", max_length=99999)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    slug = models.SlugField(unique=True, editable=False)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            base_slug = slugify(self.baslik)
+            slug = base_slug
+            counter = 1
+
+            while Konferans.objects.filter(slug=slug):
+                slug = f"{slug}-{counter}"
+                counter += 1
+
+            self.slug = slug
+
+        super(Konferans, self).save(*args, **kwargs)
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return f"Konferans: {self.baslik}"
+
+
+class KonferansImage(models.Model):
+    baslik = models.ForeignKey(Konferans, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return f"{self.baslik} image"
+
+
+class Metodoloji(models.Model):
+    baslik = models.CharField(max_length=100, blank=False, null=False, default="Metodoloji başlık")
+    text = models.TextField(blank=False, null=False, default="metodoloji text", max_length=99999)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    slug = models.SlugField(unique=True, editable=False)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            base_slug = slugify(self.baslik)
+            slug = base_slug
+            counter = 1
+
+            while Metodoloji.objects.filter(slug=slug):
+                slug = f"{slug}-{counter}"
+                counter += 1
+
+            self.slug = slug
+
+        super(Metodoloji, self).save(*args, **kwargs)
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return f"Metodoloji: {self.baslik}"
+
+
+class MetodolojiImage(models.Model):
+    baslik = models.ForeignKey(Metodoloji, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return f"{self.baslik} image"
+
+
+class Sava(models.Model):
+    baslik = models.CharField(max_length=100, blank=False, null=False, default="SAVA başlık")
+    text = models.TextField(blank=False, null=False, default="SAVA text", max_length=99999)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    slug = models.SlugField(unique=True, editable=False)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            base_slug = slugify(self.baslik)
+            slug = base_slug
+            counter = 1
+
+            while Sava.objects.filter(slug=slug):
+                slug = f"{slug}-{counter}"
+                counter += 1
+
+            self.slug = slug
+
+        super(Sava, self).save(*args, **kwargs)
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return f"SAVA: {self.baslik}"
+
+
+class SavaImage(models.Model):
+    baslik = models.ForeignKey(Sava, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return f"{self.baslik} image"

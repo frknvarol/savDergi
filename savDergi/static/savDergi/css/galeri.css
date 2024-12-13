@@ -40,16 +40,16 @@
 }
 
 .album_figure {
-    width: 300px;
-    margin: auto;
-    padding: 0 10px 10px 10px;
-}
+        width: 300px;
+        margin: auto;
+        padding: 0 10px 10px 10px;
+    }
 
-.album_image {
-    width: auto;
-    margin: auto;
-    object-fit: contain;
-}
+    .album_image {
+        width: auto;
+        margin: auto;
+        object-fit: contain;
+    }
 
 .album_image:hover  {
     cursor: zoom-in;
@@ -60,7 +60,7 @@
     top: 0;
     left: 0;
     right: 0;
-    padding: 10vh 10vw;
+    padding: 30vh 10vw;
     width: auto;
     margin: 0 auto;
     background-color: rgba(99, 99, 99, 0.25);
@@ -130,24 +130,217 @@
 
 @media only screen and (max-width: 336px) {
 
+    .gallery_container {
+        width: 95vw;
+        flex-direction: column;
+        column-gap: 2vh;
+    }
+
+    .album_div {
+        width: 90vw;
+        margin: auto;
+    }
+
+    .album_gallery-image {
+        width: 80vw;
+        height: auto;
+    }
+    .album_gallery-figure {
+        width: 80vw;
+        height: auto;
+    }
+
 }
 
 @media only screen and (max-width: 600px) {
+    .gallery_container {
+        width: 95vw;
+        flex-direction: column;
+        column-gap: 2vh;
+    }
+
+    .album_div {
+        width: 90vw;
+        margin: auto;
+    }
+
+    .album_gallery-image {
+        width: 80vw;
+        height: auto;
+    }
+    .album_gallery-figure {
+        width: 80vw;
+        height: auto;
+    }
+
+    .album {
+        width: 95vw;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .album_container {
+        width: 95vw;
+        margin: auto;
+    }
+
+    .album_figure {
+        width: 75vw;
+        height: auto;
+    }
+
+    .album_image {
+        width: 75vw;
+        height: auto;
+    }
 
 }
 
 @media only screen and (min-width: 600px) {
 
+    .gallery_container {
+        width: 90vw;
+        flex-direction: column;
+        column-gap: 2vh;
+    }
+
+    .album_div {
+        width: 80vw;
+        margin: auto;
+    }
+
+    .album_gallery-image {
+        width: 75vw;
+        height: auto;
+    }
+    .album_gallery-figure {
+        width: 75vw;
+        height: auto;
+    }
+
+    .album {
+        width: 95vw;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .album_container {
+        width: 95vw;
+        margin: auto;
+        columns: 35vw;
+    }
+
+    .album_figure {
+        width: 33vw;
+        height: auto;
+    }
+
+    .album_image {
+        width: 33vw;
+        height: auto;
+    }
+
+
+
 }
 
 @media only screen and (min-width: 768px) {
 
+    .gallery_container {
+        width: 80vw;
+        margin: 40px auto 20px auto;
+        flex-direction: row;
+        gap: 1vw;
+        justify-content: center;
+
+    }
+
+    .album_div {
+        width: 300px;
+        margin: 10px auto;
+    }
+
+    .album_gallery-image {
+        width: 250px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .album_gallery-figure {
+        width: 250px;
+        height: auto;
+    }
+
+    .album_header {
+        margin-left: auto;
+        margin-right: 30px;
+    }
+
+    .album {
+        width: 95vw;
+        margin: 40px auto 10px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .album_container {
+        width: 95vw;
+        margin: auto;
+        columns: 25vw;
+    }
+
+    .album_figure {
+        width: 24vw;
+        height: auto;
+    }
+
+    .album_image {
+        width: 24vw;
+        height: auto;
+    }
+
 }
 
 @media only screen and (min-width: 992px) {
+    .album {
+        margin-top: 40px;
+    }
 
 }
 
 @media only screen and (min-width: 1200px) {
+
+    .album {
+        width: 85vw;
+    }
+
+    .album_header {
+        margin-right: 3vw;
+    }
+
+    .album_container {
+        width: 80vw;
+        margin: 30px auto;
+        padding: 30px 10px;
+        box-shadow: var(--BOX-SHADOW);
+        columns: 300px;
+    }
+
+    .album_figure {
+        width: 300px;
+        margin: auto;
+        padding: 0 10px 10px 10px;
+    }
+
+    .album_image {
+        width: auto;
+        margin: auto;
+        object-fit: contain;
+    }
 
 }

@@ -8,6 +8,7 @@
 * {
     margin: 0;
     --FONT-COLOR: rgb(17,17,17);
+    --FONT-COLOR2: #080c63;
     --BACKGROUND-COLOR: rgb(249, 249, 249);
     --BOX-SHADOW: rgba(3, 26, 42, 0.12) 6px 8px 28px 0;
 }
@@ -119,6 +120,7 @@ main {
     font-family: Cardo, sans-serif;
     font-size: 38px;
     font-weight: 350;
+    color: var(--FONT-COLOR2);
 }
 
 .main_welcome p {
