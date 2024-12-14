@@ -468,6 +468,11 @@ main {
     .duyuru_button {
         text-align: center;
     }
+
+    .navbar_button::before {
+        left: -10px;
+        top: 4px;
+    }
 }
 
 @media only screen and (min-width: 600px) {
@@ -508,6 +513,15 @@ main {
     .navbar_list-dropdown::after {
         left: 6px;
     }
+
+      .navbar_button::before {
+        left: 5px;
+        top: 4px;
+    }
+
+      .navbar_button:after {
+          left: 5px;
+      }
 }
 
 @media only screen and (min-width: 768px) {
@@ -588,13 +602,19 @@ main {
     }
 
     .navbar_logo {
-        margin-right: auto;
-        width: 70%;
+        width: 100%;
         height: auto;
     }
 
     .navbar_figure {
         margin: 5px 10px;
+        height: auto;
+    }
+
+    .navbar_figure a {
+        display: inline-block;
+        width: 300px;
+        height: 150px;
     }
 
     .navbar_list {

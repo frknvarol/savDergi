@@ -36,24 +36,9 @@ def yazim_kurallari(request):
     return render(request, 'base/yazım_kuralları.html', context)
 
 
-def konferanslar(request):
-    context = {'page_css': 'savDergi/css/konferanslar.css'}
-    return render(request, 'base/konferanslar.html', context)
-
-
-def sava(request):
-    context = {'page_css': 'savDergi/css/sava.css'}
-    return render(request, 'base/sava.html', context)
-
-
 def biz_kimiz(request):
     context = {'page_css': 'savDergi/css/biz_kimiz.css'}
     return render(request, 'base/biz_kimiz.html', context)
-
-
-def metodoloji(request):
-    context = {'page_css': 'savDergi/css/metodoloji.css'}
-    return render(request, 'base/metodoloji.html', context)
 
 
 def duyurular(request):
@@ -142,3 +127,17 @@ def hukukcu_portre(request):
     context = {'page_css': 'savDergi/css/hukukcu_portre.css', 'portreler': portreler}
     return render(request, 'base/hukukcu_portre.html', context)
 
+
+def konferanslar(request):
+    context = {'page_css': 'savDergi/css/konferanslar.css'}
+    return render(request, 'base/konferanslar.html', context)
+
+
+def sava(request):
+    context = {'page_css': 'savDergi/css/sava.css'}
+    return render(request, 'base/sava.html', context)
+
+
+def metodoloji(request):
+    context = {'page_css': 'savDergi/css/metodoloji.css'}
+    return render(request, 'base/metodoloji.html', context)

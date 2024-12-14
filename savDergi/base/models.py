@@ -154,6 +154,7 @@ class Makale(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     sayi = models.ForeignKey(Sayi, on_delete=models.CASCADE)
+    tur = models.CharField(max_length=100, default='tür')
 
     pdf = models.FileField(upload_to='pdfs/', null=True, blank=True,)
 
