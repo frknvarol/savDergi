@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'main.html' %}
 
-</body>
-</html>
+{% block content %}
+    {{ sava.baslik }}
+    {{ sava.text }}
+    {{ sava.created }}
+    
+    {% for img in sava_images %}
+        <img src="{{ img.image.url }}" alt="">
+    {% endfor %}
+
+{% endblock content %}

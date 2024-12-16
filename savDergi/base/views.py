@@ -142,7 +142,8 @@ def konferanslar(request):
 
 def konferans(request, slug):
     konferans = Konferans.objects.get(slug=slug)
-    context = {'page_css': 'savDergi/css/konferans.css', 'konferans': konferans}
+    konferans_images = KonferansImage.objects.filter(baslik=konferans)
+    context = {'page_css': 'savDergi/css/konferans.css', 'konferans': konferans, 'konferans_images': konferans_images}
     return render(request, 'base/konferans.html', context)
 
 
@@ -154,7 +155,8 @@ def sava(request):
 
 def sava_instance(request, slug):
     sava = Sava.objects.get(slug=slug)
-    context = {'page_css': 'savDergi/css/sava_instance.css', 'sava': sava}
+    sava_images = SavaImage.objects.filter(baslik=sava)
+    context = {'page_css': 'savDergi/css/sava_instance.css', 'sava': sava, 'sava_images': sava_images}
     return render(request, 'base/sava_instance.html', context)
 
 
@@ -166,5 +168,6 @@ def metodoloji(request):
 
 def metodoloji_instance(request, slug):
     metodoloji = Metodoloji.objects.get(slug=slug)
-    context = {'page_css': 'savDergi/css/metodoloji_instance.css', 'metodoloji': metodoloji}
+    metodoloji_images = MetodolojiImage.objects.filter(baslik=metodoloji)
+    context = {'page_css': 'savDergi/css/metodoloji_instance.css', 'metodoloji': metodoloji, 'metodoloji_images': metodoloji_images}
     return render(request, 'base/metodoloji_instance.html', context)

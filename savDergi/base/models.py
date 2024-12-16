@@ -229,6 +229,8 @@ class Portre(models.Model):
     video = EmbedVideoField(blank=True, null=True)
 
     slug = models.SlugField(unique=True, editable=False)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         if not self.id:
@@ -244,8 +246,7 @@ class Portre(models.Model):
 
         super(Portre, self).save(*args, **kwargs)
 
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+
 
     class Meta:
         ordering = ['-created']
