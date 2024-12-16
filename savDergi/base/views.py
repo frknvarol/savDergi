@@ -128,16 +128,43 @@ def hukukcu_portre(request):
     return render(request, 'base/hukukcu_portre.html', context)
 
 
+def hukukcu_portre_instance(request, slug):
+    portre = Portre.objects.get(slug=slug)
+    context = {'page_css': 'savDergi/css/hukukcu_portre_instance.css', 'portre': portre}
+    return render(request, 'base/hukukcu_portre_instance.html', context)
+
+
 def konferanslar(request):
-    context = {'page_css': 'savDergi/css/konferanslar.css'}
+    konferanslar = Konferans.objects.all()
+    context = {'page_css': 'savDergi/css/konferanslar.css', 'konferanslar': konferanslar}
     return render(request, 'base/konferanslar.html', context)
 
 
+def konferans(request, slug):
+    konferans = Konferans.objects.get(slug=slug)
+    context = {'page_css': 'savDergi/css/konferans.css', 'konferans': konferans}
+    return render(request, 'base/konferans.html', context)
+
+
 def sava(request):
-    context = {'page_css': 'savDergi/css/sava.css'}
+    sava = Sava.objects.all()
+    context = {'page_css': 'savDergi/css/sava.css', 'sava': sava}
     return render(request, 'base/sava.html', context)
 
 
+def sava_instance(request, slug):
+    sava = Sava.objects.get(slug=slug)
+    context = {'page_css': 'savDergi/css/sava_instance.css', 'sava': sava}
+    return render(request, 'base/sava_instance.html', context)
+
+
 def metodoloji(request):
-    context = {'page_css': 'savDergi/css/metodoloji.css'}
+    metodoloji = Metodoloji.objects.all()
+    context = {'page_css': 'savDergi/css/metodoloji.css', 'metodoloji': metodoloji}
     return render(request, 'base/metodoloji.html', context)
+
+
+def metodoloji_instance(request, slug):
+    metodoloji = Metodoloji.objects.get(slug=slug)
+    context = {'page_css': 'savDergi/css/metodoloji_instance.css', 'metodoloji': metodoloji}
+    return render(request, 'base/metodoloji_instance.html', context)

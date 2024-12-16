@@ -2,6 +2,12 @@
 
 {% block content %}
 
+    {% for konferans in konferanslar %}
+        {{ konferans.baslik }}
+        {{ konferans.created }}
+        {{ konferans.text }}
+    {% endfor %}
+
 
 
 {% endblock content %}

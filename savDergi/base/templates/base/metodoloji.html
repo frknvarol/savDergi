@@ -2,6 +2,12 @@
 
 {% block content %}
 
+    {% for metodoloji in metodoloji %}
+        {{ metodoloji.baslik }}
+        {{ metodoloji.text }}
+        {{ metodoloji.created }}
+    {% endfor %}
+
 
 
 {% endblock content %}
