@@ -1,6 +1,54 @@
 {% extends 'main.html' %}
 
 {% block content %}
+{% load embed_video_tags %}
+
+    <div class="portre_container">
+
+        <div class="portre_roportaj-div">
+
+            <div class="portre_baslik">
+                <h3 class="portre_baslik-h3">{{ portre.baslik }}</h3>
+                <p class="portre_date">{{ portre.created|date:"j F Y" }}</p>
+            </div>
+
+            <div class="portre_video">{% video portre.video as my_video %}{% video my_video "medium" %}{% endvideo %}</div>
+
+        </div>
+
+
+        <div class="portre_collapsable">
+
+            <div class="portre_roportaj">
+
+                <p class="portre_roportaj-p">{{ portre.roportaj }}</p>
+
+            </div>
+
+
+            <div class="portre_oz-gecmis-div">
+
+                <h3 class="portre_oz-gecmis-h3">Öz Geçmiş</h3>
+
+                <div class="portre_oz-gecmis">
+
+                    <figure class="portre_oz-gecmis-figure">
+                        <img src="{{ portre.oz_gecmis_img.image.url }}" alt="" class="portre_oz-gecmis-img">
+                    </figure>
+
+                    <p class="portre_oz-gecmis-text">{{ portre.oz_gecmis }}</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a href="{{ portre.link }}" class="portre_link">Spotify</a>
+
+    </div>
+
 
 
 
