@@ -1,4 +1,5 @@
 {% extends 'main.html' %}
+{% load static %}
 
 {% block content %}
 {% load embed_video_tags %}
@@ -14,9 +15,9 @@
 
             <div class="portre_video-div">
 
-                <div class="portre_video">{% video portre.video as my_video %}{% video my_video "medium" %}{% endvideo %}</div>
+                <div class="portre_video">{% video portre.video as my_video %}{% video my_video %}{% endvideo %}</div>
 
-                <a href="{{ portre.link }}" class="portre_link">Spotify</a>
+                <a href="{{ portre.link }}" class="portre_link"><img class="navbar_logo" src="{% static 'savDergi/media/spotify-logo.png' %}" alt="Spotify"></a>
 
             </div>
         </div>

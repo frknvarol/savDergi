@@ -22,6 +22,8 @@
 
 .portre_link {
     margin-top: auto;
+    width: 50px;
+    height: auto;
 }
 
 .portre_video-div {
@@ -40,12 +42,28 @@
 }
 
 
+.portre_oz-gecmis-figure {
+    float: left;
+    width: 300px;
+    height: auto;
+    margin: 10px 1rem 1rem 0;
+}
+
+
 
 
 
 /*  MEDIA QUERIES */
 
 @media only screen and (max-width: 336px) {
+    .portre_container {
+        width: 95vw;
+    }
+
+    .portre_video {
+        width: 90vw;
+    }
+
 
 }
 
