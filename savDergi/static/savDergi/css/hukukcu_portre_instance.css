@@ -1,4 +1,43 @@
+.portre_container {
+    width: 90vw;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
 
+.portre_roportaj-div {
+    box-shadow: var(--BOX-SHADOW);
+    padding: 30px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.portre_baslik {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.portre_link {
+    margin-top: auto;
+}
+
+.portre_video-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.portre_collapsable {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: var(--BOX-SHADOW);
+    padding: 30px;
+}
 
 
 
