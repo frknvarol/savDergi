@@ -410,20 +410,21 @@ main {
 
 /*  MEDIA QUERIES */
 
-@media only screen and (max-width: 336px) {
+@media only screen and (max-width: 600px) {
     .navbar_button::before {
-        left: 8px;
-        top: -2px;
+        left: 10px;
+        top: 2px;
+    }
+
+    .navbar_button::after {
+        left: -8px;
     }
 
     .navbar_figure {
         width: 70vw;
     }
-}
 
-@media only screen and (max-width: 600px) {
-
-    .navbar {
+     .navbar {
         display: flex;
         flex-direction: row;
         gap: 0;
@@ -469,10 +470,6 @@ main {
         text-align: center;
     }
 
-    .navbar_button::before {
-        left: -10px;
-        top: 4px;
-    }
 }
 
 @media only screen and (min-width: 600px) {
