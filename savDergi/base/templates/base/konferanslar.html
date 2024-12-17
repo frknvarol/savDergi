@@ -2,11 +2,20 @@
 
 {% block content %}
 
-    {% for konferans in konferanslar %}
-        {{ konferans.baslik }}
-        {{ konferans.created }}
-        {{ konferans.text }}
-    {% endfor %}
+    <div class="konferanslar_container">
+
+        {% for konferans in konferanslar %}
+
+            <div class="konferanslar_div">
+                <a href="{% url 'konferans' konferans.slug %}" class="konferanslar_baslik">{{ konferans.baslik }}</a>
+                <p class="konferanslar_date">{{ konferans.created }}</p>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+
 
 
 

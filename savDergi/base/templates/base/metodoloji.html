@@ -2,11 +2,19 @@
 
 {% block content %}
 
-    {% for metodoloji in metodoloji %}
-        {{ metodoloji.baslik }}
-        {{ metodoloji.text }}
-        {{ metodoloji.created }}
-    {% endfor %}
+    <div class="metodoloji_container">
+
+        {% for metodoloji in metodoloji %}
+
+            <div class="metodoloji_div">
+                <a href="{% url 'metodoloji_instance' metodoloji.slug %}" class="metodoloji_baslik">{{ metodoloji.baslik }}</a>
+                <p class="metodoloji_date">{{ metodoloji.created }}</p>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
 
 
 

@@ -2,10 +2,17 @@
 
 {% block content %}
 
-    {% for sava in sava %}
-        {{ sava.baslik }}
-        {{ sava.text }}
-        {{ sava.created }}
-    {% endfor %}
+    <div class="sava_container">
+
+        {% for sava in sava %}
+
+            <div class="sava_div">
+                <a href="{% url 'sava_instance' sava.slug %}" class="sava_baslik">{{ sava.baslik }}</a>
+                <p class="sava_date"{{ sava.created }}></p>
+            </div>
+
+        {% endfor %}
+
+    </div>
 
 {% endblock content %}
