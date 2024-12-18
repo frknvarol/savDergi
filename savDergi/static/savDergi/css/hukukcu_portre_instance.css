@@ -60,10 +60,43 @@
         width: 95vw;
     }
 
-    .portre_video {
-        width: 90vw;
+    .portre_roportaj-div {
+        padding: 10px;
+
+        display: grid;
+        grid-template-areas:
+                "b l"
+                "v v";
     }
 
+    .portre_baslik {
+        grid-area: b;
+        flex-direction: column;
+    }
+
+    .portre_video-iframe {
+        width: 80vw;
+        height: auto;
+        margin: auto;
+    }
+
+     .portre_video-div {
+         grid-area: v;
+        width: 80vw;
+        height: auto;
+         margin: auto;
+    }
+
+     .portre_link {
+         grid-area: l;
+         margin: 0 0 auto auto;
+         width: 25px;
+         height: auto;
+     }
+
+     .portre_link-logo {
+         margin-left: auto;
+     }
 
 }
 
