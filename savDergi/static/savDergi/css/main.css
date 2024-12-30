@@ -154,6 +154,9 @@ main {
     align-items: start;
     background-color: var(--BACKGROUND-COLOR);
     padding: 80px 0 40px 0;
+    word-break: break-word;
+    font-size: 16px;
+    margin: auto;
 }
 
 .about {

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
     'embed_video',
     'nested_inline',
+    'admin_honeypot'
 ]
 
 MIDDLEWARE = [

@@ -60,14 +60,15 @@
 @media only screen and (max-width: 336px) {
 
     .makale-instance_container {
-        margin: 40px 3vw;
-        padding: 15px 10px;
         gap: 15px;
         font-size: 22px;
+        width: 95vw;
+        margin: 10px 3vw 100px 3vw;
+        padding: 20px;
     }
 
     .makale-instance_header {
-        padding-right: 5px;
+        padding-right: 0;
     }
 
     .makale-instance_anahtar-header {
@@ -85,14 +86,23 @@
         padding-left: 10px;
     }
 
+    .makale-instance_baslik {
+        word-wrap: break-word;
+    }
+
 
 }
 
 @media only screen and (max-width: 600px) {
 
     .makale-instance_container {
-        margin: 40px 3vw;
         font-size: 22px;
+        margin: 10px 3vw 40px 3vw;
+        padding: 20px;
+    }
+
+    .makale-instance_baslik {
+        word-break: break-word;
     }
 
 
