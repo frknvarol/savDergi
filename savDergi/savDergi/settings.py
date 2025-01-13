@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-@6683tv3*ht*fxy^2@po%wd$bcqhl^8s$sxqsx_4uv@qmy^!#^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
     'embed_video',
     'nested_inline',
-    'admin_honeypot'
 ]
 
 MIDDLEWARE = [
@@ -86,7 +85,7 @@ DATABASES = {
         'NAME': 'savDergi',
         'USER': 'root',
         'PASSWORD': 'frkn3756',
-        'HOST': '127.0.0.1',
+        'HOST': 'db',
         'PORT': '3306',
         'OPTIONS': {
             'autocommit': True,

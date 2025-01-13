@@ -1,0 +1,8 @@
+Django>=5.0.7
+django-embed-video>=1.4.10
+django-nested-inline>=0.4.6
+mysqlclient>=2.2.6
+psycopg2>=2.8
+Pillow==11.1.0
+
+
