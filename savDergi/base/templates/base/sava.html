@@ -2,11 +2,11 @@
 
 {% block content %}
 
-    <div class="sava_container">
+    <div class="generic_container">
 
         {% for sava in sava %}
 
-            <div class="sava_div">
+            <div class="generic_div">
                 <a href="{% url 'sava_instance' sava.slug %}" class="sava_baslik">{{ sava.baslik }}</a>
                 <p class="sava_date"{{ sava.created }}></p>
             </div>

@@ -1,12 +1,24 @@
 {% extends 'main.html' %}
 
 {% block content %}
-    {{ sava.baslik }}
-    {{ sava.text }}
-    {{ sava.created }}
-    
-    {% for img in sava_images %}
-        <img src="{{ img.image.url }}" alt="">
-    {% endfor %}
+
+    <div class="generic_container">
+        <div class="sava-instance_header">
+            <h2 class="sava-instance_baslik">{{ sava.baslik }}</h2>
+            <p class="sava-instance_date">{{ sava.created|date:"j F Y" }}</p>
+        </div>
+
+        <div class="sava-instance_div">
+            <pre class="sava-instance_text">{{ sava.text }}</pre>
+
+            <div class="sava-instance_images">
+            {% for img in sava_images %}
+                <figure class="sava-instance_figure">
+                    <img class="sava-instance_img" src="{{ img.image.url }}" alt="">
+                </figure>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
 
 {% endblock content %}

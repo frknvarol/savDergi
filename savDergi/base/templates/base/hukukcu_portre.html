@@ -5,7 +5,7 @@
     <div class="generic_container">
         {% for portre in portreler %}
             
-            <div class="portre_div">
+            <div class="generic_div">
                 <a class="portre_baslik" href="{% url 'hukukcu_portre_instance' portre.slug %}"> {{ portre.baslik }}</a>
                 <p class="portre_date">{{ portre.created|date:"j F Y" }}</p>
             </div>

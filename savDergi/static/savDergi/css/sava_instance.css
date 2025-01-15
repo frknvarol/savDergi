@@ -1,13 +1,54 @@
+.sava-instance_header {
+    display: flex;
+    justify-content: space-between;
+}
 
+.sava-instance_date {
+    align-items: center;
+}
+
+.sava-instance_text {
+    margin: 0 0 30px 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: Cardo, sans-serif;
+}
+
+.sava-instance_images {
+    columns: 300px;
+}
+
+.sava-instance_figure {
+    width: 300px;
+    height: auto;
+    padding: 0 10px 10px 10px;
+    margin: 0 auto;
+}
 
 
 /*  MEDIA QUERIES */
 
 @media only screen and (max-width: 336px) {
 
+    .sava-instance_images {
+    columns: 200px;
+    }
+
+    .sava-instance_figure {
+    width: auto;
+    height: auto;
+    }
+
+    .sava-instance_header {
+    flex-direction: column;
+    }
+
 }
 
 @media only screen and (max-width: 600px) {
+    .sava-instance_header {
+    flex-direction: column;
+    }
 
 }
 

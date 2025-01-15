@@ -420,6 +420,21 @@ main {
     hyphens: auto;
 }
 
+.generic_div {
+    display: flex;
+    flex-flow: column;
+    font-family: Cardo, sans-serif;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: rgb(243, 245, 249);
+    padding: 10px 20px;
+    transition: transform 100ms ease-in-out;
+}
+
+.generic_div:hover {
+    transform: scale(1.02);
+}
+
 
 /*  MEDIA QUERIES */
 
