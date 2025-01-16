@@ -30,6 +30,28 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 65vw;
+    height: 40vw;
+    margin: auto;
+}
+
+
+.portre_video-iframe {
+    width: 65vw;
+    height: 40vw;
+    margin: auto;
+}
+
+.portre_link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7px;
+}
+
+.portre_spotify-logo {
+    width: 30px;
+    height: auto;
 }
 
 
@@ -89,18 +111,35 @@
 
      .portre_link {
          grid-area: l;
-         margin: 0 0 auto auto;
          width: 25px;
          height: auto;
      }
 
-     .portre_link-logo {
-         margin-left: auto;
+     .portre_oz-gecmis-img {
+         width: 75vw;
+         height: auto;
      }
+
+    .portre_oz-gecmis-figure {
+        width: 75vw;
+        margin: 0;
+    }
+
 
 }
 
 @media only screen and (max-width: 600px) {
+
+    .portre_oz-gecmis-img {
+         width: 75vw;
+         height: auto;
+     }
+
+    .portre_oz-gecmis-figure {
+        float: none;
+        width: 75vw;
+        margin: 10px 0;
+    }
 
 }
 

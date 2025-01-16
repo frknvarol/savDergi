@@ -7,7 +7,7 @@
         {% for sava in sava %}
 
             <div class="generic_div">
-                <a href="{% url 'sava_instance' sava.slug %}" class="sava_baslik">{{ sava.baslik }}</a>
+                <h3><a href="{% url 'sava_instance' sava.slug %}" class="sava_baslik">{{ sava.baslik }}</a></h3>
                 <p class="sava_date"{{ sava.created }}></p>
             </div>
 
@@ -15,4 +15,6 @@
 
     </div>
 
+{% load static %}
+<script src="{% static 'savDergi/javascript/sava.js' %}"></script>
 {% endblock content %}

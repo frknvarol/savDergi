@@ -422,7 +422,8 @@ main {
 
 .generic_div {
     display: flex;
-    flex-flow: column;
+    flex-flow: row;
+    justify-content: space-between;
     font-family: Cardo, sans-serif;
     cursor: pointer;
     border-radius: 10px;
@@ -443,6 +444,10 @@ main {
     .generic_container {
         margin: 10px 3vw 40px 3vw;
         padding: 20px;
+    }
+
+    .generic_div {
+        flex-direction: column;
     }
 
     .navbar_button::before {

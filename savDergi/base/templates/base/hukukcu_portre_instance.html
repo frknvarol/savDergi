@@ -15,15 +15,19 @@
 
             <div class="portre_video-div">
 
-                <div class="portre_video">
                     {% video portre.video as my_video %}
                         <iframe class="portre_video-iframe" src="{{ my_video.url }}" frameborder="0" allowfullscreen></iframe>
                     {% endvideo %}
-                </div>
 
 
             </div>
-                <a href="{{ portre.link }}" class="portre_link"><img class="portre_link-logo" src="{% static 'savDergi/media/spotify-logo.png' %}" alt="Spotify"></a>
+
+            <div class="portre_spotify-div">
+                <a href="{{ portre.link }}" class="portre_link">
+                    <img class="portre_spotify-logo" src="{% static 'savDergi/media/spotify-logo.png' %}" alt="Spotify">
+                    <p class="portre_spotify-p">Spotify</p>
+                </a>
+            </div>
         </div>
 
 
