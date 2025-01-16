@@ -2,13 +2,13 @@
 
 {% block content %}
 
-    <div class="metodoloji_container">
+    <div class="generic_container">
 
         {% for metodoloji in metodoloji %}
 
-            <div class="metodoloji_div">
-                <a href="{% url 'metodoloji_instance' metodoloji.slug %}" class="metodoloji_baslik">{{ metodoloji.baslik }}</a>
-                <p class="metodoloji_date">{{ metodoloji.created }}</p>
+            <div class="generic_div">
+                <h3><a href="{% url 'metodoloji_instance' metodoloji.slug %}" class="metodoloji_baslik">{{ metodoloji.baslik }}</a></h3>
+                <p class="metodoloji_date">{{ metodoloji.created|date:"j F Y" }}</p>
             </div>
 
         {% endfor %}
@@ -17,5 +17,6 @@
 
 
 
-
+{% load static %}
+<script src="{% static 'savDergi/javascript/metodoloji.js' %}"></script>
 {% endblock content %}

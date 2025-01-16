@@ -8,7 +8,7 @@
 
             <div class="generic_div">
                 <h3><a href="{% url 'sava_instance' sava.slug %}" class="sava_baslik">{{ sava.baslik }}</a></h3>
-                <p class="sava_date"{{ sava.created }}></p>
+                <p class="sava_date">{{ sava.created|date:"j F Y" }}</p>
             </div>
 
         {% endfor %}

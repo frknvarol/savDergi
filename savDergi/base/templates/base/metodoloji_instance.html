@@ -2,4 +2,21 @@
 
 {% block content %}
 
+    <div class="generic_container">
+        <div class="metodoloji-instance_header">
+            <h2>{{ metodoloji.baslik }}</h2>
+            <p>{{ metodoloji.created }}</p>
+        </div>
+
+        <div class="metodoloji-instance_text">{{ metodoloji.text }}</div>
+
+        <div class="metodoloji-instance_images">
+            {% for image in metodoloji_images %}
+                <figure class="metodoloji-instance_figure">
+                    <img class="metodoloji-instance_img" src="{{ image.image.url }}">
+                </figure>
+            {% endfor %}
+        </div>
+    </div>
+
 {% endblock content %}
