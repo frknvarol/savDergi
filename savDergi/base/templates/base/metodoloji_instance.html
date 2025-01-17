@@ -5,7 +5,7 @@
     <div class="generic_container">
         <div class="metodoloji-instance_header">
             <h2>{{ metodoloji.baslik }}</h2>
-            <p>{{ metodoloji.created }}</p>
+            <p>{{ metodoloji.created|date:"j F Y" }}</p>
         </div>
 
         <div class="metodoloji-instance_text">{{ metodoloji.text }}</div>
@@ -19,4 +19,6 @@
         </div>
     </div>
 
+{% load static %}
+<script src="{% static 'savDergi/javascript/metodoloji_instance.js' %}"></script>
 {% endblock content %}

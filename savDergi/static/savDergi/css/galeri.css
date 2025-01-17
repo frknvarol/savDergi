@@ -43,42 +43,17 @@
         width: 300px;
         margin: auto;
         padding: 0 10px 10px 10px;
-    }
+}
 
-    .album_image {
+.album_image {
         width: auto;
         margin: auto;
         object-fit: contain;
-    }
+}
 
 .album_image:hover  {
     cursor: zoom-in;
 }
-
-.album_clicked {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 30vh 10vw;
-    width: auto;
-    margin: 0 auto;
-    background-color: rgba(99, 99, 99, 0.25);
-}
-
-.album_clicked-figure {
-    height: 80vh;
-    width: auto;
-    margin: auto;
-}
-
-.album_clicked-img {
-    width: inherit;
-    height: inherit;
-    margin: auto;
-    object-fit: contain;
-}
-
 
 .album_header-h1 {
     text-align: center;
@@ -93,9 +68,7 @@
     align-items: center;
 }
 
-.album_gallery-figure {
 
-}
 
 .album_gallery-image {
     width: 15vw;
@@ -103,8 +76,6 @@
     object-fit: cover;
 }
 
-.album_gallery-image:hover {
-}
 
 .album_button {
     background-color: rgb(17, 17, 17);

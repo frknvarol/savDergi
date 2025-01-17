@@ -141,6 +141,10 @@
         margin: 10px 0;
     }
 
+    .portre_baslik {
+        flex-direction: column;
+    }
+
 }
 
 @media only screen and (min-width: 600px) {

@@ -3,7 +3,22 @@
 {% block content %}
 
     <div class="generic_container">
-
+        <div class="konferans_header">
+            <h2 class="konferans_baslik">{{ konferans.baslik }}</h2>
+            <p class="konferans_date">{{ konferans.created|date:"j F Y" }}</p>
+        </div>
+    
+        <div class="konferans_text">
+            <p class="konferans_p">{{ konferans.text }}</p>
+        </div>
+    
+        <div class="konferans_images">
+            {% for image in konferans_images %}
+                <figure class="konferans_figure">
+                    <img src="{{ image.image.url }}" alt="" class="konferans_img">
+                </figure>
+            {% endfor %}
+        </div>
     </div>
 
 {% endblock content %}

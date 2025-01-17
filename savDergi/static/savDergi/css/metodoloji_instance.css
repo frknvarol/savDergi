@@ -1,4 +1,21 @@
 
+.metodoloji-instance_header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.metodoloji-instance_images {
+    columns: 300px;
+}
+
+.metodoloji-instance_figure {
+    margin: 0 10px 10px 10px;
+
+}
+
+.metodoloji-instance_figure:hover {
+    cursor: zoom-in;
+}
 
 
 /*  MEDIA QUERIES */
@@ -8,6 +25,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+
+    .metodoloji-instance_header {
+    flex-direction: column;
+}
 
 }
 
