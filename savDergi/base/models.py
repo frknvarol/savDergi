@@ -1,3 +1,6 @@
+import os
+
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.text import slugify
 from embed_video.fields import EmbedVideoField
@@ -146,6 +149,12 @@ class Sayi(models.Model):
         return f"sayi: {self.sayi}"
 
 
+def validate_pdf(value):
+    ext = os.path.splitext(value.name)[1]
+    if ext.lower() != '.pdf':
+        raise ValidationError('Only PDF files are allowed.')
+
+
 class Makale(models.Model):
     baslik = models.CharField(max_length=100, default='baslik')
     Oz = models.TextField(max_length=10000, default='Öz')
@@ -156,7 +165,13 @@ class Makale(models.Model):
     sayi = models.ForeignKey(Sayi, on_delete=models.CASCADE)
     tur = models.CharField(max_length=100, default='tür')
 
-    pdf = models.FileField(upload_to='pdfs/', null=True, blank=True,)
+    pdf = models.FileField(
+        upload_to='pdfs/',
+        null=True,
+        blank=True,
+        validators=[validate_pdf],
+        help_text='Only PDF files are allowed'
+    )
 
     slug = models.SlugField(unique=True, editable=False)
 
