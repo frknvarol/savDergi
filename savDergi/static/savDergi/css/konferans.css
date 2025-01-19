@@ -1,4 +1,30 @@
+.konferans_header {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    hyphens: none;
+}
 
+.konferans_images {
+    columns: 300px;
+    gap: 10px;
+}
+
+.konferans_figure {
+    width: 300px;
+    margin: auto;
+    padding: 0 10px 10px 10px;
+}
+
+.konferans_figure:hover {
+    cursor: zoom-in;
+}
+
+.konferans_img {
+    width: auto;
+    margin: auto;
+    object-fit: contain;
+}
 
 
 
@@ -7,17 +33,48 @@
 
 @media only screen and (max-width: 336px) {
 
+    .konferans_images {
+        columns: fit-content;
+    }
+
+
+
 }
 
 @media only screen and (max-width: 600px) {
+
+    .konferans_header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .konferans_figure {
+        width: fit-content;
+    }
 
 }
 
 @media only screen and (min-width: 600px) {
 
+    .konferans_images {
+        columns: 35vw;
+    }
+
+    .konferans_figure {
+        width: 35vw;
+    }
+
 }
 
 @media only screen and (min-width: 768px) {
+
+    .konferans_images {
+        columns: 300px;
+    }
+
+    .konferans_figure {
+        width: 300px;
+    }
 
 }
 
