@@ -237,12 +237,20 @@ main {
 }
 
  .navbar_list-dropdown:nth-child(3)::before {
-        left: 57px;
+     left: 57px;
  }
 
-.duyuru_container {
-    width: 500px;
-    margin: 30px auto;
+ .duyuru-sayi_general-container {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: start;
+     gap: 50px;
+     margin-top: 100px;
+ }
+
+.duyuru-sayi_container {
+    width: 35vw;
     display: flex;
     flex-direction: column;
     padding: 50px;
@@ -250,18 +258,18 @@ main {
     box-shadow: var(--BOX-SHADOW);
 }
 
-.duyuru_header {
+.duyuru-sayi_header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.duyuru_h3 {
+.duyuru-sayi_h3 {
     color: var(--FONT-COLOR);
     font-size: 25px;
 }
 
-.duyuru_button {
+.duyuru-sayi_button {
     background-color: rgb(17, 17, 17);
     color: rgb(249, 249, 249);
     padding: 10px 15px;
@@ -272,21 +280,21 @@ main {
     cursor: pointer;
 }
 
-.duyuru_button:link, .duyuru_button:visited {
+.duyuru-sayi_button:link, .duyuru-sayi_button:visited {
     color: white;
 }
 
-.duyuru_button:hover {
+.duyuru-sayi_button:hover {
     background-color: #636363;
 }
 
-.duyuru_latest-container {
+.duyuru-sayi_latest-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.duyuru_element {
+.duyuru-sayi_element {
     cursor: pointer;
     border-radius: 10px;
     background-color: rgb(243, 245, 249);
@@ -295,19 +303,21 @@ main {
     flex-direction: column;
     gap: 20px;
     transition: transform 75ms ease-in-out;
+    min-height: 75px;
 }
 
-.duyuru_element:hover {
+.duyuru-sayi_element:hover {
     transform: scale(1.03);
 }
 
-.duyuru_element-topic {
+.duyuru-sayi_element-topic {
     font-size: 20px;
     font-family: Cardo, sans-serif;
+    margin: auto 0;
 }
 
 
-.duyuru_element-text {
+.duyuru-sayi_element-text {
     font-size: 15px;
     font-family: Inter, sans-serif;
 }
@@ -517,21 +527,26 @@ main {
         display: none;
     }
 
-    .duyuru_container {
+    .duyuru-sayi_container {
         width: 90%;
     }
 
-    .duyuru_header {
+    .duyuru-sayi_header {
         flex-direction: column;
         gap: 10px;
     }
 
-    .duyuru_h3 {
+    .duyuru-sayi_h3 {
         text-align: center;
     }
 
-    .duyuru_button {
+    .duyuru-sayi_button {
         text-align: center;
+    }
+
+    .duyuru-sayi_general-container {
+        flex-direction: column;
+        align-items: center;
     }
 
 }
@@ -588,6 +603,15 @@ main {
       .navbar_button:after {
           left: 5px;
       }
+
+      .duyuru-sayi_general-container {
+          flex-direction: column;
+          align-items: center;
+    }
+
+      .duyuru-sayi_container {
+          width: 90vw;
+      }
 }
 
 @media only screen and (min-width: 768px) {
@@ -628,9 +652,13 @@ main {
     .navbar_list-dropdown::before {
         left: 90px;
     }
+
+
 }
 
 @media only screen and (min-width: 992px) {
+
+
 
     .generic_container {
         margin: 50px 7vw 40px 7vw;
@@ -673,7 +701,20 @@ main {
     }
 }
 
+
+@media only screen and (min-width: 1100px) {
+    .duyuru-sayi_general-container {
+        flex-direction: row;
+    }
+
+    .duyuru-sayi_container {
+        width: 35vw;
+    }
+}
+
 @media only screen and (min-width: 1200px) {
+
+
 
     .generic_container {
         margin: 10px 10vw 40px 10vw;

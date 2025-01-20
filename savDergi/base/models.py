@@ -50,7 +50,7 @@ class DuyuruText(models.Model):
 
 
 class DuyuruImage(models.Model):
-    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    image = models.ImageField(upload_to='images/duyuru/', blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     topic = models.ForeignKey(Duyuru, on_delete=models.CASCADE)
     ordering = models.PositiveIntegerField(default=0)
@@ -108,7 +108,7 @@ class Album(models.Model):
 
 
 class AlbumImage(models.Model):
-    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    image = models.ImageField(upload_to='images/album/', blank=True, null=True)
     name = models.ForeignKey(Album, on_delete=models.CASCADE)
 
     created = models.DateTimeField(auto_now_add=True)
@@ -240,7 +240,7 @@ class Portre(models.Model):
     roportaj = models.TextField(blank=False, null=False, default="röportaj", max_length=99999)
     link = models.URLField(blank=False, null=False, default="https://open.spotify.com/show/2HE4WPETsojDxh9GRFIiZP?si=8cf043f5e13d41bb")
     oz_gecmis = models.TextField(blank=False, null=False, default="öz geçmiş", max_length=99999)
-    oz_gecmis_img = models.ImageField(blank=True, null=True)
+    oz_gecmis_img = models.ImageField(upload_to="images/portre/", blank=True, null=True)
     video = EmbedVideoField(blank=True, null=True)
 
     slug = models.SlugField(unique=True, editable=False)
@@ -301,7 +301,7 @@ class Konferans(models.Model):
 
 class KonferansImage(models.Model):
     baslik = models.ForeignKey(Konferans, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    image = models.ImageField(upload_to='images/konferans/', blank=True, null=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -345,7 +345,7 @@ class Metodoloji(models.Model):
 
 class MetodolojiImage(models.Model):
     baslik = models.ForeignKey(Metodoloji, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    image = models.ImageField(upload_to='images/metodoloji/', blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -388,7 +388,7 @@ class Sava(models.Model):
 
 class SavaImage(models.Model):
     baslik = models.ForeignKey(Sava, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    image = models.ImageField(upload_to='images/sava/', blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

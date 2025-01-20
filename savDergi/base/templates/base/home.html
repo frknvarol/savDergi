@@ -16,35 +16,52 @@
 
     </div>
 
-    {% load static %}
-    <img class="home-image" src="{% static 'savDergi/media/home-image.webp' %}" alt="">
 
-    <div class="duyuru_container">
-        <div class="duyuru_header">
-            <h3 class="duyuru_h3">Duyurular</h3>
+    <div class="duyuru-sayi_general-container">
+    <div class="duyuru-sayi_container">
+        <div class="duyuru-sayi_header">
+            <h3 class="duyuru-sayi_h3">Duyurular</h3>
 
-            <a class="duyuru_button" href="{% url 'duyurular' %}">Tüm Duyurular</a>
+            <a class="duyuru-sayi_button" href="{% url 'duyurular' %}">Tüm Duyurular</a>
         </div>
 
-        <div class="duyuru_latest-container">
+        <div class="duyuru-sayi_latest-container">
 
             {% for duyuru in duyurus %}
 
-                    <div class="duyuru_element">
-                        <a class="duyuru_element-topic" href="{% url 'duyuru' duyuru.slug %}">{{ duyuru.topic }}</a>
-                        <p class="duyuru_element-text">{{ duyuru.text|truncatewords:20 }}</p>
+                    <div class="duyuru-sayi_element">
+                        <a class="duyuru-sayi_element-topic" href="{% url 'duyuru' duyuru.slug %}">{{ duyuru.topic }}</a>
                     </div>
 
             {% endfor %}
 
         </div>
+
     </div>
 
-    <div>
-        {% for video in videos %}
-            {% video video.url 'medium' %}
-        {% endfor %}
+    <div class="duyuru-sayi_container">
+        <div class="duyuru-sayi_header">
+            <h3 class="duyuru-sayi_h3">Sayılar</h3>
+
+            <a class="duyuru-sayi_button" href="{% url 'dergi' %}">Tüm Sayılar</a>
+        </div>
+
+        <div class="duyuru-sayi_latest-container">
+
+            {% for sayi in sayis %}
+
+                    <div class="duyuru-sayi_element">
+                        <a class="duyuru-sayi_element-topic" href="{% url 'sayi' sayi.slug %}">Sayı: {{ sayi.sayi }}</a>
+                    </div>
+
+            {% endfor %}
+
+        </div>
+
     </div>
+
+    </div>
+
 
 
 </main>

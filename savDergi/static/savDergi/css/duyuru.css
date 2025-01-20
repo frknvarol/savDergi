@@ -1,27 +1,27 @@
-.duyuru_container {
+.duyuru-sayi_container {
     width: 1000px;
 }
 
-.duyuru_button {
+.duyuru-sayi_button {
     min-width: 100px;
     text-align: center;
     margin-left: auto;
 }
 
-.duyuru_topic {
+.duyuru-sayi_topic {
     font-size: 24px;
     color: var(--FONT-COLOR2);
 }
 
-.duyuru_date {
+.duyuru-sayi_date {
     color: var(--FONT-COLOR2);
 }
 
-.duyuru_text {
+.duyuru-sayi_text {
     font-size: 16px;
 }
 
-.duyuru_figure {
+.duyuru-sayi_figure {
     width: 20vw;
 }
 
@@ -31,11 +31,11 @@
 @media only screen and (max-width: 336px) {
 
 
-    .duyuru_text, .duyuru_date {
+    .duyuru-sayi_text, .duyuru-sayi_date {
         font-size: 18px;
     }
 
-    .duyuru_figure {
+    .duyuru-sayi_figure {
         width: 90%;
         margin: auto;
     }
@@ -43,21 +43,21 @@
 }
 
 @media only screen and (max-width: 600px) {
-     .duyuru_container {
+     .duyuru-sayi_container {
         margin: 40px auto;
         padding: 10px;
         width: 95vw;
     }
 
-    .duyuru_text, .duyuru_date {
+    .duyuru-sayi_text, .duyuru-sayi_date {
         font-size: 18px;
     }
 
-    .duyuru_button {
+    .duyuru-sayi_button {
         margin: auto;
     }
 
-    .duyuru_figure {
+    .duyuru-sayi_figure {
         width: 90%;
         margin: auto;
     }
@@ -66,21 +66,21 @@
 
 @media only screen and (min-width: 600px) {
 
-    .duyuru_figure {
+    .duyuru-sayi_figure {
         width: 70%;
     }
 
-    .duyuru_container {
+    .duyuru-sayi_container {
         margin: 40px auto;
         padding: 10px;
         width: 95vw;
     }
 
-    .duyuru_header {
+    .duyuru-sayi_header {
         padding-right: 20px;
     }
 
-    .duyuru_text, .duyuru_date {
+    .duyuru-sayi_text, .duyuru-sayi_date {
         font-size: 18px;
     }
 
@@ -93,11 +93,11 @@
 
 @media only screen and (min-width: 992px) {
 
-    .duyuru_figure {
+    .duyuru-sayi_figure {
         height: 45vh;
         width: auto;
     }
-    .duyuru_img {
+    .duyuru-sayi_img {
         height: 45vh;
     }
 
@@ -105,11 +105,11 @@
 
 @media only screen and (min-width: 1200px) {
 
-    .duyuru_figure {
+    .duyuru-sayi_figure {
         height: auto;
         width: 30vw;
     }
-    .duyuru_img {
+    .duyuru-sayi_img {
         height: auto;
     }
 

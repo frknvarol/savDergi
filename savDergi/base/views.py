@@ -12,7 +12,9 @@ from django.shortcuts import get_object_or_404
 def home(request):
     duyurus = Duyuru.objects.all()[:2]
 
-    context = {'duyurus': duyurus}
+    sayis = Sayi.objects.all()[:2]
+
+    context = {'duyurus': duyurus, 'sayis': sayis}
     return render(request, 'base/home.html', context)
 
 
