@@ -1,10 +1,12 @@
-const duyurularDivs = document.querySelectorAll('.duyurular_div');
+const duyurularDivs = document.querySelectorAll('.duyuru-sayi_element');
 
 duyurularDivs.forEach(div => {
     div.addEventListener('click', () => {
-        div.querySelector('.duyurular_topic').click();
+        div.querySelector('a').click();
     });
 });
+
+
 
 const duyuruElements = document.querySelectorAll('.duyuru_element');
 
@@ -19,10 +21,10 @@ const duyuruContainers = document.querySelectorAll('.duyuru-sayi_container')
 
 
 
-if (duyuruContainers[0].height > duyuruContainers[1]) {
+if (duyuruContainers[0].offsetHeight > duyuruContainers[1].offsetHeight) {
     duyuruContainers[1].style.height = duyuruContainers[0].offsetHeight + 'px'
 }
-else {
+else if (duyuruContainers[1].offsetHeight > duyuruContainers[0].offsetHeight) {
     duyuruContainers[0].style.height = duyuruContainers[1].offsetHeight + 'px'
 }
 

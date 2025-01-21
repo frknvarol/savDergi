@@ -5,9 +5,7 @@
     <div class="album">
 
         <div class="album_header">
-            <h1 class="album_header-h1">{{ album_name }}</h1>
-
-            <a class="album_button" href="{% url 'galeri' %}">Geri Dön</a>
+            <h1 class="album_header-h1">{{ album.name }}</h1>
         </div>
     
         <div class="album_container">
@@ -20,6 +18,8 @@
     
         {% endfor %}
         </div>
+
+        <a class="album_button" href="{% url 'galeri' %}">Geri Dön</a>
         
 
     </div>

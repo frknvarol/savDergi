@@ -5,7 +5,7 @@
     <div class="generic_container">
 
         {% for duyuru, first_text in duyuru_group %}
-            <div class="duyurular_div">
+            <div class="duyuru-sayi_element">
                 <a class="duyurular_topic" href="{% url 'duyuru' duyuru.slug%}">{{ duyuru.topic }}</a>
                 {% with text=first_text.text|linebreaksbr %}
                 <p class="duyurular_text">{{ text|truncatewords:100 }}</p>
@@ -20,5 +20,6 @@
     </div>
 
 
-
+{% load static %}
+<script src="{% static 'savDergi/javascript/duyurular.js' %}"></script>
 {% endblock content %}

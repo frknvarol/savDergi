@@ -1,4 +1,4 @@
-const dergiDiv = document.querySelectorAll('.dergi_div');
+const dergiDiv = document.querySelectorAll('.generic_div');
 
 dergiDiv.forEach(div => {
     div.addEventListener('click', () => {

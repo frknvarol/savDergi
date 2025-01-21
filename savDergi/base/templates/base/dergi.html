@@ -2,9 +2,9 @@
 
 {% block content %}
 
-    <div class="dergi_container">
+    <div class="generic_container">
         {% for sayi in sayi_group %}
-            <div class="dergi_div">
+            <div class="generic_div">
                 <h3 class="dergi_title"><a href="{% url 'sayi' sayi.slug %}">Sayı: {{ sayi.sayi }}</a></h3>
                 <p class="dergi_created"> {{ sayi.created|date:"j F Y" }}</p>
 

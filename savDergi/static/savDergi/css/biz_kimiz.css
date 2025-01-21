@@ -1,32 +1,63 @@
-
-
-
-
-
-
-
-/*  MEDIA QUERIES */
-
-@media only screen and (max-width: 336px) {
-
+.biz-kimiz_container {
+    width: 70vw;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-@media only screen and (max-width: 600px) {
+.biz-kimiz_h2 {
+    font-size: 40px;
+    font-family: Cardo;
+    font-weight: bold;
+    text-align: center;
+}
 
+.biz-kimiz_h4 {
+    font-size: 25px;
+    font-family: Cardo;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration-style: wavy;
+}
+
+.biz-kimiz_p {
+    display: inline-block;
+    font-size: 17px;
+    font-family: Inter, sans-serif;
+}
+
+.biz-kimiz_konuklar {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    gap: 10px;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+    .biz-kimiz_container {
+        width: 90vw;
+    }
+    .biz-kimiz_h2 {
+        font-size: 30px;
+    }
+
+    .biz-kimiz_h4 {
+        font-size: 20px;
+    }
 }
 
 @media only screen and (min-width: 600px) {
-
 }
 
 @media only screen and (min-width: 768px) {
-
 }
 
 @media only screen and (min-width: 992px) {
-
 }
 
 @media only screen and (min-width: 1200px) {
-
 }
