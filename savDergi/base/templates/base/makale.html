@@ -4,11 +4,15 @@
 
     <div class="generic_container">
         <div class="makale-instance_header">
+
             <h2 class="makale-instance_baslik">{{ makale.baslik }}</h2>
             {% if makale.pdf.url is not None %}
                 <a class="makale-instance_pdf" href="{% url 'view_pdf' makale.id %}" target="_blank">PDF</a>
             {% endif %}
         </div>
+
+
+            <p class="makale-instance_bolum"><b style="color:var(--FONT-COLOR2);">Bölüm: </b>{{ makale.bolum }}</p>
 
 
         <p class="makale-instance_yazar">
@@ -17,10 +21,10 @@
         {% endfor %}
         </p>
         <div class="makale-instance_oz-container">
-            <h4 class="makale-instance_oz-header"></h4>
-            <p class="makale-instance_oz-p">{{ makale.Oz }}</p>
+            <h4 class="makale-instance_oz-header">Öz</h4>
+            <pre class="generic-pre">{{ makale.Oz }}</pre>
         </div>
-        <p class="makale-instance_bolum"><b style="color:var(--FONT-COLOR2);">Bölüm: </b>{{ makale.bolum }}</p>
+
 
         <div class="makale-instance_anahtar-container">
             <h4 class="makale-instance_anahtar-header">Anahtar Kelimeler</h4>

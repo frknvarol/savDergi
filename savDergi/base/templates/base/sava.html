@@ -4,6 +4,7 @@
 
     <div class="generic_container">
 
+        {% if sava %}
         {% for sava in sava %}
 
             <div class="generic_div">
@@ -12,6 +13,9 @@
             </div>
 
         {% endfor %}
+        {% else %}
+            <p class="generic_message">Şu an SAVA bulunmamaktadır. Lütfen beklemede kalınız.</p>
+        {% endif %}
 
     </div>
 

@@ -3,6 +3,7 @@
 {% block content %}
 
     <div class="generic_container">
+
         <div class="konferans_header">
             <h2 class="konferans_baslik">{{ konferans.baslik }}</h2>
             <p class="konferans_date">{{ konferans.created|date:"j F Y" }}</p>
@@ -19,6 +20,7 @@
                 </figure>
             {% endfor %}
         </div>
+
     </div>
 
 {% load static %}

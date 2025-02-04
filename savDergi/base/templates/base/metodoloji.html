@@ -4,6 +4,8 @@
 
     <div class="generic_container">
 
+        {% if metodoloji %}
+
         {% for metodoloji in metodoloji %}
 
             <div class="generic_div">
@@ -12,6 +14,10 @@
             </div>
 
         {% endfor %}
+
+        {% else %}
+            <p class="generic_message">Şu an Metodoloji eğitimi bulunmamaktadır. Lütfen beklemede kalınız.</p>
+        {% endif %}
 
     </div>
 

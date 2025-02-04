@@ -5,8 +5,8 @@
     {% for makale in makaleler %}
 
         <div class="makale_div">
+            <h4 class="makale_bolum">{{ makale.bolum }}</h4>
             <h2 class="makale_baslik"><a href="{% url 'makale' sayi.slug makale.slug %}">{{ makale.baslik }}</a></h2>
-
             <div class="makale_yazar-container">
             <p>
             {% for yazar in yazarlar %}

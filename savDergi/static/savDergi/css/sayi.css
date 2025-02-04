@@ -11,6 +11,7 @@
 .makale_div {
     display: flex;
     flex-flow: column;
+    gap: 10px;
     font-family: Cardo, sans-serif;
     cursor: pointer;
     border-radius: 10px;
@@ -30,6 +31,10 @@
 .makale_yazar-container {
     display: flex;
     gap: 4px;
+}
+
+.makale_bolum {
+    font-weight: 400;
 }
 
 /*  MEDIA QUERIES */

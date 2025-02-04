@@ -3,6 +3,8 @@
 {% block content %}
     
     <div class="generic_container">
+
+        {% if portreler %}
         {% for portre in portreler %}
             
             <div class="generic_div">
@@ -11,6 +13,10 @@
             </div>
     
         {% endfor %}
+
+        {% else %}
+            <p class="generic_message">Şu an hukukçu portresi bulunmamaktadır. Lütfen beklemede kalınız.</p>
+        {% endif %}
         
     </div>
 

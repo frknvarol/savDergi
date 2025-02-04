@@ -57,6 +57,12 @@ a:link, a:visited {
     text-decoration: none;
 }
 
+.generic-pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 16px;
+}
 
 
 
@@ -88,8 +94,12 @@ main {
 
 .navbar_list-element a {
     font-size: 17px;
-    font-weight: bold;
+    font-weight: 550;
     cursor: pointer;
+}
+
+.navbar_list-element a:hover {
+    text-decoration: underline;
 }
 
 .navbar_logo {
@@ -237,7 +247,7 @@ main {
 }
 
  .navbar_list-dropdown:nth-child(3)::before {
-     left: 57px;
+     left: 65px;
  }
 
  .duyuru-sayi_general-container {
@@ -586,13 +596,13 @@ main {
 
 
     .navbar_list-dropdown::before {
-        left: 64px;
+        right: 10px;
     }
     .navbar_list-dropdown::after {
         left: 6px;
     }
 
-      .navbar_button::before {
+    .navbar_button::before {
         left: 10px;
         top: 0;
     }
@@ -644,10 +654,12 @@ main {
 
     .navbar_list-element a {
         font-size: 17px;
+        font-family: Inter, sans-serif;
+        font-weight: 400;
     }
 
     .navbar_list-dropdown::before {
-        left: 90px;
+        left: 100px;
     }
 
     .navbar_figure {
@@ -688,6 +700,7 @@ main {
 
     .navbar_list-element a {
         font-size: 17px;
+        font-weight: 550;
     }
 
     .navbar_logo {
@@ -697,9 +710,7 @@ main {
     }
 
 
-    .navbar_list-dropdown::before {
-        left: 90px;
-    }
+
 }
 
 
@@ -747,7 +758,7 @@ main {
     }
 
     .navbar_list-dropdown::before {
-        left: 90px;
+        left: 100px;
     }
 
     .navbar {

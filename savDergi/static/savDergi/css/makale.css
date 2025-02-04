@@ -15,6 +15,10 @@
     padding-right: 20px;
 }
 
+.makale-instance_oz-header {
+    color: var(--FONT-COLOR2);
+}
+
 .makale-instance_anahtar-container {
     display: flex;
     align-items: center;
@@ -25,6 +29,9 @@
     color: var(--FONT-COLOR2);
 }
 
+.makale-instance_anahtar-p {
+    padding-left: 10px;
+}
 
 .makale-instance_kaynak-container {
     display: flex;

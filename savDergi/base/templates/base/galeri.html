@@ -3,7 +3,8 @@
 {% block content %}
 
     <div class="gallery_container">
-    
+
+        {% if album_images %}
         {% for album, image in album_images %}
 
             <div class="album_div">
@@ -15,7 +16,13 @@
 
         {% endfor %}
 
+        {% else %}
+            <div class="generic_container">
+                <p class="generic_message">Şu an albüm bulunmamaktadır. Lütfen beklemede kalınız.</p>
+            </div>
+        {% endif %}
     </div>
+
 
 {% load static %}
 <script src="{% static 'savDergi/javascript/galeri.js' %}"></script>

@@ -3,6 +3,8 @@
 {% block content %}
 
     <div class="generic_container">
+
+        {% if sayi_group %}
         {% for sayi in sayi_group %}
             <div class="generic_div">
                 <h3 class="dergi_title"><a href="{% url 'sayi' sayi.slug %}">Sayı: {{ sayi.sayi }}</a></h3>
@@ -10,6 +12,10 @@
 
             </div>
         {% endfor %}
+
+        {% else %}
+            <p class="generic_message">Şu an dergi bulunmamaktadır. Lütfen beklemede kalınızç</p>
+        {% endif %}
     </div>
 
 
